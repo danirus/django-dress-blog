@@ -29,16 +29,16 @@ Documentation work in progress, so far the list of features and a screenshot:
 
 Install the app and run the example site to see it in action:
 
- 1. Create a VirtualEnv for the app
- 2. Git clone: `git clone git://github.com/danirus/django-dress-blog.git`
- 3. Cd into `django-dress-blog` and install requirements: `pip install requirements`
- 4. To have search functionality up & running:
-  * Install Xapian >= 1.2, and
-  * Copy... `cp ../src/xapian-haystack/xapian_backend.py ../src/django-haystack/haystack/backends/`
- 5. If you don't want to have search at the moment just edit `django-dress-blog/example/demo/settings.py` and comment out `"haystack"` in `INSTALLED_APPS`
- 5. Cd into `django-dress-blog/example/demo`
- 6. Run `python manage syncdb --noinput` (user: admin, pwd: admin)
- 7. Run `python manage collectstatic`, and answer yeah!
- 8. Run `python manage localhost` and hit http://localhost:8000
+1. Create a VirtualEnv for the app
+2. Git clone: `git clone git://github.com/danirus/django-dress-blog.git`
+3. Cd into `django-dress-blog` and install requirements: `pip install requirements`
+4. To have search functionality up & running:
+ * Install Xapian >= 1.2, and
+ * Copy... `cp ../src/xapian-haystack/xapian_backend.py ../src/django-haystack/haystack/backends/`
+5. If you don't want to have search at the moment just edit `django-dress-blog/example/demo/settings.py` and comment out `"haystack"` in `INSTALLED_APPS`
+6. Cd into `django-dress-blog/example/demo`
+7. Run `python manage syncdb --noinput` (user: admin, pwd: admin)
+8. Run `python manage collectstatic`, and answer yeah!
+9. Run `python manage localhost` and hit http://localhost:8000
 
 Remember, it's a beta yet!
