@@ -1,0 +1,25 @@
+{% load i18n inlines comments tagging_tags colloquial_date %}
+
+<article>
+  <header class="hbox box-align-start box-pack-start">
+    <div class="title">
+      <div class="small-headline">
+	<a href="{{ object.get_absolute_url }}">{{ object.pub_date|colloquial_date:"l, j F" }}</a>
+      </div>
+    </div>
+  </header>
+  <div class="diary-day">
+    {% for detail in object.detail.published %}
+    {% get_comment_count for detail as comment_count %}
+    <section class="abstract">
+      <div class="time">{% if dress_blog_config.show_author %}{{ detail.author.get_full_name }}&nbsp;{% trans "at" %}&nbsp;{% endif %}{{ detail.pub_date|date:"G:i" }}h&nbsp;</div>
+      {% if comment_count %}
+      <div class="subline tar">{{ comment_count }} comment{{ comment_count|pluralize }}</div>
+      {% endif %}
+      <div class="detail">
+	{{ detail.body_markup|render_inlines|safe }}
+      </div>
+    </section>
+    {% endfor %}
+  </div>
+</article>

@@ -1,0 +1,20 @@
+{% load i18n comments_xtd %}
+
+<div class="comment-col"><!-- comment -->
+  <div class="title">
+    {% if comment.content_type.name == "story" %}<span class="heydings-icon">D</span>{% endif %}
+    {% if comment.content_type.name == "quote" %}<span class="heydings-icon">B</span>{% endif %}
+    {% if comment.content_type.name == "diary entry" %}<span class="heydings-icon">T</span>{% endif %}
+    <a href="{{ comment.get_absolute_url }}">{{ comment.content_object }}</a>
+  </div>
+  <div class="text">
+    {% if comment.is_removed %}
+    -- {% trans "Inappropriate comment removed." %} --
+    {% else %}
+    {{ comment.comment|render_markup_comment }}
+    {% endif %}
+  </div>
+  <div class="sign">
+    <span class="heydings-icon">w</span> {% trans "by" %} {{ comment.name }}
+  </div>
+</div><!-- comment -->

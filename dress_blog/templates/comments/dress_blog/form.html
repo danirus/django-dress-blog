@@ -1,0 +1,67 @@
+{% load i18n comments %}
+{% load url from future %}
+<form id="CF" action="{% comment_form_target %}" method="post" class="vbox box-pack-center box-align-stretch">{% csrf_token %}
+  <input type="hidden" name="next" value="{% url 'comments-xtd-sent' %}" />
+  {% if form.errors %}
+  <div class="alert alert-error"><strong>{% blocktrans count form.errors|length as counter %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</strong></div>
+  {% endif %}
+  
+  {% for field in form %}
+  {% if field.is_hidden %}
+  <div style="display:none">{{ field }}</div>
+  {% else %}
+  <div {% if field.errors %} class="error"{% endif %}
+       {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+    {% ifequal field.name "comment" %}
+    {{ field }}
+    {% else %}{% ifequal field.name "followup" %}
+    {{ field }} <label class="autowidth" for="id_{{ field.name }}">{{ field.label }}</label>
+    {% else %}
+    {{ field.label_tag }} {{ field }} <span class="help_text">{{ field.help_text }}</span>
+    {% endifequal %}{% endifequal %}
+  </div>
+  {% if field.errors %}{{ field.errors }}{% endif %}
+  {% endif %}
+  {% endfor %}
+  <p class="hbox box-align-center box-pack-center">
+    <input type="submit" id="id_post" name="post" class="btn btn-primary" value="{% trans "post" %}" />
+    <input type="submit" id="id_preview" name="preview" class="btn" value="{% trans "preview" %}" />
+  </p>
+</form>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#post-comment').click(function() {
+        $('.comment-form').toggle()
+      });
+      $('form#CF').submit(function() { return false });
+      $('form#CF input[type=submit]').click(function(ev) {
+          var extra = $(this).attr('name');
+          $.post($('#CF').attr('action'), 
+                 $('#CF').serialize()+"&"+extra+"="+extra,
+                 function(data) {
+                      var decl_pos = data.search("DOCTYPE html");
+                      if(decl_pos>=0 && decl_pos<10) {
+                          window.location.reload();
+                      } else { 
+			  var cmt_pos = data.search('id="c');
+			  if(cmt_pos>=0 && cmt_pos<10) {
+                              $('.comment-form').fadeOut(150, function() {
+                                  $('FORM').each(function(i) { $(this)[i].reset() });
+                                  var cid = $(data).attr('id');
+  			          $(data).addClass('hide').appendTo('.comment-list');
+                                  $('#'+cid).fadeIn(150);
+                              });
+			  } else {
+                              $('.comment-form').html(data).fadeIn(150);
+                          }
+                      }
+                  }
+          );
+      });
+      $.each({ 'name':1, 'email':2, 'url':3, 'comment':4, 'followup':5,
+               'post':6, 'preview':7 }, 
+             function (key, value) { $('#id_' + key).attr('tabindex', value) }
+      );
+  });
+</script>

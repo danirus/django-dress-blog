@@ -1,0 +1,83 @@
+{% extends "dress_blog/base.html" %}
+{% load i18n archive %}
+{% load url from future %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ STATIC_URL }}inline_media/css/inline_media.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ STATIC_URL }}prettyphoto-3.1.3/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="{{ STATIC_URL }}dress_blog/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}inline_media/js/inline_media.js"></script>
+<script src="{{ STATIC_URL }}prettyphoto-3.1.3/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{% block nav-stories %}<li class="active"><a href="{% url 'blog-story-list' %}"><span class="heydings-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}
+
+{% block content %}
+<div class="span10">
+  <H4><span class="heydings-icon">Y</span>&nbsp;{% trans "Stories published on" %}&nbsp;{{ day|date:"l, j F Y" }}</H4>
+
+  {% for object in object_list %}
+  {% include "dress_blog/includes/story_abstract.html" with article_class="in2col" %}
+  {% endfor %}
+
+  {% if is_paginated %}
+  <ul class="pager">
+    {% if page_obj.has_previous %}
+    <li><a id="prev" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
+    {% endif %}
+  </ul>
+  {% endif %}
+</div>
+
+<div class="span2">
+  <H4>
+    <span class="heydings-icon">5</span>&nbsp;{% trans "Archive" %}
+  </H4>
+  <UL>
+    {% if previous_day %}
+    <li>
+      <a href="{% url 'blog-story-archive-day' previous_day|date:'Y' previous_day|date:'m' previous_day|date:'d' %}" 
+	 title="{{ previous_day|date:'D, j F Y' }}">{{ previous_day|date:"D, j F Y" }}</a>
+    </li>
+    {% endif %}
+    <li><em>{{ day|date:"D, j F Y" }}</em></li>
+    {% if next_day %}
+    <li>
+      <a href="{% url 'blog-story-archive-day' next_day|date:'Y' next_day|date:'m' next_day|date:'d' %}" 
+	 title="{{ next_day|date:'D, j F Y' }}">{{ next_day|date:"D, j F Y" }}</a>
+    </li>
+    {% endif %}
+  </UL>
+
+  <hr/>
+  <UL>
+    {% if previous_month %}
+    <li>
+      <a href="{% url 'blog-story-archive-month' previous_month|date:'Y' previous_month|date:'m' %}" 
+	 title="{{ previous_month|date:'F Y' }}">{{ previous_month|date:"F Y" }}</a>
+    </li>
+    {% endif %}
+    <li><em>{{ day|date:"F Y" }}</em></li>
+    {% if next_month %}
+    <li>
+      <a href="{% url 'blog-story-archive-month' next_month|date:'Y' next_month|date:'m' %}" 
+	 title="{{ next_month|date:'F Y' }}">{{ next_month|date:"F Y" }}</a>
+    </li>
+    {% endif %}
+  </UL>
+  
+  <hr/>
+  <UL class="pt5 small">
+    <li>
+      <a href="{% url 'blog-story-archive-year' day|date:'Y' %}" 
+	 title="{{ day|date:'Y' }}">{{ day|date:"Y" }}</a>
+    </li>
+  </UL>
+</div>
+{% endblock %}

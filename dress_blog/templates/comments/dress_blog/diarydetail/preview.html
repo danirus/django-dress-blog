@@ -1,0 +1,9 @@
+{% load i18n comments_xtd %}
+
+{% if not form.errors %}
+<div class="preview-comment">
+  {{ comment|render_markup_comment }}
+</div>
+{% endif %}
+
+{% include "comments/dress_blog/diarydetail/form.html" with counter=form.object_pk.value %}

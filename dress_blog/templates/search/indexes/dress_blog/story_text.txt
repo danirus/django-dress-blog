@@ -1,0 +1,2 @@
+{% load i18n %}
+{{ object.title }}&nbsp;&sdot;&nbsp;{% if dress_blog_config.show_author %}{% trans "posted by" %}&nbsp;{{ object.author.get_full_name }}&nbsp;&sdot;&nbsp;{% endif %}{{ object.abstract_markup|striptags|safe }}&nbsp;&sdot;&nbsp;{{ object.body_markup|striptags|safe }}

@@ -1,0 +1,23 @@
+{% load i18n comments comments_xtd %}
+
+<div id="c{{ comment.id }}" class="row comment"> 
+  <div class="span2 offset1">
+    <div class="data {% if comment.user.is_staff %}writer{% else %}reader{% endif %}">
+      <div class="tac">
+	<a href="{% get_comment_permalink comment %}" class="heydings-icon">b</a> 
+	<span class="datepub">{{ comment.submit_date|date:"j/M/Y H:i" }}h</span>
+      </div>
+      <div class="author">{{ comment.name }}</div>
+    </div>
+  </div>
+  
+  <div class="span4">
+    <div class="text">
+      {% if comment.is_removed %}
+      <span class="cancelled">-- {% trans "Inappropriate comments like this one are removed." %} --</span>
+      {% else %}
+      {{ comment.comment|render_markup_comment }}
+      {% endif %}
+    </div>
+  </div>
+</div>

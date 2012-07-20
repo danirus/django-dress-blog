@@ -1,0 +1,54 @@
+{% extends "dress_blog/base.html" %}
+{% load i18n tagging_tags inlines comments %}
+{% load url from future %}
+
+{% block extrajs %}
+<script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/jquery-1.7.1.min.js"></script>
+{% endblock %}
+
+{% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
+
+{% block content %}
+{% get_comment_count for object as comment_count %}
+{% tags_for_object object as tag_list %}
+<div id="quote" class="span10 offset1">
+  <article>
+    <header class="hbox box-align-start box-pack-center">
+      <div class="vbox box-align-start box-pack-start">
+	<div class="datepub">
+	  {{ object.pub_date }}
+	  {% if comment_count %}&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#comments">{{ comment_count }}&nbsp;{% trans "comment" %}{{ comment_count|pluralize }}</a>{% endif %}
+	</div>
+	{% if dress_blog_config.show_author %}
+	<div class="headline">{{ object.title }}</div>
+	<div class="post-author mb5">{% trans "posted by" %}&nbsp;{{ object.author.get_full_name }}</div>
+	{% else %}
+	<div class="headline mb5">{{ object.title }}</div>
+	{% endif %}
+	{% if tag_list %}
+	<div class="subline">
+	  <span class="medium-heydings-icon">t</span> 
+	  {% for tag in tag_list %}
+	  <a href="{% url 'blog-tag-detail' tag %}" class="label">{{ tag }}</a>
+	  {% endfor %}
+	</div>
+	{% endif %}
+      </div>
+    </header>
+    <section>
+      <div class="text">
+	{{ object.body_markup|render_inlines|safe }}
+      </div>
+    </section>
+
+    <div class="sign"><!-- author -->
+      <div class="grad-left"></div>
+      <div class="author">
+	<span class="heydings-icon">w</span> {% trans "by" %} {% if object.url_source %}<a href="{{ object.url_source }}" target="_new" class="f-yanonekafeesatz-l fs3">{{ object.quote_author }}</a>{% else %}<span class="f-yanonekafeesatz-l fs3">{{ object.quote_author }}</span>{% endif %}
+      </div>
+    </div><!-- author -->
+  </article>
+
+  {% include "dress_blog/includes/comments_for_object.html" with comment_count=comment_count %}
+</div>
+{% endblock %}

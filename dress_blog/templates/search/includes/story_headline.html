@@ -1,0 +1,24 @@
+{% load i18n %}
+{% load url from future %}
+
+<div class="big-heydings-icon" title="story">D</div>
+<div class="title">
+  <div class="datepub">
+    {{ result.object.pub_date }}
+    {% if comment_count %}&nbsp;&nbsp;&bull;&nbsp;&nbsp;{{ comment_count }}&nbsp;{% trans "comment" %}{{ comment_count|pluralize }}{% endif %}
+  </div>
+  <div class="headline">
+    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+  </div>
+  <div class="subline">
+    {% if dress_blog_config.show_author %}
+    <span class="mini-author">{% trans "posted by" %}&nbsp;{% if result.object.author.get_full_name %}{{ result.object.author.get_full_name }}{% else %}{{ result.object.author.username }}{% endif %}</span>
+    {% if tag_list %}&nbsp;&bull;&nbsp;{% endif %}
+    {% endif %}
+    {% if tag_list %}<span class="heydings-icon">t</span>
+    {% for tag in tag_list %}
+    <a href="{% url 'blog-tag-detail' tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+    {% endif %}
+  </div>
+</div>

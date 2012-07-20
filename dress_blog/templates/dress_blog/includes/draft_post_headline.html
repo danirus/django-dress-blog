@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load url from future %}
+
+<div class="draft">
+  <div class="title">
+    <div class="headline"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></div>
+    <div class="subline">{{ object.pub_date|date:"D, j b Y" }}</div>
+  </div>
+</div>

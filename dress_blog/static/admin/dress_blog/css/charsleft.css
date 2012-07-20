@@ -1,0 +1,14 @@
+#charsleft {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 2.0em;
+    font-weight: bold;
+}
+
+.c-gray { color: #666 }
+.c-green { color: #3a3 }
+.c-blue { color: #33a }
+.c-red { color: #a33 }
+
+.fs12 { font-size: 1.2em }
+.fs14 { font-size: 1.4em }

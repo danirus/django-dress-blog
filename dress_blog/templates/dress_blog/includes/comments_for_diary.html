@@ -1,0 +1,54 @@
+{% load i18n comments %}
+
+{% get_comment_count for detail as comment_count %}
+
+{% if detail.allow_comments %}
+{% get_comment_form for detail as form %}
+<div class="commenting row">
+  <div id="comments-on-{{ form.object_pk.value }}" class="span4 offset1">
+    <p class="summary">
+      {% if comment_count %}<a id="show-comments-on-{{ form.object_pk.value }}" href="#">{{ comment_count }}&nbsp;{% trans "comment" %}{{ comment_count|pluralize }}</a>&nbsp;&bull;&nbsp;{% endif %}<a id="post-comment-on-{{ form.object_pk.value }}" href="#"><span class="heydings-icon">w</span>&nbsp;{% trans "write" %}</a>
+    </p>
+  </div>
+</div>
+
+<div id="comment-form-on-{{ form.object_pk.value }}" class="row comment-form hide clearfix">
+  {% include "comments/dress_blog/diarydetail/form.html" with counter=form.object_pk.value form=form %}
+</div>
+
+<div id="comment-list-on-{{ form.object_pk.value }}" class="hide comment-list">
+{% if comment_count %}{% render_comment_list for detail %}{% endif %}
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#show-comments-on-{{ form.object_pk.value }}').click(function(e) {
+      e.preventDefault();
+      $('#comment-list-on-{{ form.object_pk.value }}').toggle()
+    });
+  });
+</script>
+
+{% else %}
+
+<div class="commenting row">
+  <div id="comments-off-{{ forloop.counter0 }}" class="span4 offset1">
+    <p class="summary">
+      {% if comment_count %}<a id="show-comments-off-{{ forloop.counter0 }}" href="#">{{ comment_count }}&nbsp;{% trans "comment" %}{{ comment_count|pluralize }}</a>&nbsp;&bull;&nbsp;{% endif %}{% trans "comments are disabled for this post" %}
+    </p>
+  </div>
+</div>
+
+<div id="comment-list-off-{{ forloop.counter0 }}" class="hide comment-list">
+{% if comment_count %}{% render_comment_list for detail %}{% endif %}
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#show-comments-off-{{ forloop.counter0 }}').click(function(e) {
+      e.preventDefault();
+      $('#comment-list-off-{{ forloop.counter0 }}').toggle()
+    });
+  });
+</script>
+{% endif %}

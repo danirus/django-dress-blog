@@ -1,0 +1,12 @@
+Django==1.4
+Pygments==1.4
+Markdown
+docutils
+-e svn+http://django-tagging.googlecode.com/svn/trunk/#egg=django-tagging
+-e git+git://github.com/bartTC/django-markup.git#egg=django-markup
+-e git+git://github.com/danirus/django-comments-xtd.git#egg=django-comments-xtd
+-e git+git://github.com/danirus/django-inline-media.git#egg=django-inline-media
+-e git+git://github.com/zerok/django-flatblocks.git#egg=django-flatblocks
+-e git+git://github.com/kylef/django-request.git#egg=django-request
+-e git+git://github.com/toastdriven/django-haystack.git@master#egg=django-haystack
+-e git+git://github.com/notanumber/xapian-haystack.git#egg=xapian-haystack

@@ -1,0 +1,35 @@
+{% load i18n archive tagging_tags %}
+{% load url from future %}
+
+{% get_story_archive as dates %}
+{% if dates %}
+<H4>
+  <span class="heydings-icon">5</span>&nbsp;{% trans "Archive" %}
+</H4>
+<UL>
+  {% for date in dates %}
+  <li>
+    <a href="{% url 'blog-story-archive-month' date|date:'Y' date|date:'m' %}" 
+       title="{{ date|date:'F Y' }}">{{ date|date:"F Y" }}</a>
+  </li>
+  {% endfor %}
+</UL>
+{% endif %}
+
+{% tags_for_model dress_blog.Story as tag_list with counts %}
+{% if tag_list %}
+<H4>
+  <span class="heydings-icon">t</span>&nbsp;{% trans "Tags" %}
+</H4>
+<UL>
+  {% for tag in tag_list %}
+  <li>
+    <a href="{% url 'blog-tag-detail' tag %}">{{ tag }} ({{ tag.count }})</a>
+  </li>    
+  {% endfor %}
+</UL>
+{% endif %}
+
+<div>
+  {% include "dress_blog/includes/subscribe_block.html" %}
+</div>

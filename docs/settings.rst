@@ -1,0 +1,6 @@
+.. _ref-settings:
+
+========
+Settings
+========
+

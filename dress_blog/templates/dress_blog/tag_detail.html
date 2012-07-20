@@ -1,0 +1,59 @@
+{% extends "dress_blog/base.html" %}
+{% load i18n tagging_tags %}
+{% load url from future %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ STATIC_URL }}inline_media/css/inline_media.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ STATIC_URL }}prettyphoto-3.1.3/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}inline_media/js/inline_media.js"></script>
+<script src="{{ STATIC_URL }}prettyphoto-3.1.3/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{% block nav-tags %}<li class="active"><a href="{% url 'blog-tag-list' %}"><span class="heydings-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
+
+{% block content %}
+<div id="tag" class="span10 offset1">
+  <article>
+    <header class="row">
+      <div class="span8 offset1">
+	<div class="hbox box-align-start box-pack-center">
+	  <div class="symbol">t</div>
+	  <div class="tagname">{{ object.name }}</div>
+	</div>
+      </div>
+      <div class="span1">
+	<div class="medium-heydings-icon"><a href="{% url 'posts-tagged-as' object.name %}">R</a></div>
+      </div>
+    </header>
+    <section>
+      {% for item in object_list %}
+      {% if item.content_type.model == "story" %}      
+      {% include "dress_blog/includes/story_abstract.html" with object=item.object article_class="in2col" %}
+      {% endif %}
+
+      {% if item.content_type.model == "quote" %}      
+      {% include "dress_blog/includes/quote_abstract.html" with object=item.object article_class="in2col" %}
+      {% endif %}
+      {% if item.content_type.model == "diarydetail" %}      
+      {% include "dress_blog/includes/diarydetail_abstract.html" with object=item.object article_class="in2col" %}
+      {% endif %}
+      {% endfor %}
+    </section>
+  </article>
+</div>
+
+{% if is_paginated %}
+<ul class="pager">
+  {% if page_obj.has_previous %}
+  <li><a id="prev" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
+  {% endif %}
+  {% if page_obj.has_next %}
+  <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
+  {% endif %}
+</ul>
+{% endif %}
+{% endblock %}

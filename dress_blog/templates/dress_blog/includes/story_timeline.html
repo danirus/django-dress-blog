@@ -1,0 +1,31 @@
+{% load i18n tagging_tags inlines comments %}
+{% load url from future %}
+
+{% get_comment_count for object as comment_count %}
+{% tags_for_object object as tag_list %}
+<article>
+  <header class="hbox box-align-start box-pack-center">
+    <hgroup class="date">
+      <div class="day">{{ object.pub_date|date:"d" }}</div>
+      <div class="month">{{ object.pub_date|date:"M" }}</div>
+    </hgroup>
+    <div class="title">
+      <div class="headline"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></div>
+      <div class="subline">
+	{% if dress_blog_config.show_author %}
+	<span class="mini-author">{% trans "posted by" %}&nbsp;{% if object.author.get_full_name %}{{ object.author.get_full_name }}{% else %}{{ object.author.username }}{% endif %}</span>
+	{% if tag_list %}&nbsp;&bull;&nbsp;{% endif %}
+	{% endif %}
+	{% if tag_list %}<span class="heydings-icon">t</span>
+	{% for tag in tag_list %}
+	<a href="{% url 'blog-tag-detail' tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+	{% endfor %}
+	{% endif %}
+	{% if comment_count %}&nbsp;&bull;&nbsp;{{ comment_count }} comment{{ comment_count|pluralize }}{% endif %}
+      </div>
+    </div>
+  </header>
+  <section class="abstract">
+    {{ object.abstract_markup|render_inlines|safe }}
+  </section>
+</article>

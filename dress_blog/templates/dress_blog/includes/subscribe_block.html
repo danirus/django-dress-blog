@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load url from future %}
+
+<H4>
+  <span class="heydings-icon">R</span>&nbsp;{% trans "Subscribe" %}
+</H4>
+<UL>
+  <li><a href="{% url 'latest-posts-feed' %}">All posts</a></li>
+  <li><a href="{% url 'latest-stories-feed' %}">Only stories</a></li>
+  <li><a href="{% url 'latest-quotes-feed' %}">Only quotes</a></li>
+  <li><a href="{% url 'latest-diary-feed' %}">Only diary</a></li>
+  <li><a href="{% url 'comments-feed' %}">Comments</a></li>
+</UL>	      

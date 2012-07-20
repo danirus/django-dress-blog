@@ -1,0 +1,2559 @@
+[
+    {
+        "pk": 1,
+        "model": "sites.site",
+        "fields": {
+            "domain": "localhost:8000",
+            "name": "localhost:8000"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "auth.user",
+        "fields": {
+            "username": "admin",
+            "first_name": "Lena",
+            "last_name": "Rosenthal",
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2012-07-19T23:50:32",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$CxlZp3kdlbgi$sh3tLncnAxKUA3/tDo+riAczBpsspIr/qJizuZUQamA=",
+            "email": "admin@example.com",
+            "date_joined": "2012-02-24T18:42:18"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "auth.user",
+        "fields": {
+            "username": "alice",
+            "first_name": "Alice",
+            "last_name": "Liddell",
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2012-07-02T00:21:52",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$EftQ6Ie0sW5Q$Z0zmukFHrLwWv1hiR3UplWuFWCsKH5Bww538hhke+fc=",
+            "email": "alice.liddell@example.com",
+            "date_joined": "2012-07-02T00:21:52"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "12",
+            "site": 1,
+            "visits": 24,
+            "content_type": 22,
+            "mod_date": "2012-07-08T20:40:23",
+            "pub_date": "2012-07-10T16:50:40"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "17",
+            "site": 1,
+            "visits": 20,
+            "content_type": 25,
+            "mod_date": "2012-07-08T20:40:27",
+            "pub_date": "2012-07-09T19:50:51"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "19",
+            "site": 1,
+            "visits": 18,
+            "content_type": 25,
+            "mod_date": "2012-07-08T20:40:14",
+            "pub_date": "2012-06-21T10:54:13"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 2,
+            "object_pk": "18",
+            "site": 1,
+            "visits": 31,
+            "content_type": 25,
+            "mod_date": "2012-07-04T19:54:05",
+            "pub_date": "2012-06-10T19:52:30"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "10",
+            "site": 1,
+            "visits": 15,
+            "content_type": 22,
+            "mod_date": "2012-07-08T20:39:58",
+            "pub_date": "2012-05-26T16:49:28"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 2,
+            "object_pk": "9",
+            "site": 1,
+            "visits": 32,
+            "content_type": 22,
+            "mod_date": "2012-07-08T20:39:47",
+            "pub_date": "2012-05-11T16:48:09"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 2,
+            "object_pk": "8",
+            "site": 1,
+            "visits": 8,
+            "content_type": 22,
+            "mod_date": "2012-07-08T20:39:35",
+            "pub_date": "2012-04-30T14:55:33"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "7",
+            "site": 1,
+            "visits": 9,
+            "content_type": 22,
+            "mod_date": "2012-07-08T20:39:24",
+            "pub_date": "2012-04-09T14:54:43"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "23",
+            "site": 1,
+            "visits": 18,
+            "content_type": 24,
+            "mod_date": "2012-07-10T17:33:23",
+            "pub_date": "2012-04-06T12:21:57"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "22",
+            "site": 1,
+            "visits": 5,
+            "content_type": 24,
+            "mod_date": "2012-07-05T00:21:35",
+            "pub_date": "2012-04-06T08:16:39"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 2,
+            "object_pk": "6",
+            "site": 1,
+            "visits": 28,
+            "content_type": 22,
+            "mod_date": "2012-07-10T19:25:35",
+            "pub_date": "2012-03-18T14:53:07"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 2,
+            "object_pk": "16",
+            "site": 1,
+            "visits": 27,
+            "content_type": 25,
+            "mod_date": "2012-07-08T20:38:48",
+            "pub_date": "2012-03-07T19:49:23"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "15",
+            "site": 1,
+            "visits": 38,
+            "content_type": 25,
+            "mod_date": "2012-07-08T20:38:38",
+            "pub_date": "2012-03-07T17:11:54"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 2,
+            "object_pk": "5",
+            "site": 1,
+            "visits": 5,
+            "content_type": 22,
+            "mod_date": "2012-07-08T20:38:28",
+            "pub_date": "2012-03-05T14:52:07"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "4",
+            "site": 1,
+            "visits": 19,
+            "content_type": 22,
+            "mod_date": "2012-07-08T20:38:16",
+            "pub_date": "2012-02-28T14:49:43"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 2,
+            "object_pk": "14",
+            "site": 1,
+            "visits": 36,
+            "content_type": 25,
+            "mod_date": "2012-07-08T20:38:06",
+            "pub_date": "2012-02-26T17:10:22"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "3",
+            "site": 1,
+            "visits": 26,
+            "content_type": 22,
+            "mod_date": "2012-07-08T20:37:56",
+            "pub_date": "2012-02-25T14:35:23"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "21",
+            "site": 1,
+            "visits": 18,
+            "content_type": 24,
+            "mod_date": "2012-07-10T17:33:32",
+            "pub_date": "2012-02-09T13:10:43"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "20",
+            "site": 1,
+            "visits": 25,
+            "content_type": 24,
+            "mod_date": "2012-07-08T20:37:32",
+            "pub_date": "2012-02-09T04:20:00"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 1,
+            "object_pk": "2",
+            "site": 1,
+            "visits": 47,
+            "content_type": 22,
+            "mod_date": "2012-07-08T20:37:22",
+            "pub_date": "2012-02-02T09:26:43"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 2,
+            "object_pk": "13",
+            "site": 1,
+            "visits": 14,
+            "content_type": 25,
+            "mod_date": "2012-07-08T12:39:47",
+            "pub_date": "2012-01-30T09:06:45"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 2,
+            "allow_comments": true,
+            "author": 2,
+            "object_pk": "1",
+            "site": 1,
+            "visits": 18,
+            "content_type": 22,
+            "mod_date": "2012-07-04T14:33:39",
+            "pub_date": "2011-12-25T09:17:47"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "Editor's Note: Brendan Eich, Mozilla CTO, posted on [his blog](http://brendaneich.com/2012/02/mobile-web-api-evolution/) about Mozilla and the mobile Web API evolution. This is reposted below:\r\n\r\nRagavan Srinivasan's [post about the forthcoming Mozilla Marketplace](http://blog.mozilla.com/blog/2012/02/22/mozilla-marketplace-opening-for-app-submissions-soon/) for [Open Web Apps](https://apps.mozillalabs.com/) inspired me to write about Mozilla's surging Web and Device API standards work.\r\n\r\n<inline type=\"inline_media.picture\" id=\"4\" class=\"inline_medium_right\" />A bit of background. Mozilla has always contributed to web standards, going back to the start of the project. We [co-founded](http://brendaneich.com/2004/06/the-non-world-non-wide-non-web/) the [WHAT-WG](http://www.whatwg.org/) to kick off [HTML5](http://dev.w3.org/html5/spec/Overview.html). As readers of this blog know, we are a leader in [JS standardization](http://ecmascript.org/). We have some of the top [CSS](http://dbaron.org/) and [layout](http://robert.ocallahan.org/) experts in the world.\r\n\r\nIn the last eight months, our efforts to extend the web standards to include new APIs needed to build compelling apps and OS components on mobile devices have really caught fire. [B2G](http://wiki.mozilla.org/B2G) and [Open Web Apps](https://wiki.mozilla.org/Apps/Roadmap) are the fuel for this fire.\r\n\r\nSo I thought I would compile a list of emerging APIs to which we've contributed. In citing Mozillans I do not mean to minimize the efforts of standardization colleagues at Google, Microsoft, Nokia, Opera, the W3C and elsewhere. Standards are a multi-vendor effort (although excluding WebGL [see UPDATE below] one shiny name is conspicuously absent from this list).\r\n\r\nThe Mozilla contributions are worth noting both to acknowledge the individuals involved, and to highlight how Mozilla is championing device APIs for the web without having a native application stack blessed with such APIs on offer. We see the Web as quickly evolving to match native stacks. We have no other agenda than improving the Web to improve its users' lives, including Web developers' lives -especially mobile users and developers.\r\n\r\nAs always, standards in progress are subject to change, yet require prototype implementation and user-testing. Mozilla remains committed to playing fairly by not forging de-facto standards out of prototypes, rather proposing before disposing and in the end tracking whatever is standardized.\r\n\r\nHere is the list, starting with some 2011-era work:\r\n\r\n* [Geolocation](http://dev.w3.org/geo/api/spec-source.html), with Google contributing the editor and Firefox (thanks to [Jay Sullivan](http://www.mozilla.org/en-US/press/bios/#bio-sullivan) leading the charge) implementing early.\r\n* [WebGL](https://www.khronos.org/registry/webgl/specs/1.0/) (UPDATE: Chris Marrin of Apple edited) and [typed arrays](http://www.khronos.org/registry/typedarray/specs/latest/).\r\n* [Gamepad API](https://dvcs.w3.org/hg/gamepad/raw-file/default/gamepad.html). Co-editor: Ted Mielczarek. Mozillans are also contributing to [Pointer Lock](http://dvcs.w3.org/hg/pointerlock/raw-file/default/index.html).\r\n* [Screen Orientation](http://dvcs.w3.org/hg/screen-orientation/raw-file/tip/Overview.html). Editor: Mounir Lamouri.\r\n* [navigator.getUserMedia](http://dev.w3.org/2011/webrtc/editor/getusermedia.html). Co-editor: Anant Narayanan\r\n* [Battery Status](http://www.w3.org/TR/2011/WD-battery-status-20111129/) (in Last Call). From the Acknowledgements:\r\n > Big thanks to the Mozilla WebAPI team for their invaluable feedback based on prototype implementations.\r\n* [Media Capture](http://www.w3.org/TR/2011/WD-html-media-capture-20110414/). Fabrice Desr\u00e9 prototype-implemented in Gecko.\r\n* [Network API](http://dev.w3.org/2009/dap/netinfo/). Editor: Mounir Lamouri.\r\n* [Web Telephony](https://wiki.mozilla.org/WebAPI/WebTelephony). Ben Turner, Jonas Sicking, Philipp von Weitershausen.\r\n* [Web SMS](https://wiki.mozilla.org/WebAPI/WebSMS). Mounir Lamouri, Jonas Sicking.\r\n* [Vibration](http://www.w3.org/TR/2012/WD-vibration-20120202/). From the Acknowledgements:\r\n > The group is deeply indebted to Mounir Lamouri, Jonas Sicking, and the Mozilla WebAPI team in general for providing the WebVibrator prototype as an initial input.\r\n* [File API](http://www.w3.org/TR/FileAPI/). Editors: Arun Ranganathan, Jonas Sicking.\r\n* [IndexedDB](http://www.w3.org/TR/IndexedDB/). Editors includes Jonas Sicking.\r\n\r\nI did not list most of the HTML5 and Web API work aimed at Desktop Firefox, to focus on the new mobile-oriented additions. There's more to say, including about [bundled-permission follies](http://www.cs.berkeley.edu/~afelt/) and how to [weave](http://robert.ocallahan.org/2011/06/permissions-for-web-applications_30.html) permission-granting (with memorization) into interactions, but not here.\r\n\r\nOne last note. The [CSS vendor prefix brouhaha](http://www.alistapart.com/articles/the-vendor-prefix-predicament-alas-eric-meyer-interviews-tantek-celik/) had, among many salutary effects, the benefit of shining light on an important requirement of competitive mobile web development: CSS style properties such as -webkit-animation-*, however you spell them, must have fast and beautiful implementations across devices for developers to find them usable: 60Hz, artifact-free rendering under touch control. This requires such work as [off-main-thread compositing](https://wiki.mozilla.org/Platform/GFX/OffMainThreadCompositing) and [GL layers](https://wiki.mozilla.org/Gecko:Layers).\r\n\r\nThis is a high technical bar, but we are in the process of meeting it in the latest Firefox for Android and B2G builds, thanks to hard work from many people, especially [Patrick Walton](http://pcwalton.blogspot.com/), [Robert O'Callahan](http://robert.ocallahan.org/), [Chris Jones](http://blog.mozilla.com/cjones/), and [Andreas Gal](http://andreasgal.com/). Onward!\r\n\r\nSeeing at [the mozilla blog](http://blog.mozilla.com/blog/2012/02/24/mobile-web-api-evolution/).\r\n",
+            "title": "Mozilla and the Mobile Web API Evolution",
+            "markup": "markdown",
+            "tags": "mozilla standards web",
+            "abstract": "<inline type=\"inline_media.picture\" id=\"8\" class=\"inline_mini_right\" />Ragavan Srinivasan\u2019s [post about the forthcoming Mozilla Marketplace](http://blog.mozilla.com/blog/2012/02/22/mozilla-marketplace-opening-for-app-submissions-soon/) for [Open Web Apps](https://apps.mozillalabs.com/) inspired me to write about Mozilla\u2019s surging Web and Device API standards work.\r\n\r\nA bit of background. Mozilla has always contributed to web standards, going back to the start of the project. We [co-founded](http://brendaneich.com/2004/06/the-non-world-non-wide-non-web/) the [WHAT-WG](http://www.whatwg.org/) to kick off [HTML5](http://dev.w3.org/html5/spec/Overview.html). As readers of this blog know, we are a leader in [JS standardization](http://ecmascript.org/). We have some of the top [CSS](http://dbaron.org/) and [layout](http://robert.ocallahan.org/) experts in the world.",
+            "body_markup": "<p>Editor's Note: Brendan Eich, Mozilla CTO, posted on <a href=\"http://brendaneich.com/2012/02/mobile-web-api-evolution/\">his blog</a> about Mozilla and the mobile Web API evolution. This is reposted below:</p>\n<p>Ragavan Srinivasan's <a href=\"http://blog.mozilla.com/blog/2012/02/22/mozilla-marketplace-opening-for-app-submissions-soon/\">post about the forthcoming Mozilla Marketplace</a> for <a href=\"https://apps.mozillalabs.com/\">Open Web Apps</a> inspired me to write about Mozilla's surging Web and Device API standards work.</p>\n<p><inline type=\"inline_media.picture\" id=\"4\" class=\"inline_medium_right\" />A bit of background. Mozilla has always contributed to web standards, going back to the start of the project. We <a href=\"http://brendaneich.com/2004/06/the-non-world-non-wide-non-web/\">co-founded</a> the <a href=\"http://www.whatwg.org/\">WHAT-WG</a> to kick off <a href=\"http://dev.w3.org/html5/spec/Overview.html\">HTML5</a>. As readers of this blog know, we are a leader in <a href=\"http://ecmascript.org/\">JS standardization</a>. We have some of the top <a href=\"http://dbaron.org/\">CSS</a> and <a href=\"http://robert.ocallahan.org/\">layout</a> experts in the world.</p>\n<p>In the last eight months, our efforts to extend the web standards to include new APIs needed to build compelling apps and OS components on mobile devices have really caught fire. <a href=\"http://wiki.mozilla.org/B2G\">B2G</a> and <a href=\"https://wiki.mozilla.org/Apps/Roadmap\">Open Web Apps</a> are the fuel for this fire.</p>\n<p>So I thought I would compile a list of emerging APIs to which we've contributed. In citing Mozillans I do not mean to minimize the efforts of standardization colleagues at Google, Microsoft, Nokia, Opera, the W3C and elsewhere. Standards are a multi-vendor effort (although excluding WebGL [see UPDATE below] one shiny name is conspicuously absent from this list).</p>\n<p>The Mozilla contributions are worth noting both to acknowledge the individuals involved, and to highlight how Mozilla is championing device APIs for the web without having a native application stack blessed with such APIs on offer. We see the Web as quickly evolving to match native stacks. We have no other agenda than improving the Web to improve its users' lives, including Web developers' lives -especially mobile users and developers.</p>\n<p>As always, standards in progress are subject to change, yet require prototype implementation and user-testing. Mozilla remains committed to playing fairly by not forging de-facto standards out of prototypes, rather proposing before disposing and in the end tracking whatever is standardized.</p>\n<p>Here is the list, starting with some 2011-era work:</p>\n<ul>\n<li><a href=\"http://dev.w3.org/geo/api/spec-source.html\">Geolocation</a>, with Google contributing the editor and Firefox (thanks to <a href=\"http://www.mozilla.org/en-US/press/bios/#bio-sullivan\">Jay Sullivan</a> leading the charge) implementing early.</li>\n<li><a href=\"https://www.khronos.org/registry/webgl/specs/1.0/\">WebGL</a> (UPDATE: Chris Marrin of Apple edited) and <a href=\"http://www.khronos.org/registry/typedarray/specs/latest/\">typed arrays</a>.</li>\n<li><a href=\"https://dvcs.w3.org/hg/gamepad/raw-file/default/gamepad.html\">Gamepad API</a>. Co-editor: Ted Mielczarek. Mozillans are also contributing to <a href=\"http://dvcs.w3.org/hg/pointerlock/raw-file/default/index.html\">Pointer Lock</a>.</li>\n<li><a href=\"http://dvcs.w3.org/hg/screen-orientation/raw-file/tip/Overview.html\">Screen Orientation</a>. Editor: Mounir Lamouri.</li>\n<li><a href=\"http://dev.w3.org/2011/webrtc/editor/getusermedia.html\">navigator.getUserMedia</a>. Co-editor: Anant Narayanan</li>\n<li><a href=\"http://www.w3.org/TR/2011/WD-battery-status-20111129/\">Battery Status</a> (in Last Call). From the Acknowledgements:<blockquote>\n<p>Big thanks to the Mozilla WebAPI team for their invaluable feedback based on prototype implementations.</p>\n</blockquote>\n</li>\n<li><a href=\"http://www.w3.org/TR/2011/WD-html-media-capture-20110414/\">Media Capture</a>. Fabrice Desr\u00e9 prototype-implemented in Gecko.</li>\n<li><a href=\"http://dev.w3.org/2009/dap/netinfo/\">Network API</a>. Editor: Mounir Lamouri.</li>\n<li><a href=\"https://wiki.mozilla.org/WebAPI/WebTelephony\">Web Telephony</a>. Ben Turner, Jonas Sicking, Philipp von Weitershausen.</li>\n<li><a href=\"https://wiki.mozilla.org/WebAPI/WebSMS\">Web SMS</a>. Mounir Lamouri, Jonas Sicking.</li>\n<li><a href=\"http://www.w3.org/TR/2012/WD-vibration-20120202/\">Vibration</a>. From the Acknowledgements:<blockquote>\n<p>The group is deeply indebted to Mounir Lamouri, Jonas Sicking, and the Mozilla WebAPI team in general for providing the WebVibrator prototype as an initial input.</p>\n</blockquote>\n</li>\n<li><a href=\"http://www.w3.org/TR/FileAPI/\">File API</a>. Editors: Arun Ranganathan, Jonas Sicking.</li>\n<li><a href=\"http://www.w3.org/TR/IndexedDB/\">IndexedDB</a>. Editors includes Jonas Sicking.</li>\n</ul>\n<p>I did not list most of the HTML5 and Web API work aimed at Desktop Firefox, to focus on the new mobile-oriented additions. There's more to say, including about <a href=\"http://www.cs.berkeley.edu/~afelt/\">bundled-permission follies</a> and how to <a href=\"http://robert.ocallahan.org/2011/06/permissions-for-web-applications_30.html\">weave</a> permission-granting (with memorization) into interactions, but not here.</p>\n<p>One last note. The <a href=\"http://www.alistapart.com/articles/the-vendor-prefix-predicament-alas-eric-meyer-interviews-tantek-celik/\">CSS vendor prefix brouhaha</a> had, among many salutary effects, the benefit of shining light on an important requirement of competitive mobile web development: CSS style properties such as -webkit-animation-*, however you spell them, must have fast and beautiful implementations across devices for developers to find them usable: 60Hz, artifact-free rendering under touch control. This requires such work as <a href=\"https://wiki.mozilla.org/Platform/GFX/OffMainThreadCompositing\">off-main-thread compositing</a> and <a href=\"https://wiki.mozilla.org/Gecko:Layers\">GL layers</a>.</p>\n<p>This is a high technical bar, but we are in the process of meeting it in the latest Firefox for Android and B2G builds, thanks to hard work from many people, especially <a href=\"http://pcwalton.blogspot.com/\">Patrick Walton</a>, <a href=\"http://robert.ocallahan.org/\">Robert O'Callahan</a>, <a href=\"http://blog.mozilla.com/cjones/\">Chris Jones</a>, and <a href=\"http://andreasgal.com/\">Andreas Gal</a>. Onward!</p>\n<p>Seeing at <a href=\"http://blog.mozilla.com/blog/2012/02/24/mobile-web-api-evolution/\">the mozilla blog</a>.</p>",
+            "slug": "mozilla-and-mobile-web-api-evolution",
+            "abstract_markup": "<p><inline type=\"inline_media.picture\" id=\"8\" class=\"inline_mini_right\" />Ragavan Srinivasan\u2019s <a href=\"http://blog.mozilla.com/blog/2012/02/22/mozilla-marketplace-opening-for-app-submissions-soon/\">post about the forthcoming Mozilla Marketplace</a> for <a href=\"https://apps.mozillalabs.com/\">Open Web Apps</a> inspired me to write about Mozilla\u2019s surging Web and Device API standards work.</p>\n<p>A bit of background. Mozilla has always contributed to web standards, going back to the start of the project. We <a href=\"http://brendaneich.com/2004/06/the-non-world-non-wide-non-web/\">co-founded</a> the <a href=\"http://www.whatwg.org/\">WHAT-WG</a> to kick off <a href=\"http://dev.w3.org/html5/spec/Overview.html\">HTML5</a>. As readers of this blog know, we are a leader in <a href=\"http://ecmascript.org/\">JS standardization</a>. We have some of the top <a href=\"http://dbaron.org/\">CSS</a> and <a href=\"http://robert.ocallahan.org/\">layout</a> experts in the world.</p>"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "The [Django Software Foundation (DSF)](https://www.djangoproject.com/foundation/) is kicking off the new year with a [corporate membership](https://www.djangoproject.com/foundation/corporate-membership/) drive. Membership of the DSF is one tangible way that your company can publicly demonstrate its support for the Django project, and give back to the Open Source community that has developed Django.\r\n\r\n<inline type=\"inline_media.picture\" id=\"3\" class=\"inline_medium_right\" />To kick off this membership drive, we're proud to announce our first two corporate members: [Imaginary Landscapes](http://www.imagescape.com/) and the [Caktus Consulting Group](http://www.caktusgroup.com/). The DSF would like to thank these two companies for their generous contributions, and for their public support of the DSF and it's mission.\r\n\r\nCorporate membership of the DSF is available at three levels:\r\n\r\n* Independent consultancies, sole proprietorships and other small businesses: $500/year.\r\n* Small-to-medium businesses, established ISVs, and other midrange companies: $2000/year. Government agencies may also join at this rate.\r\n* Large corporations: $5000/year.\r\n\r\nWe leave it up to you to pick the right level for your company. If corporate membership doesn't suit you or your company, but you still want to contribute financially, you can also [donate to the Foundation](https://www.djangoproject.com/foundation/donate/).\r\n\r\nWhat will the DSF do with your membership contributions? Whatever we can do to make the Django community a better place. Historically, this has mostly meant sponsoring sprints -- providing money for event catering and equipment hire, and where possible, to arrange for members of the core team to be present. The more financial contributions we have, the more activities we can sponsor.\r\n\r\nIf you or your company is interested in becoming a corporate member, or if you have any questions about DSF membership, please [get in touch using the DSF contact form](https://www.djangoproject.com/contact/foundation/).\r\n\r\nIf you have any questions about DSF membership, or if you have suggestions for what the DSF could do to help the community, get in touch, too!\r\n\r\nPosted by Russell Keith-Magee on January 16, 2012 at [the Django Weblog](https://www.djangoproject.com/weblog/2012/jan/16/dsf-membership-drive-2012/)\r\n",
+            "title": "Django Software Foundation announces membership drive",
+            "markup": "markdown",
+            "tags": "django python web",
+            "abstract": "<inline type=\"inline_media.picture\" id=\"9\" class=\"inline_mini_right\" />The [Django Software Foundation (DSF)](https://www.djangoproject.com/foundation/) is kicking off the new year with a [corporate membership](https://www.djangoproject.com/foundation/corporate-membership/) drive. Membership of the DSF is one tangible way that your company can publicly demonstrate its support for the Django project, and give back to the Open Source community that has developed Django.",
+            "body_markup": "<p>The <a href=\"https://www.djangoproject.com/foundation/\">Django Software Foundation (DSF)</a> is kicking off the new year with a <a href=\"https://www.djangoproject.com/foundation/corporate-membership/\">corporate membership</a> drive. Membership of the DSF is one tangible way that your company can publicly demonstrate its support for the Django project, and give back to the Open Source community that has developed Django.</p>\n<p><inline type=\"inline_media.picture\" id=\"3\" class=\"inline_medium_right\" />To kick off this membership drive, we're proud to announce our first two corporate members: <a href=\"http://www.imagescape.com/\">Imaginary Landscapes</a> and the <a href=\"http://www.caktusgroup.com/\">Caktus Consulting Group</a>. The DSF would like to thank these two companies for their generous contributions, and for their public support of the DSF and it's mission.</p>\n<p>Corporate membership of the DSF is available at three levels:</p>\n<ul>\n<li>Independent consultancies, sole proprietorships and other small businesses: $500/year.</li>\n<li>Small-to-medium businesses, established ISVs, and other midrange companies: $2000/year. Government agencies may also join at this rate.</li>\n<li>Large corporations: $5000/year.</li>\n</ul>\n<p>We leave it up to you to pick the right level for your company. If corporate membership doesn't suit you or your company, but you still want to contribute financially, you can also <a href=\"https://www.djangoproject.com/foundation/donate/\">donate to the Foundation</a>.</p>\n<p>What will the DSF do with your membership contributions? Whatever we can do to make the Django community a better place. Historically, this has mostly meant sponsoring sprints -- providing money for event catering and equipment hire, and where possible, to arrange for members of the core team to be present. The more financial contributions we have, the more activities we can sponsor.</p>\n<p>If you or your company is interested in becoming a corporate member, or if you have any questions about DSF membership, please <a href=\"https://www.djangoproject.com/contact/foundation/\">get in touch using the DSF contact form</a>.</p>\n<p>If you have any questions about DSF membership, or if you have suggestions for what the DSF could do to help the community, get in touch, too!</p>\n<p>Posted by Russell Keith-Magee on January 16, 2012 at <a href=\"https://www.djangoproject.com/weblog/2012/jan/16/dsf-membership-drive-2012/\">the Django Weblog</a></p>",
+            "slug": "django-software-foundation-announces-membership-dr",
+            "abstract_markup": "<p><inline type=\"inline_media.picture\" id=\"9\" class=\"inline_mini_right\" />The <a href=\"https://www.djangoproject.com/foundation/\">Django Software Foundation (DSF)</a> is kicking off the new year with a <a href=\"https://www.djangoproject.com/foundation/corporate-membership/\">corporate membership</a> drive. Membership of the DSF is one tangible way that your company can publicly demonstrate its support for the Django project, and give back to the Open Source community that has developed Django.</p>"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "<inline type=\"inline_media.picture\" id=\"2\" class=\"inline_large_right\" />The Python Software Foundation provides financial support to many Python related conferences and projects. In 2011, the grants and awards totaled US$37,511. As we enter the new year, we want to take this opportunity to review some of the work funded by, and for, the Python community throughout the year.\r\n\r\nConferences\r\n========\r\n\r\nOne of the most prominent ways the PSF supports the community is through the conference assistance program. Organizers of Python-related conferences are eligible to receive grants toward conference-related expenses, including renting space, travel, catering, etc.\r\n\r\n* PyCon AU (Australia) was the first conference to be granted money in 2011 and received US$1500\r\n* EuroPython 2011 was given US$2000\r\n* SciPy 2011 received US$2000 for the conference held in Austin, TX\r\n* Kiwi PyCon 2011 also received US$2000\r\n* PyCon DE (Germany) was given US$1500\r\n* PyArgentina received US$1500\r\n* PyCon Ireland received US$1500\r\n* PyCon PL (Poland) received US$750\r\n* PyTexas 2011 received US$750\r\n* The GNOME Foundation for the 2011 Libre Graphics Meeting was given US$1500 in funds\r\n\r\n\r\nProjects and Porting\r\n=============\r\n\r\nThis year the PSF gave grants to support several software and community projects that provide significant benefit to Python users.\r\n\r\n* Read the Docs received US$840 for hosting fees\r\n* The Python Miro Community project received US$1800 to cover service fees and project expenses\r\n* The PyPy Project was awarded US$10,000 at PyCon 2011\r\n* Chris McDonough was granted US$3000 to port the WebOb project to Python 3\r\n* The PSF also gave US$2121 to 11 Python-related sprints\r\n\r\nOutreach\r\n======\r\n\r\nBesides funding projects from existing community members, the PSF has also funded projects intended to introduce new people to Python and expand our community.\r\n\r\n* Vern Ceder was granted US$500 to travel to the International Society for Technology in Education (ISTE) for a speaking engagement\r\n* PyLadies received US$1220\r\n* The Boston Python Workshop received a US$3300 grant to support and grow the workshop\r\n\r\nReceiving Grants\r\n===========\r\n\r\nThere are several sources for funding through the PSF, depending on the nature of your project.\r\n\r\n1. Conference organizers can contact the PSF Board directly (psf at python.org) with inquiries. Please keep in mind that it may take some time to approve and transfer the funds, so plan ahead and submit your request early.\r\n2. The Python Sprints project provides modest grants for groups to host sprints on Python-related projects.\r\n3. A special fund is set aside for porting open source projects to Python 3. All you need to do is apply for assistance, and Jesse Noller will even help you with your proposal! See the Grant Guidelines for more information.\r\n4. Other projects seeking assistance should also email the board (psf at python.org) with a detailed request.\r\n\r\nDonating to the PSF\r\n=============\r\n\r\nThe Python Software Foundation accepts donations through the web or via check or wire transfer. For US taxpayers, contributions to the PSF are tax-deductible.\r\n\r\nPosted by Mike Driscoll at <a href=\"http://pyfound.blogspot.com/2012/01/psf-grants-over-37000-to-python.html\">http://pyfound.blogspot.com/2012/01/psf-grants-over-37000-to-python.html</a>\r\n",
+            "title": "PSF Grants Over $37,000 to the Python Community in 2011",
+            "markup": "markdown",
+            "tags": "python",
+            "abstract": "The Python Software Foundation provides financial support to many Python related conferences and projects. In 2011, the grants and awards totaled US$37,511. As we enter the new year, we want to take this opportunity to review some of the work funded by, and for, the Python community throughout the year.",
+            "body_markup": "<p><inline type=\"inline_media.picture\" id=\"2\" class=\"inline_large_right\" />The Python Software Foundation provides financial support to many Python related conferences and projects. In 2011, the grants and awards totaled US$37,511. As we enter the new year, we want to take this opportunity to review some of the work funded by, and for, the Python community throughout the year.</p>\n<h1>Conferences</h1>\n<p>One of the most prominent ways the PSF supports the community is through the conference assistance program. Organizers of Python-related conferences are eligible to receive grants toward conference-related expenses, including renting space, travel, catering, etc.</p>\n<ul>\n<li>PyCon AU (Australia) was the first conference to be granted money in 2011 and received US$1500</li>\n<li>EuroPython 2011 was given US$2000</li>\n<li>SciPy 2011 received US$2000 for the conference held in Austin, TX</li>\n<li>Kiwi PyCon 2011 also received US$2000</li>\n<li>PyCon DE (Germany) was given US$1500</li>\n<li>PyArgentina received US$1500</li>\n<li>PyCon Ireland received US$1500</li>\n<li>PyCon PL (Poland) received US$750</li>\n<li>PyTexas 2011 received US$750</li>\n<li>The GNOME Foundation for the 2011 Libre Graphics Meeting was given US$1500 in funds</li>\n</ul>\n<h1>Projects and Porting</h1>\n<p>This year the PSF gave grants to support several software and community projects that provide significant benefit to Python users.</p>\n<ul>\n<li>Read the Docs received US$840 for hosting fees</li>\n<li>The Python Miro Community project received US$1800 to cover service fees and project expenses</li>\n<li>The PyPy Project was awarded US$10,000 at PyCon 2011</li>\n<li>Chris McDonough was granted US$3000 to port the WebOb project to Python 3</li>\n<li>The PSF also gave US$2121 to 11 Python-related sprints</li>\n</ul>\n<h1>Outreach</h1>\n<p>Besides funding projects from existing community members, the PSF has also funded projects intended to introduce new people to Python and expand our community.</p>\n<ul>\n<li>Vern Ceder was granted US$500 to travel to the International Society for Technology in Education (ISTE) for a speaking engagement</li>\n<li>PyLadies received US$1220</li>\n<li>The Boston Python Workshop received a US$3300 grant to support and grow the workshop</li>\n</ul>\n<h1>Receiving Grants</h1>\n<p>There are several sources for funding through the PSF, depending on the nature of your project.</p>\n<ol>\n<li>Conference organizers can contact the PSF Board directly (psf at python.org) with inquiries. Please keep in mind that it may take some time to approve and transfer the funds, so plan ahead and submit your request early.</li>\n<li>The Python Sprints project provides modest grants for groups to host sprints on Python-related projects.</li>\n<li>A special fund is set aside for porting open source projects to Python 3. All you need to do is apply for assistance, and Jesse Noller will even help you with your proposal! See the Grant Guidelines for more information.</li>\n<li>Other projects seeking assistance should also email the board (psf at python.org) with a detailed request.</li>\n</ol>\n<h1>Donating to the PSF</h1>\n<p>The Python Software Foundation accepts donations through the web or via check or wire transfer. For US taxpayers, contributions to the PSF are tax-deductible.</p>\n<p>Posted by Mike Driscoll at <a href=\"http://pyfound.blogspot.com/2012/01/psf-grants-over-37000-to-python.html\">http://pyfound.blogspot.com/2012/01/psf-grants-over-37000-to-python.html</a></p>",
+            "slug": "psf-grants-over-37000-python-community-2011",
+            "abstract_markup": "<p>The Python Software Foundation provides financial support to many Python related conferences and projects. In 2011, the grants and awards totaled US$37,511. As we enter the new year, we want to take this opportunity to review some of the work funded by, and for, the Python community throughout the year.</p>"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "Just gave this talk at W3Conf about some of the innerworkings of HTML5. Lots of did-you-know and cool insight into how browsers work. 37 minutes long.\r\n\r\n<div class=\"tac\"><iframe width=\"612\" height=\"344\" src=\"http://www.youtube.com/embed/WxmcDoAxdoY?fs=1&feature=oembed\" frameborder=\"0\" allowfullscreen></iframe></div>\r\n\r\nI do discuss optional start and end tags as well as not quoting your attributes. I concede that these ideas scare the shit out of people. In fact, when I first heard Jens Meiert propose the idea in 2009 my brain rejected it.\r\n\r\n<inline type=\"inline_media.picture\" id=\"1\" class=\"inline_full_centered\" /> Still, I think many of the markup parsing curiosities that can be frightening only need to be understood by HTML minifiers. Always leave it up to tools to make your frontend payload smaller; you just want the most comfortable and maintainable authoring environment possible.\r\n\r\nI shared them in this talk because 1) it can lead to writing more beautiful HTML that is easier to maintain. Leaving off </li>'s is a good example. 2) I just want people to consider browsers less of a black box of uncertainty. There are rules and specs that define behavior, so once understood you can feel confident relying on a consistent behavior. We certainly don't have that consistency across all the web platform, but for these examples you do.\r\n\r\nIn summary, I'm not advocating you write more spartan markup if you don't want to. But if it makes you feel good, by all means, go at it; you know now how the browsers work.\r\n\r\nOriginal post: <a href=\"http://paulirish.com/2011/primitives-html5-video/\">http://paulirish.com/2011/primitives-html5-video/</a>",
+            "title": "The Fundamentals, Primitives and History of HTML5",
+            "markup": "markdown",
+            "tags": "html5",
+            "abstract": "<inline type=\"inline_media.picture\" id=\"11\" class=\"inline_mini_right\" />Just gave this talk at W3Conf about some of the innerworkings of HTML5. Lots of did-you-know and cool insight into how browsers work. 37 minutes long.\r\n\r\nI do discuss optional start and end tags as well as not quoting your attributes. I concede that these ideas scare the shit out of people. In fact, when I first heard Jens Meiert propose the idea in 2009 my brain rejected it.",
+            "body_markup": "<p>Just gave this talk at W3Conf about some of the innerworkings of HTML5. Lots of did-you-know and cool insight into how browsers work. 37 minutes long.</p>\n<div class=\"tac\"><iframe width=\"612\" height=\"344\" src=\"http://www.youtube.com/embed/WxmcDoAxdoY?fs=1&feature=oembed\" frameborder=\"0\" allowfullscreen></iframe></div>\n\n<p>I do discuss optional start and end tags as well as not quoting your attributes. I concede that these ideas scare the shit out of people. In fact, when I first heard Jens Meiert propose the idea in 2009 my brain rejected it.</p>\n<p><inline type=\"inline_media.picture\" id=\"1\" class=\"inline_full_centered\" /> Still, I think many of the markup parsing curiosities that can be frightening only need to be understood by HTML minifiers. Always leave it up to tools to make your frontend payload smaller; you just want the most comfortable and maintainable authoring environment possible.</p>\n<p>I shared them in this talk because 1) it can lead to writing more beautiful HTML that is easier to maintain. Leaving off </li>'s is a good example. 2) I just want people to consider browsers less of a black box of uncertainty. There are rules and specs that define behavior, so once understood you can feel confident relying on a consistent behavior. We certainly don't have that consistency across all the web platform, but for these examples you do.</p>\n<p>In summary, I'm not advocating you write more spartan markup if you don't want to. But if it makes you feel good, by all means, go at it; you know now how the browsers work.</p>\n<p>Original post: <a href=\"http://paulirish.com/2011/primitives-html5-video/\">http://paulirish.com/2011/primitives-html5-video/</a></p>",
+            "slug": "fundamentals-primitives-and-history-html5",
+            "abstract_markup": "<p><inline type=\"inline_media.picture\" id=\"11\" class=\"inline_mini_right\" />Just gave this talk at W3Conf about some of the innerworkings of HTML5. Lots of did-you-know and cool insight into how browsers work. 37 minutes long.</p>\n<p>I do discuss optional start and end tags as well as not quoting your attributes. I concede that these ideas scare the shit out of people. In fact, when I first heard Jens Meiert propose the idea in 2009 my brain rejected it.</p>"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "Sed augue orci, ultrices egestas lobortis nec, mattis eu metus. In pretium ullamcorper massa, vel pretium est elementum sed. Sed vel nulla hendrerit arcu ullamcorper tincidunt. Integer eu orci nisl. Ut lobortis augue orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere pharetra nulla, vitae euismod purus aliquam in. Curabitur id mauris ipsum, in ullamcorper eros. Vivamus eget massa vel purus fringilla pellentesque ac et purus. Vestibulum pharetra imperdiet mauris eget venenatis. Nulla sapien erat, faucibus et convallis quis, lacinia ut sapien. Nullam elit orci, feugiat sed iaculis a, aliquam sed felis. Donec sagittis facilisis est vel mollis. Donec tincidunt, dolor sit amet fringilla hendrerit, nisl lorem accumsan leo, a pharetra est risus quis leo. Nam vel justo fringilla nisi pharetra dictum.\r\n\r\nNullam leo ipsum, dignissim id feugiat nec, tempus eu enim. Suspendisse nec risus augue, nec pharetra lorem. Quisque convallis dui ac nibh lobortis vitae dictum diam tempor. Suspendisse potenti. Nulla ultrices tempor pharetra. Praesent ut augue a diam interdum blandit. Nulla eu tortor non leo tincidunt semper. Mauris tristique convallis dolor a faucibus. Sed ornare dictum elit, at vestibulum lorem gravida eu. Cras ut lectus nunc. Fusce erat dolor, interdum sed mollis sed, suscipit consequat enim.\r\n\r\nSuspendisse potenti. Donec feugiat lacus id arcu varius faucibus. Quisque tincidunt nisi vel enim iaculis condimentum. Phasellus lobortis eleifend ipsum a sodales. Suspendisse egestas felis vitae eros pulvinar in sodales urna feugiat. Maecenas consectetur elementum laoreet. Praesent suscipit sapien a turpis feugiat luctus. Aliquam dignissim tempor libero ac consequat. Nunc eleifend ipsum quis leo auctor aliquet. Etiam et ipsum turpis, in iaculis est. Suspendisse potenti. Quisque dictum posuere tortor nec imperdiet.\r\n\r\nNam nec sapien vel nisl sodales molestie nec eget lacus. Proin posuere ligula eu massa pellentesque viverra. Suspendisse et interdum est. Maecenas lectus augue, porttitor eget gravida vel, vulputate in sem. Aenean volutpat pulvinar quam a facilisis. Sed eget mauris at nunc sollicitudin vestibulum eget id risus. Pellentesque rutrum nibh non odio laoreet iaculis. Sed diam lectus, mattis ut ultricies nec, porta eget eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ac nunc in lorem tincidunt pharetra.",
+            "title": "Sixth episode, the Lorem Ipsum",
+            "markup": "markdown",
+            "tags": "crap microsoft",
+            "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non metus dui. Suspendisse sapien urna, rutrum ac congue ullamcorper, ullamcorper eget tortor. Nulla sed leo vel ante sodales pharetra. Nam tincidunt auctor est id auctor. Ut varius nulla vitae nibh molestie a ultrices lectus tincidunt. Aliquam porta vehicula quam, vitae suscipit tellus accumsan id. Sed interdum leo in leo eleifend sit amet molestie augue feugiat. Nulla venenatis bibendum orci vitae ultricies. Donec cursus consequat augue.",
+            "body_markup": "<p>Sed augue orci, ultrices egestas lobortis nec, mattis eu metus. In pretium ullamcorper massa, vel pretium est elementum sed. Sed vel nulla hendrerit arcu ullamcorper tincidunt. Integer eu orci nisl. Ut lobortis augue orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere pharetra nulla, vitae euismod purus aliquam in. Curabitur id mauris ipsum, in ullamcorper eros. Vivamus eget massa vel purus fringilla pellentesque ac et purus. Vestibulum pharetra imperdiet mauris eget venenatis. Nulla sapien erat, faucibus et convallis quis, lacinia ut sapien. Nullam elit orci, feugiat sed iaculis a, aliquam sed felis. Donec sagittis facilisis est vel mollis. Donec tincidunt, dolor sit amet fringilla hendrerit, nisl lorem accumsan leo, a pharetra est risus quis leo. Nam vel justo fringilla nisi pharetra dictum.</p>\n<p>Nullam leo ipsum, dignissim id feugiat nec, tempus eu enim. Suspendisse nec risus augue, nec pharetra lorem. Quisque convallis dui ac nibh lobortis vitae dictum diam tempor. Suspendisse potenti. Nulla ultrices tempor pharetra. Praesent ut augue a diam interdum blandit. Nulla eu tortor non leo tincidunt semper. Mauris tristique convallis dolor a faucibus. Sed ornare dictum elit, at vestibulum lorem gravida eu. Cras ut lectus nunc. Fusce erat dolor, interdum sed mollis sed, suscipit consequat enim.</p>\n<p>Suspendisse potenti. Donec feugiat lacus id arcu varius faucibus. Quisque tincidunt nisi vel enim iaculis condimentum. Phasellus lobortis eleifend ipsum a sodales. Suspendisse egestas felis vitae eros pulvinar in sodales urna feugiat. Maecenas consectetur elementum laoreet. Praesent suscipit sapien a turpis feugiat luctus. Aliquam dignissim tempor libero ac consequat. Nunc eleifend ipsum quis leo auctor aliquet. Etiam et ipsum turpis, in iaculis est. Suspendisse potenti. Quisque dictum posuere tortor nec imperdiet.</p>\n<p>Nam nec sapien vel nisl sodales molestie nec eget lacus. Proin posuere ligula eu massa pellentesque viverra. Suspendisse et interdum est. Maecenas lectus augue, porttitor eget gravida vel, vulputate in sem. Aenean volutpat pulvinar quam a facilisis. Sed eget mauris at nunc sollicitudin vestibulum eget id risus. Pellentesque rutrum nibh non odio laoreet iaculis. Sed diam lectus, mattis ut ultricies nec, porta eget eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ac nunc in lorem tincidunt pharetra.</p>",
+            "slug": "sixth-episode-lorem-ipsum",
+            "abstract_markup": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non metus dui. Suspendisse sapien urna, rutrum ac congue ullamcorper, ullamcorper eget tortor. Nulla sed leo vel ante sodales pharetra. Nam tincidunt auctor est id auctor. Ut varius nulla vitae nibh molestie a ultrices lectus tincidunt. Aliquam porta vehicula quam, vitae suscipit tellus accumsan id. Sed interdum leo in leo eleifend sit amet molestie augue feugiat. Nulla venenatis bibendum orci vitae ultricies. Donec cursus consequat augue.</p>"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "Knight Rider, a shadowy flight into the dangerous world of a man who does not exist. Michael Knight, a young loner on a crusade to champion the cause of the innocent, the helpless in a world of criminals who operate above the law.\r\n\r\n<inline type=\"inline_media.pictureset\" id=\"1\" class=\"inline_full\" />\r\n\r\nJust the good ol' boys, never meanin' no harm. Beats all you've ever saw, been in trouble with the law since the day they was born. Straight'nin' the curve, flat'nin' the hills. Someday the mountain might get 'em, but the law never will. Makin' their way, the only way they know how, that's just a little bit more than the law will allow. Just good ol' boys, wouldn't change if they could, fightin' the system like a true modern day Robin Hood.\r\n\r\nChildren of the sun, see your time has just begun, searching for your ways, through adventures every day. Every day and night, with the condor in flight, with all your friends in tow, you search for the Cities of Gold. Ah-ah-ah-ah-ah... wishing for The Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold. Do-do-do-do ah-ah-ah, do-do-do-do, Cities of Gold. Do-do-do-do, Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold.\r\n",
+            "title": "3rd episode, when courage is needed",
+            "markup": "markdown",
+            "tags": "apple bullshit foo",
+            "abstract": "<inline type=\"inline_media.pictureset\" id=\"1\" class=\"inline_mini_right\" />Mutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.\r\n",
+            "body_markup": "<p>Knight Rider, a shadowy flight into the dangerous world of a man who does not exist. Michael Knight, a young loner on a crusade to champion the cause of the innocent, the helpless in a world of criminals who operate above the law.</p>\n<p><inline type=\"inline_media.pictureset\" id=\"1\" class=\"inline_full\" /></p>\n<p>Just the good ol' boys, never meanin' no harm. Beats all you've ever saw, been in trouble with the law since the day they was born. Straight'nin' the curve, flat'nin' the hills. Someday the mountain might get 'em, but the law never will. Makin' their way, the only way they know how, that's just a little bit more than the law will allow. Just good ol' boys, wouldn't change if they could, fightin' the system like a true modern day Robin Hood.</p>\n<p>Children of the sun, see your time has just begun, searching for your ways, through adventures every day. Every day and night, with the condor in flight, with all your friends in tow, you search for the Cities of Gold. Ah-ah-ah-ah-ah... wishing for The Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold. Do-do-do-do ah-ah-ah, do-do-do-do, Cities of Gold. Do-do-do-do, Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold.</p>",
+            "slug": "3rd-episode-when-courage-needed",
+            "abstract_markup": "<p><inline type=\"inline_media.pictureset\" id=\"1\" class=\"inline_mini_right\" />Mutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.</p>"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "This is my boss, Jonathan Hart, a self-made millionaire, he's quite a guy. This is Mrs H., she's gorgeous, she's one lady who knows how to take care of herself. By the way, my name is Max. I take care of both of them, which ain't easy, 'cause when they met it was MURDER!\r\n\r\n80 days around the world, we'll find a pot of gold just sitting where the rainbow's ending. Time - we'll fight against the time, and we'll fly on the white wings of the wind. 80 days around the world, no we won't say a word before the ship is really back. Round, round, all around the world. Round, all around the world. Round, all around the world. Round, all around the world.\r\n\r\nHong Kong Phooey, number one super guy. Hong Kong Phooey, quicker than the human eye. He's got style, a groovy style, and a car that just won't stop. When the going gets tough, he's really rough, with a Hong Kong Phooey chop (Hi-Ya!). Hong Kong Phooey, number one super guy. Hong Kong Phooey, quicker than the human eye. Hong Kong Phooey, he's fan-riffic!",
+            "title": "He's got style, a groovy style",
+            "markup": "markdown",
+            "tags": "bullshit lunatics",
+            "abstract": "Just the good ol' boys, never meanin' no harm. Beats all you've ever saw, been in trouble with the law since the day they was born. Straight'nin' the curve, flat'nin' the hills. Someday the mountain might get 'em, but the law never will. Makin' their way, the only way they know how, that's just a little bit more than the law will allow. Just good ol' boys, wouldn't change if they could, fightin' the system like a true modern day Robin Hood.",
+            "body_markup": "<p>This is my boss, Jonathan Hart, a self-made millionaire, he's quite a guy. This is Mrs H., she's gorgeous, she's one lady who knows how to take care of herself. By the way, my name is Max. I take care of both of them, which ain't easy, 'cause when they met it was MURDER!</p>\n<p>80 days around the world, we'll find a pot of gold just sitting where the rainbow's ending. Time - we'll fight against the time, and we'll fly on the white wings of the wind. 80 days around the world, no we won't say a word before the ship is really back. Round, round, all around the world. Round, all around the world. Round, all around the world. Round, all around the world.</p>\n<p>Hong Kong Phooey, number one super guy. Hong Kong Phooey, quicker than the human eye. He's got style, a groovy style, and a car that just won't stop. When the going gets tough, he's really rough, with a Hong Kong Phooey chop (Hi-Ya!). Hong Kong Phooey, number one super guy. Hong Kong Phooey, quicker than the human eye. Hong Kong Phooey, he's fan-riffic!</p>",
+            "slug": "hes-got-style-groovy-style",
+            "abstract_markup": "<p>Just the good ol' boys, never meanin' no harm. Beats all you've ever saw, been in trouble with the law since the day they was born. Straight'nin' the curve, flat'nin' the hills. Someday the mountain might get 'em, but the law never will. Makin' their way, the only way they know how, that's just a little bit more than the law will allow. Just good ol' boys, wouldn't change if they could, fightin' the system like a true modern day Robin Hood.</p>"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "<inline type=\"inline_media.picture\" id=\"7\" class=\"inline_medium_right\" />Welcome to the Ubuntu Weekly Newsletter. This is issue #254 for the week February 20 \u2013 26, 2012, and the full version is available here.\r\n\r\nIn this issue we cover:\r\n\r\n* [Sound theme results](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Sound_theme_results)\r\n* [Ubuntu in your pocket](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Ubuntu_in_your_pocket)\r\n* [Ubuntu 12.04 Countdown banner competition](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Ubuntu_12.04_Countdown_banner_competition)\r\n* [Ubuntu 12.04 Development Update](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Ubuntu_12.04_Development_Update)\r\n* [Awesome Unity Contributions](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Awesome_Unity_Contributions)\r\n* [We had a great Fix-It Friday!](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#We_had_a_great_Fix-It_Friday.21)\r\n* [Ubuntu Stats](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Ubuntu_Stats)\r\n* [LoCo News](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#LoCo_News)\r\n* [Launchpad News](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Launchpad_News)\r\n* [Openstack on Precise Pangolin Christmas is over](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Openstack_on_Precise_Pangolin_Christmas_is_over)\r\n* [Daniel Holbach: Making Ubuntu development more personal](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Daniel_Holbach:_Making_Ubuntu_development_more_personal)\r\n* [Brian Murray: Where are the bugs?](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Brian_Murray:_Where_are_the_bugs.3F)\r\n* [Michael Hall: Swimming Upstream: What to do next with your Quicklists](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Michael_Hall:_Swimming_Upstream:_What_to_do_next_with_your_Quicklists)\r\n* [Stephane Graber: DNS in Ubuntu 12.04](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#St.2BAOk-phane_Graber:_DNS_in_Ubuntu_12.04)\r\n* [Ubuntu\u2019s full desktop OS coming to multi-core Android devices](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Ubuntu.27s_full_desktop_OS_coming_to_multi-core_Android_devices)\r\n* [In The Blogosphere](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#In_The_Blogosphere)\r\n* [In Other News](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#In_Other_News)\r\n* [Other Articles of Interest](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Other_Articles_of_Interest)\r\n* [Weekly Ubuntu Development Team Meetings](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Weekly_Ubuntu_Development_Team_Meetings)\r\n* [Weekly Official Ubuntu Flavors Team Meetings](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Weekly_Official_Ubuntu_Flavors_Team_Meetings)\r\n* [Upcoming Meetings and Events](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Upcoming_Meetings_and_Events)\r\n* [Updates and Security for 8.04, 10.04, 10.10, 11.04 and 11.10](https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Updates_and_Security_for_8.04.2C_10.04.2C_10.10.2C_11.04_and_11.10)\r\n* And much more!\r\n\r\nThe issue of The Ubuntu Weekly Newsletter is brought to you by:\r\n\r\n* Elizabeth Krumbach\r\n* Benjamin Kerensa\r\n* And many others\r\n\r\nIf you have a story idea for the Weekly Newsletter, join the [Ubuntu News Team mailing list](https://lists.ubuntu.com/mailman/listinfo/Ubuntu-news-team) and submit it. Ideas can also be added to the wiki!\r\n\r\n<inline type=\"inline_media.picture\" id=\"6\" class=\"inline_full_left\" />Except where otherwise noted, content in this issue is licensed under a Creative Commons Attribution 3.0 License BY SA Creative Commons License.\r\n\r\nOriginal story posted here: [ubuntu-weekly-newsletter-issue-254](http://fridge.ubuntu.com/2012/02/28/ubuntu-weekly-newsletter-issue-254/)",
+            "title": "Ubuntu Weekly Newsletter Issue 254",
+            "markup": "markdown",
+            "tags": "linux supertrooper ubuntu",
+            "abstract": "<inline type=\"inline_media.picture\" id=\"5\" class=\"inline_mini_right\" />Welcome to the Ubuntu Weekly Newsletter, Issue 254 for the week February 20 - 26, 2012. In This Issue: Sound theme results, Ubuntu in your pocket, Ubuntu 12.04 Countdown banner competition, Ubuntu 12.04 Development Update, Awesome Unity Contributions, We had a great Fix-It Friday, Ubuntu Stats, LoCo News, Launchpad News, Openstack on Precise Pangolin Christmas is over, Making Ubuntu development more personal, Where are the bugs, Swimming Upstream, DNS in Ubuntu 12.04 and much more!",
+            "body_markup": "<p><inline type=\"inline_media.picture\" id=\"7\" class=\"inline_medium_right\" />Welcome to the Ubuntu Weekly Newsletter. This is issue #254 for the week February 20 \u2013 26, 2012, and the full version is available here.</p>\n<p>In this issue we cover:</p>\n<ul>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Sound_theme_results\">Sound theme results</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Ubuntu_in_your_pocket\">Ubuntu in your pocket</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Ubuntu_12.04_Countdown_banner_competition\">Ubuntu 12.04 Countdown banner competition</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Ubuntu_12.04_Development_Update\">Ubuntu 12.04 Development Update</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Awesome_Unity_Contributions\">Awesome Unity Contributions</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#We_had_a_great_Fix-It_Friday.21\">We had a great Fix-It Friday!</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Ubuntu_Stats\">Ubuntu Stats</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#LoCo_News\">LoCo News</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Launchpad_News\">Launchpad News</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Openstack_on_Precise_Pangolin_Christmas_is_over\">Openstack on Precise Pangolin Christmas is over</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Daniel_Holbach:_Making_Ubuntu_development_more_personal\">Daniel Holbach: Making Ubuntu development more personal</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Brian_Murray:_Where_are_the_bugs.3F\">Brian Murray: Where are the bugs?</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Michael_Hall:_Swimming_Upstream:_What_to_do_next_with_your_Quicklists\">Michael Hall: Swimming Upstream: What to do next with your Quicklists</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#St.2BAOk-phane_Graber:_DNS_in_Ubuntu_12.04\">Stephane Graber: DNS in Ubuntu 12.04</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Ubuntu.27s_full_desktop_OS_coming_to_multi-core_Android_devices\">Ubuntu\u2019s full desktop OS coming to multi-core Android devices</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#In_The_Blogosphere\">In The Blogosphere</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#In_Other_News\">In Other News</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Other_Articles_of_Interest\">Other Articles of Interest</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Weekly_Ubuntu_Development_Team_Meetings\">Weekly Ubuntu Development Team Meetings</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Weekly_Official_Ubuntu_Flavors_Team_Meetings\">Weekly Official Ubuntu Flavors Team Meetings</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Upcoming_Meetings_and_Events\">Upcoming Meetings and Events</a></li>\n<li><a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/Issue254#Updates_and_Security_for_8.04.2C_10.04.2C_10.10.2C_11.04_and_11.10\">Updates and Security for 8.04, 10.04, 10.10, 11.04 and 11.10</a></li>\n<li>And much more!</li>\n</ul>\n<p>The issue of The Ubuntu Weekly Newsletter is brought to you by:</p>\n<ul>\n<li>Elizabeth Krumbach</li>\n<li>Benjamin Kerensa</li>\n<li>And many others</li>\n</ul>\n<p>If you have a story idea for the Weekly Newsletter, join the <a href=\"https://lists.ubuntu.com/mailman/listinfo/Ubuntu-news-team\">Ubuntu News Team mailing list</a> and submit it. Ideas can also be added to the wiki!</p>\n<p><inline type=\"inline_media.picture\" id=\"6\" class=\"inline_full_left\" />Except where otherwise noted, content in this issue is licensed under a Creative Commons Attribution 3.0 License BY SA Creative Commons License.</p>\n<p>Original story posted here: <a href=\"http://fridge.ubuntu.com/2012/02/28/ubuntu-weekly-newsletter-issue-254/\">ubuntu-weekly-newsletter-issue-254</a></p>",
+            "slug": "ubuntu-weekly-newsletter-issue-254",
+            "abstract_markup": "<p><inline type=\"inline_media.picture\" id=\"5\" class=\"inline_mini_right\" />Welcome to the Ubuntu Weekly Newsletter, Issue 254 for the week February 20 - 26, 2012. In This Issue: Sound theme results, Ubuntu in your pocket, Ubuntu 12.04 Countdown banner competition, Ubuntu 12.04 Development Update, Awesome Unity Contributions, We had a great Fix-It Friday, Ubuntu Stats, LoCo News, Launchpad News, Openstack on Precise Pangolin Christmas is over, Making Ubuntu development more personal, Where are the bugs, Swimming Upstream, DNS in Ubuntu 12.04 and much more!</p>"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "Barnaby The Bear's my name, never call me Jack or James, I will sing my way to fame, Barnaby the Bear's my name. Birds taught me to sing, when they took me to their king, first I had to fly, in the sky so high so high, so high so high so high, so - if you want to sing this way, think of what you'd like to say, add a tune and you will see, just how easy it can be. Treacle pudding, fish and chips, fizzy drinks and liquorice, flowers, rivers, sand and sea, snowflakes and the stars are free. La la la la la, la la la la la la la, la la la la la la la, la la la la la la la la la la la la la, so - Barnaby The Bear's my name, never call me Jack or James, I will sing my way to fame, Barnaby the Bear's my name.\r\n\r\nTen years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.\r\n\r\nI never spend much time in school but I taught ladies plenty. It's true I hire my body out for pay, hey hey. I've gotten burned over Cheryl Tiegs, blown up for Raquel Welch. But when I end up in the hay it's only hay, hey hey. I might jump an open drawbridge, or Tarzan from a vine. 'Cause I'm the unknown stuntman that makes Eastwood look so fine.",
+            "title": "Birds taught me to sing",
+            "markup": "markdown",
+            "tags": "bazaar foo tralara",
+            "abstract": "Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.",
+            "body_markup": "<p>Barnaby The Bear's my name, never call me Jack or James, I will sing my way to fame, Barnaby the Bear's my name. Birds taught me to sing, when they took me to their king, first I had to fly, in the sky so high so high, so high so high so high, so - if you want to sing this way, think of what you'd like to say, add a tune and you will see, just how easy it can be. Treacle pudding, fish and chips, fizzy drinks and liquorice, flowers, rivers, sand and sea, snowflakes and the stars are free. La la la la la, la la la la la la la, la la la la la la la, la la la la la la la la la la la la la, so - Barnaby The Bear's my name, never call me Jack or James, I will sing my way to fame, Barnaby the Bear's my name.</p>\n<p>Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.</p>\n<p>I never spend much time in school but I taught ladies plenty. It's true I hire my body out for pay, hey hey. I've gotten burned over Cheryl Tiegs, blown up for Raquel Welch. But when I end up in the hay it's only hay, hey hey. I might jump an open drawbridge, or Tarzan from a vine. 'Cause I'm the unknown stuntman that makes Eastwood look so fine.</p>",
+            "slug": "birds-taught-me-sing",
+            "abstract_markup": "<p>Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.</p>"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "80 days around the world, we'll find a pot of gold just sitting where the rainbow's ending. Time - we'll fight against the time, and we'll fly on the white wings of the wind. 80 days around the world, no we won't say a word before the ship is really back. Round, round, all around the world. Round, all around the world. Round, all around the world. Round, all around the world.\r\n\r\nMutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.\r\n\r\nChildren of the sun, see your time has just begun, searching for your ways, through adventures every day. Every day and night, with the condor in flight, with all your friends in tow, you search for the Cities of Gold. Ah-ah-ah-ah-ah... wishing for The Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold. Do-do-do-do ah-ah-ah, do-do-do-do, Cities of Gold. Do-do-do-do, Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold.\r\n\r\nJust the good ol' boys, never meanin' no harm. Beats all you've ever saw, been in trouble with the law since the day they was born. Straight'nin' the curve, flat'nin' the hills. Someday the mountain might get 'em, but the law never will. Makin' their way, the only way they know how, that's just a little bit more than the law will allow. Just good ol' boys, wouldn't change if they could, fightin' the system like a true modern day Robin Hood.",
+            "title": "The classical second episode",
+            "markup": "markdown",
+            "tags": "android coolstuff linux",
+            "abstract": "I never spend much time in school but I taught ladies plenty. It's true I hire my body out for pay, hey hey. I've gotten burned over Cheryl Tiegs, blown up for Raquel Welch. But when I end up in the hay it's only hay, hey hey. I might jump an open drawbridge, or Tarzan from a vine. 'Cause I'm the unknown stuntman that makes Eastwood look so fine.",
+            "body_markup": "<p>80 days around the world, we'll find a pot of gold just sitting where the rainbow's ending. Time - we'll fight against the time, and we'll fly on the white wings of the wind. 80 days around the world, no we won't say a word before the ship is really back. Round, round, all around the world. Round, all around the world. Round, all around the world. Round, all around the world.</p>\n<p>Mutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.</p>\n<p>Children of the sun, see your time has just begun, searching for your ways, through adventures every day. Every day and night, with the condor in flight, with all your friends in tow, you search for the Cities of Gold. Ah-ah-ah-ah-ah... wishing for The Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold. Do-do-do-do ah-ah-ah, do-do-do-do, Cities of Gold. Do-do-do-do, Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold.</p>\n<p>Just the good ol' boys, never meanin' no harm. Beats all you've ever saw, been in trouble with the law since the day they was born. Straight'nin' the curve, flat'nin' the hills. Someday the mountain might get 'em, but the law never will. Makin' their way, the only way they know how, that's just a little bit more than the law will allow. Just good ol' boys, wouldn't change if they could, fightin' the system like a true modern day Robin Hood.</p>",
+            "slug": "classical-second-episode",
+            "abstract_markup": "<p>I never spend much time in school but I taught ladies plenty. It's true I hire my body out for pay, hey hey. I've gotten burned over Cheryl Tiegs, blown up for Raquel Welch. But when I end up in the hay it's only hay, hey hey. I might jump an open drawbridge, or Tarzan from a vine. 'Cause I'm the unknown stuntman that makes Eastwood look so fine.</p>"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "Children of the sun, see your time has just begun, searching for your ways, through adventures every day. Every day and night, with the condor in flight, with all your friends in tow, you search for the Cities of Gold. Ah-ah-ah-ah-ah... wishing for The Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold. Do-do-do-do ah-ah-ah, do-do-do-do, Cities of Gold. Do-do-do-do, Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold.\r\n\r\nThere's a voice that keeps on calling me. Down the road, that's where I'll always be. Every stop I make, I make a new friend. Can't stay for long, just turn around and I'm gone again. Maybe tomorrow, I'll want to settle down, Until tomorrow, I'll just keep moving on.\r\n\r\nThunder, thunder, thundercats, Ho! Thundercats are on the move, Thundercats are loose. Feel the magic, hear the roar, Thundercats are loose. Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thundercats!\r\n\r\nKnight Rider, a shadowy flight into the dangerous world of a man who does not exist. Michael Knight, a young loner on a crusade to champion the cause of the innocent, the helpless in a world of criminals who operate above the law.",
+            "title": "A first example story",
+            "markup": "markdown",
+            "tags": "android bar bogus foo nexus tablet",
+            "abstract": "Ulysses, Ulysses - Soaring through all the galaxies. In search of Earth, flying in to the night. Ulysses, Ulysses - Fighting evil and tyranny, with all his power, and with all of his might. Ulysses - no-one else can do the things you do. Ulysses - like a bolt of thunder from the blue. Ulysses - always fighting all the evil forces bringing peace and justice to all.",
+            "body_markup": "<p>Children of the sun, see your time has just begun, searching for your ways, through adventures every day. Every day and night, with the condor in flight, with all your friends in tow, you search for the Cities of Gold. Ah-ah-ah-ah-ah... wishing for The Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold. Do-do-do-do ah-ah-ah, do-do-do-do, Cities of Gold. Do-do-do-do, Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold.</p>\n<p>There's a voice that keeps on calling me. Down the road, that's where I'll always be. Every stop I make, I make a new friend. Can't stay for long, just turn around and I'm gone again. Maybe tomorrow, I'll want to settle down, Until tomorrow, I'll just keep moving on.</p>\n<p>Thunder, thunder, thundercats, Ho! Thundercats are on the move, Thundercats are loose. Feel the magic, hear the roar, Thundercats are loose. Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thundercats!</p>\n<p>Knight Rider, a shadowy flight into the dangerous world of a man who does not exist. Michael Knight, a young loner on a crusade to champion the cause of the innocent, the helpless in a world of criminals who operate above the law.</p>",
+            "slug": "first-example-story",
+            "abstract_markup": "<p>Ulysses, Ulysses - Soaring through all the galaxies. In search of Earth, flying in to the night. Ulysses, Ulysses - Fighting evil and tyranny, with all his power, and with all of his might. Ulysses - no-one else can do the things you do. Ulysses - like a bolt of thunder from the blue. Ulysses - always fighting all the evil forces bringing peace and justice to all.</p>"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "dress_blog.diary",
+        "fields": {
+            "pub_date": "2012-04-06"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "dress_blog.diary",
+        "fields": {
+            "pub_date": "2012-02-09"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "dress_blog.diarydetail",
+        "fields": {
+            "body": "Tables, chairs, boards, sofas, computers, folders and papers are already here. We just need to put them in the right position. Then we will go for lunch to a biergarten. Sun is shinning now, and the weekend's going to be one of the hottest since Winter.",
+            "body_markup": "<p>Tables, chairs, boards, sofas, computers, folders and papers are already here. We just need to put them in the right position. Then we will go for lunch to a biergarten. Sun is shinning now, and the weekend's going to be one of the hottest since Winter.</p>",
+            "markup": "markdown",
+            "diary": 2,
+            "tags": ""
+        }
+    },
+    {
+        "pk": 22,
+        "model": "dress_blog.diarydetail",
+        "fields": {
+            "body": "Today we move to our new office in Munich, in Landshuter Allee. The street is a bit noise, but in the office  can't here a fly. We have been planning this for a few months and today's becoming truth. Plenty of space for all of us. And more important, we all are looking forward to settle there and start new projects.",
+            "body_markup": "<p>Today we move to our new office in Munich, in Landshuter Allee. The street is a bit noise, but in the office  can't here a fly. We have been planning this for a few months and today's becoming truth. Plenty of space for all of us. And more important, we all are looking forward to settle there and start new projects.</p>",
+            "markup": "markdown",
+            "diary": 2,
+            "tags": "office"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "dress_blog.diarydetail",
+        "fields": {
+            "body": "A lot of excitement in the last 24 hours. Have to recharge my batteries for a couple of hours. Life's changed in just a day. Need to sleep on it. Loving the feelings.",
+            "body_markup": "<p>A lot of excitement in the last 24 hours. Have to recharge my batteries for a couple of hours. Life's changed in just a day. Need to sleep on it. Loving the feelings.</p>",
+            "markup": "markdown",
+            "diary": 1,
+            "tags": "family"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "dress_blog.diarydetail",
+        "fields": {
+            "body": "Edu's here, just born, about one hour ago. :)",
+            "body_markup": "<p>Edu's here, just born, about one hour ago. :)</p>",
+            "markup": "markdown",
+            "diary": 1,
+            "tags": "family"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "dress_blog.quote",
+        "fields": {
+            "body": "Global institutional parties, like the UN Committee on Science and Technology, seem to be on the way to destroy the beauty of Internet, as Mr. Cerf states:\r\n\r\n> We don\u2019t believe governments should be allowed to grant themselves a monopoly on Internet governance. The current bottoms-up, open approach works\u2014protecting users from vested interests and enabling rapid innovation. Let\u2019s fight to keep it that way.",
+            "title": "Monopoly on Internet Governance",
+            "markup": "markdown",
+            "url_source": "http://googlepublicpolicy.blogspot.com/2010/12/governments-shouldnt-have-monopoly-on.html",
+            "body_markup": "<p>Global institutional parties, like the UN Committee on Science and Technology, seem to be on the way to destroy the beauty of Internet, as Mr. Cerf states:</p>\n<blockquote>\n<p>We don\u2019t believe governments should be allowed to grant themselves a monopoly on Internet governance. The current bottoms-up, open approach works\u2014protecting users from vested interests and enabling rapid innovation. Let\u2019s fight to keep it that way.</p>\n</blockquote>",
+            "quote_author": "Vinton Cerf",
+            "slug": "monopoly-internet-governance",
+            "tags": "freedom"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "dress_blog.quote",
+        "fields": {
+            "body": "> I don't know why he saved my life. Maybe in those last moments he loved life more than he ever had before. Not just his life - anybody's life; my life. All he'd wanted were the same answers the rest of us want. Where did I come from? Where am I going? How long have I got? All I could do was sit there and watch him die.",
+            "title": "The same answers",
+            "markup": "markdown",
+            "url_source": "http://www.imdb.com/title/tt0083658/quotes?qt=qt0378247",
+            "body_markup": "<blockquote>\n<p>I don't know why he saved my life. Maybe in those last moments he loved life more than he ever had before. Not just his life - anybody's life; my life. All he'd wanted were the same answers the rest of us want. Where did I come from? Where am I going? How long have I got? All I could do was sit there and watch him die.</p>\n</blockquote>",
+            "quote_author": "Deckard",
+            "slug": "same-answers",
+            "tags": "movies scifi"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "dress_blog.quote",
+        "fields": {
+            "body": "> Power is no longer concentrated in institutions (the state), organizations (capitalist firms), or symbolic controllers (corporate media, churches). It is diffused in global networks of wealth, power, information and images, which circulate and transmute in a system of variable geometry and dematerialized geography. Yet it does not disappear.",
+            "title": "About Power in The Information Age",
+            "markup": "markdown",
+            "url_source": "http://books.google.co.uk/books?id=l9asXV40MegC&lpg=PT334&ots=ndh6lq6F2I&dq=Power%20is%20no%20longer%20concentrated%20in%20institutions%20(the%20state)%2C%20organizations%20(capitalist%20firms)%2C%20o",
+            "body_markup": "<blockquote>\n<p>Power is no longer concentrated in institutions (the state), organizations (capitalist firms), or symbolic controllers (corporate media, churches). It is diffused in global networks of wealth, power, information and images, which circulate and transmute in a system of variable geometry and dematerialized geography. Yet it does not disappear.</p>\n</blockquote>",
+            "quote_author": "Manuel Castells",
+            "slug": "about-power-information-age",
+            "tags": "sociology"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "dress_blog.quote",
+        "fields": {
+            "body": "The renowned astrophysicist explores some of the most remarkable advancements in technology and health with the new U.K.-Canadian series Brave New World With Stephen Hawking, debuting on Discovery World HD.\r\n\r\n> Our population and our use of the finite resources of planet Earth are growing exponentially, along with our technical ability to change the environment for good or ill. But our genetic code still carries the selfish and aggressive instincts that were of survival advantage in the past. It will be difficult enough to avoid disaster in the next hundred years, let alone the next thousand or million.\r\n>\r\n> Our only chance of long-term survival is not to remain lurking on planet Earth, but to spread out into space.\r\n\r\n",
+            "title": "Space is our only hope",
+            "markup": "markdown",
+            "url_source": "http://www.winnipegfreepress.com/canada/space-is-our-only-hope-says-hawking-134168658.html",
+            "body_markup": "<p>The renowned astrophysicist explores some of the most remarkable advancements in technology and health with the new U.K.-Canadian series Brave New World With Stephen Hawking, debuting on Discovery World HD.</p>\n<blockquote>\n<p>Our population and our use of the finite resources of planet Earth are growing exponentially, along with our technical ability to change the environment for good or ill. But our genetic code still carries the selfish and aggressive instincts that were of survival advantage in the past. It will be difficult enough to avoid disaster in the next hundred years, let alone the next thousand or million.</p>\n<p>Our only chance of long-term survival is not to remain lurking on planet Earth, but to spread out into space.</p>\n</blockquote>",
+            "quote_author": "Stephen Hawking",
+            "slug": "space-our-only-hope",
+            "tags": "science"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "dress_blog.quote",
+        "fields": {
+            "body": "On removing IE 6, 7, and/or 8 support from Jquery:\r\n\r\n> Most of the problems in IE 6 and IE 7 are also present in IE 8, so there is no real size or complexity benefit to dropping support for the first two as long as that last one still has appreciable desktop market share and must be supported. Nobody (including Microsoft itself) likes these Jurassic Park browsers, but stripping out support for them right now would break web sites for many users.",
+            "title": "On Jquery support for IE",
+            "markup": "markdown",
+            "url_source": "http://blog.jquery.com/2011/11/22/call-for-jquery-1-8-ideas/",
+            "body_markup": "<p>On removing IE 6, 7, and/or 8 support from Jquery:</p>\n<blockquote>\n<p>Most of the problems in IE 6 and IE 7 are also present in IE 8, so there is no real size or complexity benefit to dropping support for the first two as long as that last one still has appreciable desktop market share and must be supported. Nobody (including Microsoft itself) likes these Jurassic Park browsers, but stripping out support for them right now would break web sites for many users.</p>\n</blockquote>",
+            "quote_author": "Dave Methvin",
+            "slug": "jquery-support-ie",
+            "tags": ""
+        }
+    },
+    {
+        "pk": 14,
+        "model": "dress_blog.quote",
+        "fields": {
+            "body": "Few ephemeral words to sell the true reality, yet you can believe it or not, red or blue.\r\n\r\n> This is your last chance. After this, there is no turning back. You take the blue pill - the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill - you stay in Wonderland and I show you how deep the rabbit-hole goes.\r\n\r\nI am almost certain my red pills are actually blue for the rest of you. And in the other way round too.",
+            "title": "How real is Alice?",
+            "markup": "markdown",
+            "url_source": "",
+            "body_markup": "<p>Few ephemeral words to sell the true reality, yet you can believe it or not, red or blue.</p>\n<blockquote>\n<p>This is your last chance. After this, there is no turning back. You take the blue pill - the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill - you stay in Wonderland and I show you how deep the rabbit-hole goes.</p>\n</blockquote>\n<p>I am almost certain my red pills are actually blue for the rest of you. And in the other way round too.</p>",
+            "quote_author": "Morpheus",
+            "slug": "how-real-alice",
+            "tags": "movies scifi"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "dress_blog.quote",
+        "fields": {
+            "body": "> I don't know half of you half as well as I should like, and I like less than half of you half as well as you deserve.",
+            "title": "Bilbo's wordplay",
+            "markup": "markdown",
+            "url_source": "",
+            "body_markup": "<blockquote>\n<p>I don't know half of you half as well as I should like, and I like less than half of you half as well as you deserve.</p>\n</blockquote>",
+            "quote_author": "J. R. R. Tolkien",
+            "slug": "bilbos-wordplay",
+            "tags": "literature scifi"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://adam.gomaa.us/blog/",
+            "sort_order": 0,
+            "name": "204 No Content",
+            "authors": "Adam Gomaa"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://amix.dk/",
+            "sort_order": 0,
+            "name": "amix the lucky stiff",
+            "authors": "Amir Salihefendic"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://antirez.com/",
+            "sort_order": 0,
+            "name": "antirez weblog",
+            "authors": "Salvatore Sanfilippo"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.dabeaz.com/blog.html",
+            "sort_order": 0,
+            "name": "DaBeaz LLC, Blog",
+            "authors": "David Beazley"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://danbri.org/words/",
+            "sort_order": 0,
+            "name": "danbri's foaf stories - An occasional blog",
+            "authors": "Dan Brickley"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.clemesha.org/",
+            "sort_order": 0,
+            "name": "electronic.habitat : alex.clemesha",
+            "authors": "Alex Clemesha"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://michaeltrier.com/",
+            "sort_order": 0,
+            "name": "Empty Thoughts",
+            "authors": "Michael Trier"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://blog.dscpl.com.au/",
+            "sort_order": 0,
+            "name": "Graham Dumpleton",
+            "authors": "Graham Dumpleton"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://howtonode.org/",
+            "sort_order": 0,
+            "name": "How To Node - NodeJS",
+            "authors": "Guillermo Rauch, Matthew Eernisse, Matt Ranney, Phil Crosby, Tim Caswell, Tom Van Cutsem, James R. Bracy, Geoff Flarity, Isaac Z. Schlueter, Nathan Stott, Kishore Nallan, Nuno Job, Vojta Jina, Srirangan"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://blog.ianbicking.org/",
+            "sort_order": 0,
+            "name": "Ian Bicking: a blog",
+            "authors": "Ian Bicking"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://jacobian.org/",
+            "sort_order": 0,
+            "name": "Jacob Kaplan-Moss",
+            "authors": "Jacob Kaplan-Moss"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://kylefuller.co.uk/",
+            "sort_order": 0,
+            "name": "Kyle Fuller",
+            "authors": "Kyle Fuller"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.markshuttleworth.com/",
+            "sort_order": 0,
+            "name": "Mark Shuttleworth",
+            "authors": "Mark Shuttleworth"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://mislav.uniqpath.com/blog/",
+            "sort_order": 0,
+            "name": "Mislav's blog",
+            "authors": "Mislav Marohni\u0107"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://blog.montylounge.com/",
+            "sort_order": 0,
+            "name": "Monty Lounge Blog",
+            "authors": "Kevin Fricovsky"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://neopythonic.blogspot.com/",
+            "sort_order": 0,
+            "name": "Neopythonic",
+            "authors": "Guido van Rossum"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://blog.osbutler.com/",
+            "sort_order": 0,
+            "name": "OSButler.com",
+            "authors": "Hendrik Daldrup"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.paulgraham.com/index.html",
+            "sort_order": 0,
+            "name": "Paul Graham",
+            "authors": "Paul Graham"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "https://stpeter.im/journal/",
+            "sort_order": 0,
+            "name": "Peter Saint-Andre: Journal",
+            "authors": "Peter Saint-Andre"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://pydanny.github.com/",
+            "sort_order": 0,
+            "name": "pydanny",
+            "authors": "Daniel Greenfeld"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://simonwillison.net/",
+            "sort_order": 0,
+            "name": "Simon Willison\u2019s Weblog",
+            "authors": "Simon Willison"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://dancingpenguinsoflight.com/",
+            "sort_order": 0,
+            "name": "tail -f findings.out",
+            "authors": "Samuel Huckins"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.b-list.org/",
+            "sort_order": 0,
+            "name": "The B-List",
+            "authors": "James Bennett"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://maraujop.github.com/",
+            "sort_order": 0,
+            "name": "ToThinkOrNotToThink",
+            "authors": "Miguel Araujo"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.willmcgugan.com/",
+            "sort_order": 0,
+            "name": "Where there is a Will",
+            "authors": "Will McGugan"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://zachholman.com/",
+            "sort_order": 0,
+            "name": "Zach Holman",
+            "authors": "Zach Holman"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "inline_media.inlinetype",
+        "fields": {
+            "content_type": 13,
+            "title": "Picture"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "inline_media.inlinetype",
+        "fields": {
+            "content_type": 14,
+            "title": "PictureSet"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "inline_media.pictureset",
+        "fields": {
+            "description": "Just an example photo set",
+            "tags": "photos",
+            "pictures": [
+                13,
+                14,
+                15,
+                16,
+                17,
+                18
+            ],
+            "title": "Photo Set 1",
+            "cover": 13,
+            "modified": "2012-07-10T19:22:42",
+            "slug": "photo-set-1",
+            "created": "2012-07-10T19:22:05",
+            "order": "13,15,14,16,17,18"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:40:11",
+            "picture": "pictures/2012/Jul/04/wdr-3.png",
+            "show_license": false,
+            "description": "",
+            "license": null,
+            "author": "Jens Meiert",
+            "tags": "comic",
+            "modified": "2012-07-04T14:40:23",
+            "show_as_link": true,
+            "sha1": "cf694dd2ca090d8288c3f15186d2eb9f4d547dd2",
+            "title": "HTML Genocide",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 2,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:41:16",
+            "picture": "pictures/2012/Jul/04/python-logo-master-v3-TM.png",
+            "show_license": false,
+            "description": "<a href=\"http://www.python.org\">Python Programming Language</a>",
+            "license": null,
+            "author": "",
+            "tags": "creative-commons logo",
+            "modified": "2012-07-04T14:49:19",
+            "show_as_link": false,
+            "sha1": "c8a756475599e6e3c904b24077b4b0a31983752c",
+            "title": "Python",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 3,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:42:03",
+            "picture": "pictures/2012/Jul/04/django-logo-negative.png",
+            "show_license": false,
+            "description": "<a href=\"https://www.djangoproject.com/\">The Web Framework for perfectionists with deadlines</a>",
+            "license": null,
+            "author": "",
+            "tags": "creative-commons logo",
+            "modified": "2012-07-04T14:49:19",
+            "show_as_link": false,
+            "sha1": "4f1b7cc48fabc8730f5e8ec633f7ecc324c5f386",
+            "title": "Django",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 4,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:42:49",
+            "picture": "pictures/2012/Jul/04/mozilla_wht.png",
+            "show_license": false,
+            "description": "<a href=\"http://www.mozilla.com/\">Mozilla</a>",
+            "license": 6,
+            "author": "",
+            "tags": "creative-commons logo",
+            "modified": "2012-07-04T14:49:19",
+            "show_as_link": false,
+            "sha1": "9f8a7a44ee333b51343b2cf6c986d5f3066cff32",
+            "title": "Mozilla",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 5,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:43:41",
+            "picture": "pictures/2012/Jul/04/newspaper-icon41.jpg",
+            "show_license": false,
+            "description": "<a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/\">Ubuntu Weekly Newsleeter</a>",
+            "license": 2,
+            "author": "",
+            "tags": "creative-commons",
+            "modified": "2012-07-04T14:43:41",
+            "show_as_link": true,
+            "sha1": "9595c11af6128e9c33f74c66f08a10ac814b7266",
+            "title": "Ubuntu Newsletter",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 6,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:44:27",
+            "picture": "pictures/2012/Jul/04/CCL_11.png",
+            "show_license": false,
+            "description": "<a href=\"http://creativecommons.org/licenses/by-sa/3.0/\">CC ShareAlike</a>",
+            "license": 7,
+            "author": "",
+            "tags": "creative-commons logo",
+            "modified": "2012-07-04T14:49:19",
+            "show_as_link": false,
+            "sha1": "dbf59da03627b1c1aed30432a2467c245b8cfbf1",
+            "title": "Creative Commons Attribution ShareAlike",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 7,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:45:14",
+            "picture": "pictures/2012/Jul/04/blackeubuntulogo.png",
+            "show_license": false,
+            "description": "",
+            "license": null,
+            "author": "",
+            "tags": "creative-commons logo",
+            "modified": "2012-07-10T12:04:48",
+            "show_as_link": false,
+            "sha1": "4b3b09ea928c0015d29b53e070645fd4d84fddeb",
+            "title": "Ubuntu",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 8,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:45:51",
+            "picture": "pictures/2012/Jul/04/mozilla.png",
+            "show_license": false,
+            "description": "<a href=\"http://www.mozilla.com/\">Mozilla</a>",
+            "license": null,
+            "author": "",
+            "tags": "logo",
+            "modified": "2012-07-04T14:49:19",
+            "show_as_link": false,
+            "sha1": "e5b17b47e8d22a86abec93fe24eb7a6f8d9a3f2c",
+            "title": "Mozilla",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 9,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:46:28",
+            "picture": "pictures/2012/Jul/04/django-logo-positive.png",
+            "show_license": false,
+            "description": "<a href=\"https://www.djangoproject.com/\">The Web Framework for perfectionists with deadlines</a>",
+            "license": null,
+            "author": "",
+            "tags": "logo",
+            "modified": "2012-07-04T14:49:20",
+            "show_as_link": false,
+            "sha1": "53c1255abfd932a1b81ab0a4d40d0aebc25c0659",
+            "title": "Django",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 10,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:47:18",
+            "picture": "pictures/2012/Jul/04/HTML5_sticker.png",
+            "show_license": false,
+            "description": "",
+            "license": 2,
+            "author": "",
+            "tags": "",
+            "modified": "2012-07-04T14:47:18",
+            "show_as_link": false,
+            "sha1": "64a1285ebc271244c26dea330971ccfd177cc38f",
+            "title": "HTML5 - The future in my browser",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 11,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:47:46",
+            "picture": "pictures/2012/Jul/04/HTML5_1Color_Black.png",
+            "show_license": false,
+            "description": "",
+            "license": 2,
+            "author": "",
+            "tags": "logo",
+            "modified": "2012-07-04T14:49:20",
+            "show_as_link": true,
+            "sha1": "2613c1fab0da82aebfc0f544d7635a20313b66b2",
+            "title": "HTML5",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 12,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:48:23",
+            "picture": "pictures/2012/Jul/04/samsung_galaxy_s3_android_smartphone_1.jpg",
+            "show_license": false,
+            "description": "",
+            "license": null,
+            "author": "",
+            "tags": "android phone",
+            "modified": "2012-07-04T14:49:20",
+            "show_as_link": true,
+            "sha1": "ca669847cba0f2e0d4c29e9d423c1c9b16adfc9f",
+            "title": "Samsung Galaxy III",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 13,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:48:41",
+            "picture": "pictures/2012/Jul/10/for-slider-01.jpg",
+            "show_license": true,
+            "description": "",
+            "license": 6,
+            "author": "danirus",
+            "tags": "photo",
+            "modified": "2012-07-10T18:48:49",
+            "show_as_link": true,
+            "sha1": "fd8f64982e32f7feb68a1285b89a38f2d719e430",
+            "title": "Tegernsee",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 14,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:49:15",
+            "picture": "pictures/2012/Jul/10/for-slider-02.jpg",
+            "show_license": true,
+            "description": "",
+            "license": 6,
+            "author": "danirus",
+            "tags": "photo",
+            "modified": "2012-07-10T18:49:15",
+            "show_as_link": true,
+            "sha1": "db9687b9baa7b46d9f49957613c6d4dd0f46f77c",
+            "title": "Leuven in Winter",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 15,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:49:41",
+            "picture": "pictures/2012/Jul/10/for-slider-03.jpg",
+            "show_license": true,
+            "description": "",
+            "license": 6,
+            "author": "danirus",
+            "tags": "photo",
+            "modified": "2012-07-10T18:49:41",
+            "show_as_link": true,
+            "sha1": "34920e2a89558d4eaa9a9f12a048da7e26777e51",
+            "title": "Alpen Webs",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 16,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:50:30",
+            "picture": "pictures/2012/Jul/10/for-slider-04.jpg",
+            "show_license": true,
+            "description": "",
+            "license": 6,
+            "author": "danirus",
+            "tags": "photo",
+            "modified": "2012-07-10T18:50:30",
+            "show_as_link": true,
+            "sha1": "0ff75202e4f58e542e2a5331f83b638a0b0e5d04",
+            "title": "Solitude in Salzburg",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 17,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:51:34",
+            "picture": "pictures/2012/Jul/10/for-slider-05.jpg",
+            "show_license": true,
+            "description": "",
+            "license": 6,
+            "author": "cortiz",
+            "tags": "photo",
+            "modified": "2012-07-10T18:51:34",
+            "show_as_link": true,
+            "sha1": "548c270163507008a7dd61e2d35d2bdeb1cadd49",
+            "title": "San Sebastian Beach",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 18,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:51:59",
+            "picture": "pictures/2012/Jul/10/for-slider-06.jpg",
+            "show_license": true,
+            "description": "",
+            "license": 6,
+            "author": "danirus",
+            "tags": "photo",
+            "modified": "2012-07-10T18:51:59",
+            "show_as_link": true,
+            "sha1": "e6301098fe05a45628eb9481118166389c1ed7ef",
+            "title": "Menorca",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 1,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "#!linebreaks\r\nCongratulations!\r\nLooking forward to seeing him!\r\nWelcome to Planet Earth dear boy!!",
+            "user_url": "",
+            "submit_date": "2012-02-09T06:10:52",
+            "ip_address": "192.168.1.4",
+            "object_pk": "20",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 24,
+            "is_public": true,
+            "user_name": "Louis P.",
+            "user_email": "louis.perelman@example.com"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "Hei Louis, I'll send you some photos... he's cuuuute! :)",
+            "user_url": "",
+            "submit_date": "2012-02-09T06:14:08",
+            "ip_address": "192.168.1.10",
+            "object_pk": "20",
+            "site": 1,
+            "is_removed": false,
+            "user": 1,
+            "content_type": 24,
+            "is_public": true,
+            "user_name": "Lena Rosenthal",
+            "user_email": "admin@example.com"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "#!linebreaks\r\nCongratulations to you both! Happy parenting life!\r\nHope to visit you there soon!\r\nWelcome Edu!",
+            "user_url": "",
+            "submit_date": "2012-02-09T08:22:35",
+            "ip_address": "192.168.1.10",
+            "object_pk": "20",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 24,
+            "is_public": true,
+            "user_name": "Xavier Landau",
+            "user_email": "xlan@example.com"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "#!linebreaks\r\nWow wow wow! This is 4 days in advance, isn't?\r\nHerzlichen Gl\u00fcckwunsch zum freudigen Ereignis!\r\nLooking forward to seeing you! :)",
+            "user_url": "",
+            "submit_date": "2012-02-09T09:50:19",
+            "ip_address": "192.168.1.10",
+            "object_pk": "20",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 24,
+            "is_public": true,
+            "user_name": "Lesly Abbott",
+            "user_email": "admin@example.com"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "#!linebreaks\r\nAlles Gute f\u00fcr Euren Nachwuchs!\r\n\u00a1Enhorabuena!",
+            "user_url": "",
+            "submit_date": "2012-02-09T11:40:18",
+            "ip_address": "192.168.1.10",
+            "object_pk": "20",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 24,
+            "is_public": true,
+            "user_name": "isalph",
+            "user_email": "isasoc@example.com"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "#!linebreaks\r\nFantastic news! Congratulations! Hope everything went well and that you are all fine. We will call you soon, we want to know every detail. I will spread the news at home. Kisses from CA.\r\nBtw, Lena, let me know your updated address!",
+            "user_url": "",
+            "submit_date": "2012-02-09T12:23:03",
+            "ip_address": "192.168.1.10",
+            "object_pk": "20",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 24,
+            "is_public": true,
+            "user_name": "beccarr",
+            "user_email": "admin@example.com"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "Thank you all so much!",
+            "user_url": "",
+            "submit_date": "2012-02-09T12:39:16",
+            "ip_address": "192.168.1.10",
+            "object_pk": "20",
+            "site": 1,
+            "is_removed": false,
+            "user": 1,
+            "content_type": 24,
+            "is_public": true,
+            "user_name": "Lena Rosenthal",
+            "user_email": "admin@example.com"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "#!linebreaks\r\nYou gonna need to sleep and fully recharge batteries.\r\nAll the best Lena. Hope to see you round soon.\r\nSay hello to Edu ;)",
+            "user_url": "",
+            "submit_date": "2012-02-09T14:56:16",
+            "ip_address": "192.168.1.10",
+            "object_pk": "21",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 24,
+            "is_public": true,
+            "user_name": "Mike Cook",
+            "user_email": "peterl@example.com"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "Eeeeeexcellent! Congratulations!\r\nBooking the Eurostar to pay you a visit soon.\r\nMay I May I? :)",
+            "user_url": "",
+            "submit_date": "2012-02-09T16:01:02",
+            "ip_address": "192.168.1.10",
+            "object_pk": "21",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 24,
+            "is_public": true,
+            "user_name": "Katie S.",
+            "user_email": "katie@example.com"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "#!linebreaks\r\nWhere's my keyboard? I need my keyboard! :(\r\nThis new office is awesome. Had to say it out loud!",
+            "user_url": "",
+            "submit_date": "2012-04-06T12:26:24",
+            "ip_address": "192.168.1.10",
+            "object_pk": "23",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 24,
+            "is_public": true,
+            "user_name": "Andiair",
+            "user_email": "andi@example.com"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "#!linebreaks\r\nLebowski ipsum za, okay, I bring mein toolz. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo pellentesque ac lectus quis. You think veer kidding und making mit de funny stuff? Elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit malesuada non, ultrices. \r\n\r\nThey call Los Angeles the City of Angels. I didn't find it to be that exactly, but I'll allow as there are some nice folks there. 'Course, I can't say I seen London, and I never been to France, and I ain't never seen no queen in her damn undies as the fella says.\r\n\r\nBest wishes!",
+            "user_url": "",
+            "submit_date": "2012-05-29T10:11:02",
+            "ip_address": "192.168.1.4",
+            "object_pk": "10",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 22,
+            "is_public": true,
+            "user_name": "jemand",
+            "user_email": "jemand@example.com"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "This is a memorable quote in a film I consider an exquisite piece of art.",
+            "user_url": "",
+            "submit_date": "2012-06-22T09:44:48",
+            "ip_address": "192.168.1.4",
+            "object_pk": "19",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 25,
+            "is_public": true,
+            "user_name": "Joel C.",
+            "user_email": "danirus@eml.cc"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "comments.comment",
+        "fields": {
+            "comment": "Makes people think from different angles. I love it too. The timing, the atmosphere and the characters. It's a film to see several times to get every time to a different level of understanding. Definitely a cult film. Psychedelic.",
+            "user_url": "",
+            "submit_date": "2012-06-22T20:04:48",
+            "ip_address": "192.168.1.4",
+            "object_pk": "19",
+            "site": 1,
+            "is_removed": false,
+            "user": null,
+            "content_type": 25,
+            "is_public": true,
+            "user_name": "leoxoe",
+            "user_email": "leoxoe@example.com"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 2,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 3,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 4,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 5,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 6,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 7,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 8,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 9,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 10,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 13,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 11,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 12,
+        "model": "django_comments_xtd.xtdcomment",
+        "fields": {
+            "followup": false
+        }
+    },
+    {
+        "pk": 2,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "android"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "apple"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "bar"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "bazaar"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "bogus"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "bullshit"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "comic"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "coolstuff"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "crap"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "creative-commons"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "django"
+        }
+    },
+    {
+        "pk": 38,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "family"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "foo"
+        }
+    },
+    {
+        "pk": 35,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "freedom"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "html5"
+        }
+    },
+    {
+        "pk": 36,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "internet"
+        }
+    },
+    {
+        "pk": 32,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "jquery"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "linux"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "literature"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "logo"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "lunatics"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "microsoft"
+        }
+    },
+    {
+        "pk": 31,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "movies"
+        }
+    },
+    {
+        "pk": 27,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "mozilla"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "nexus"
+        }
+    },
+    {
+        "pk": 39,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "office"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "phone"
+        }
+    },
+    {
+        "pk": 40,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "photo"
+        }
+    },
+    {
+        "pk": 41,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "photos"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "python"
+        }
+    },
+    {
+        "pk": 33,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "science"
+        }
+    },
+    {
+        "pk": 30,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "scifi"
+        }
+    },
+    {
+        "pk": 37,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "sociology"
+        }
+    },
+    {
+        "pk": 34,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "space"
+        }
+    },
+    {
+        "pk": 28,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "standards"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "supertrooper"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "tablet"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "tablets"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "tralara"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "ubuntu"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "web"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 1,
+            "object_id": 2,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 5,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 1,
+            "object_id": 3,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 4,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 1,
+            "object_id": 4,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 3,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 1,
+            "object_id": 5,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 2,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 1,
+            "object_id": 6,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 1,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 1,
+            "object_id": 7,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 31,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 2,
+            "object_id": 12,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 7,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 2,
+            "object_id": 1,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 16,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 2,
+            "object_id": 2,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 11,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 3,
+            "object_id": 1,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 12,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 5,
+            "object_id": 1,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 13,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 6,
+            "object_id": 1,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 14,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 7,
+            "object_id": 1,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 15,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 8,
+            "object_id": 1,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 20,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 8,
+            "object_id": 3,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 40,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 8,
+            "object_id": 6,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 17,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 9,
+            "object_id": 2,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 18,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 10,
+            "object_id": 2,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 33,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 10,
+            "object_id": 4,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 19,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 11,
+            "object_id": 3,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 21,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 12,
+            "object_id": 3,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 22,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 13,
+            "object_id": 1,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 23,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 14,
+            "object_id": 2,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 24,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 14,
+            "object_id": 3,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 25,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 14,
+            "object_id": 4,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 26,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 14,
+            "object_id": 6,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 27,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 14,
+            "object_id": 7,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 28,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 14,
+            "object_id": 8,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 29,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 14,
+            "object_id": 9,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 30,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 14,
+            "object_id": 11,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 32,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 15,
+            "object_id": 12,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 34,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 16,
+            "object_id": 4,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 35,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 17,
+            "object_id": 4,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 36,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 18,
+            "object_id": 5,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 39,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 18,
+            "object_id": 6,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 37,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 19,
+            "object_id": 5,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 38,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 20,
+            "object_id": 6,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 41,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 21,
+            "object_id": 7,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 42,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 22,
+            "object_id": 7,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 43,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 23,
+            "object_id": 8,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 44,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 24,
+            "object_id": 9,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 46,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 24,
+            "object_id": 10,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 45,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 25,
+            "object_id": 10,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 47,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 26,
+            "object_id": 10,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 53,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 26,
+            "object_id": 12,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 51,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 27,
+            "object_id": 12,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 52,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 28,
+            "object_id": 12,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 54,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 29,
+            "object_id": 13,
+            "content_type": 25
+        }
+    },
+    {
+        "pk": 55,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 30,
+            "object_id": 13,
+            "content_type": 25
+        }
+    },
+    {
+        "pk": 57,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 30,
+            "object_id": 14,
+            "content_type": 25
+        }
+    },
+    {
+        "pk": 66,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 30,
+            "object_id": 19,
+            "content_type": 25
+        }
+    },
+    {
+        "pk": 56,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 31,
+            "object_id": 14,
+            "content_type": 25
+        }
+    },
+    {
+        "pk": 65,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 31,
+            "object_id": 19,
+            "content_type": 25
+        }
+    },
+    {
+        "pk": 58,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 32,
+            "object_id": 15,
+            "content_type": 24
+        }
+    },
+    {
+        "pk": 59,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 33,
+            "object_id": 16,
+            "content_type": 25
+        }
+    },
+    {
+        "pk": 60,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 34,
+            "object_id": 16,
+            "content_type": 24
+        }
+    },
+    {
+        "pk": 61,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 35,
+            "object_id": 17,
+            "content_type": 25
+        }
+    },
+    {
+        "pk": 62,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 36,
+            "object_id": 17,
+            "content_type": 24
+        }
+    },
+    {
+        "pk": 63,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 36,
+            "object_id": 18,
+            "content_type": 24
+        }
+    },
+    {
+        "pk": 64,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 37,
+            "object_id": 18,
+            "content_type": 25
+        }
+    },
+    {
+        "pk": 67,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 38,
+            "object_id": 20,
+            "content_type": 24
+        }
+    },
+    {
+        "pk": 70,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 38,
+            "object_id": 21,
+            "content_type": 24
+        }
+    },
+    {
+        "pk": 69,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 39,
+            "object_id": 23,
+            "content_type": 23
+        }
+    },
+    {
+        "pk": 68,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 39,
+            "object_id": 22,
+            "content_type": 24
+        }
+    },
+    {
+        "pk": 71,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 40,
+            "object_id": 13,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 72,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 40,
+            "object_id": 14,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 73,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 40,
+            "object_id": 15,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 74,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 40,
+            "object_id": 16,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 75,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 40,
+            "object_id": 17,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 76,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 40,
+            "object_id": 18,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 77,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 41,
+            "object_id": 1,
+            "content_type": 14
+        }
+    }
+]

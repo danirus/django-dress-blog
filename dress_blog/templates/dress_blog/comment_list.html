@@ -1,0 +1,58 @@
+{% extends "dress_blog/base.html" %}
+{% load i18n comments comments_xtd %}
+{% load url from future %}
+
+{% block nav-comments %}<li class="active"><a href="{% url 'blog-comment-list' %}"><span class="heydings-icon">b</span> {% trans "comments" %}</a></li>{% endblock %}
+
+{% block content %}
+<div class="span10">
+  <H4><span class="heydings-icon">Y</span>&nbsp;{% trans "List of comments" %}</H4>
+
+  {% for comment in object_list %}
+  <div id="c{{ comment.id }}" class="row comment">
+    <div class="span2">
+      <div class="data {% if comment.user.is_staff %}writer{% else %}reader{% endif %}">
+	<div class="tac">
+	  <a href="{% get_comment_permalink comment %}" class="heydings-icon">b</a> 
+	  <span class="datepub">{{ comment.submit_date|date:"D, j b Y" }}</span>
+	</div>
+	<div class="author">{{ comment.name }}</div>
+      </div>
+    </div>
+
+    <div class="span8">
+      <div class="text">
+	<div class="headline">
+	  {% if comment.content_type.name == "story" %}<span class="heydings-icon" title="story">D</span>{% endif %}
+	  {% if comment.content_type.name == "quote" %}<span class="heydings-icon" title="quote">B</span>{% endif %}
+	  {% if comment.content_type.name == "diary entry detail" %}<span class="heydings-icon" title="diary">T</span>{% endif %}
+	  <a href="{{ comment.content_object.get_absolute_url }}">{{ comment.content_object }}</a>
+	</div>
+	<div class="text">
+	  {% if comment.is_removed %}
+	  <span clas="cancelled">-- {% trans "Inappropriate comments like this one are removed." %} --</span>
+	  {% else %}
+	  {{ comment.comment|render_markup_comment }}
+	  {% endif %}
+	</div>
+      </div>      
+    </div>
+  </div>
+  {% endfor %}
+    
+  {% if is_paginated %}
+  <ul class="pager">
+    {% if page_obj.has_previous %}
+    <li><a id="newer" href="?page={{ page_obj.previous_page_number }}">{% trans "newer" %}</a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <li><a id="older" href="?page={{ page_obj.next_page_number }}">{% trans "older" %}</a></li>
+    {% endif %}
+  </ul>
+  {% endif %}
+</div>
+
+<div class="span2">
+  {% include "dress_blog/includes/subscribe_block.html" %}
+</div>
+{% endblock %}
