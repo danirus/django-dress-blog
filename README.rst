@@ -39,8 +39,8 @@ Install the app and run the example site to see it in action:
 
 5. If you don't want to have search at the moment just edit `django-dress-blog/example/demo/settings.py` and comment out `"haystack"` in `INSTALLED_APPS`
 6. Cd into `django-dress-blog/example/demo`
-7. Run `python manage syncdb --noinput` (user: admin, pwd: admin)
-8. Run `python manage collectstatic`, and answer yeah!
+7. Run `python manage collectstatic`, and answer yeah!
+8. Run `python manage syncdb --noinput` (user: admin, pwd: admin)
 9. Run `python manage localhost` and hit http://localhost:8000
 
 Remember, it's a beta yet!
