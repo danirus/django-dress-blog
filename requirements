@@ -1,4 +1,6 @@
 Django==1.4
+PIL
+BeautifulSoup
 Pygments==1.4
 Markdown
 docutils
@@ -10,3 +12,4 @@ docutils
 -e git+git://github.com/kylef/django-request.git#egg=django-request
 -e git+git://github.com/toastdriven/django-haystack.git@master#egg=django-haystack
 -e git+git://github.com/notanumber/xapian-haystack.git#egg=xapian-haystack
+-e git+git://github.com/sorl/sorl-thumbnail.git#egg=sorl-thumbnail
