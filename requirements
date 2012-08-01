@@ -1,6 +1,6 @@
 Django==1.4
 PIL
-BeautifulSoup
+BeautifulSoup<4.0.0
 Pygments==1.4
 Markdown
 docutils
