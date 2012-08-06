@@ -7,8 +7,8 @@ from dress_blog.models import Quote
 from dress_blog.views import PostDetailView
 
 
-page_size       = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 2)
-large_page_size = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 2) * 2
+page_size       = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 10)
+large_page_size = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 10) * 2
 
 urlpatterns = patterns('',
 

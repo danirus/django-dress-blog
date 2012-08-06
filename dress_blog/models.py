@@ -87,8 +87,11 @@ class Config(models.Model):
             super(Config, self).delete(*args, **kwargs)
 
     def save(self, *args, **kwargs):
-        self.site_name = self.site.name
         super(Config, self).save(*args, **kwargs)
+        self.site_name = self.site.name
+        key = create_cache_key(Config, field="site__id", 
+                               field_value=self.site.id)
+        cache.set(key, self)
 
     @staticmethod
     def get_current():
