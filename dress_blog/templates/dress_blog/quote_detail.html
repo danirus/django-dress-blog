@@ -6,7 +6,7 @@
 <script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/jquery-1.7.1.min.js"></script>
 {% endblock %}
 
-{% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
+{% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
 
 {% block content %}
 {% get_comment_count for object as comment_count %}
@@ -27,7 +27,7 @@
 	{% endif %}
 	{% if tag_list %}
 	<div class="subline">
-	  <span class="medium-heydings-icon">t</span> 
+	  <span class="medium-heydings-common-icon">t</span> 
 	  {% for tag in tag_list %}
 	  <a href="{% url 'blog-tag-detail' tag %}" class="label">{{ tag }}</a>
 	  {% endfor %}
@@ -44,7 +44,7 @@
     <div class="sign"><!-- author -->
       <div class="grad-left"></div>
       <div class="author">
-	<span class="heydings-icon">w</span> {% trans "by" %} {% if object.url_source %}<a href="{{ object.url_source }}" target="_new" class="f-yanonekafeesatz-l fs3">{{ object.quote_author }}</a>{% else %}<span class="f-yanonekafeesatz-l fs3">{{ object.quote_author }}</span>{% endif %}
+	<span class="heydings-common-icon">w</span> {% trans "by" %} {% if object.url_source %}<a href="{{ object.url_source }}" target="_new" class="f-yanonekafeesatz-l fs3">{{ object.quote_author }}</a>{% else %}<span class="f-yanonekafeesatz-l fs3">{{ object.quote_author }}</span>{% endif %}
       </div>
     </div><!-- author -->
   </article>

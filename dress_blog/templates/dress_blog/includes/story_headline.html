@@ -16,7 +16,7 @@
 	<span class="mini-author">{% trans "posted by" %}&nbsp;{% if object.author.get_full_name %}{{ object.author.get_full_name }}{% else %}{{ object.author.username }}{% endif %}</span>
 	{% if tag_list %}&nbsp;&bull;&nbsp;{% endif %}
 	{% endif %}
-	{% if tag_list %}<span class="heydings-icon">t</span> 
+	{% if tag_list %}<span class="heydings-common-icon">t</span> 
 	{% for tag in tag_list %}
 	<a href="{% url 'blog-tag-detail' tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
 	{% endfor %}

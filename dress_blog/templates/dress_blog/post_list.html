@@ -42,7 +42,7 @@
 <div class="span3">
   <div class="article-list">
     <H4>
-      <span class="heydings-icon">T</span> {% trans "Latest in diary" %}
+      <span class="heydings-common-icon">T</span> {% trans "Latest in diary" %}
     </H4>
     {% get_latest_diary_entries dress_blog_config.diary_entries_in_index as activities %}
     {% if activities %}
@@ -64,7 +64,7 @@
   {% get_xtdcomment_count as comment_count for dress_blog.story dress_blog.quote dress_blog.diarydetail %}
   {% if comment_count %}
   <div class="well">
-    <H5><span class="heydings-icon">b</span>&nbsp;&nbsp;{% trans "Latest comments" %}</H5>
+    <H5><span class="heydings-common-icon">b</span>&nbsp;&nbsp;{% trans "Latest comments" %}</H5>
     {% render_last_xtdcomments dress_blog_config.comments_in_index for dress_blog.story dress_blog.quote dress_blog.diarydetail using "comments/dress_blog/comment_mini.html" %}
     <p>
       <a href="{% url 'blog-comment-list' %}">{% trans "more" %}</a>
@@ -74,7 +74,7 @@
 
   {% get_popular_posts 3 as popular_stories for dress_blog.story %}
   {% if popular_stories %}
-  <H4><span class="heydings-icon">D</span>&nbsp;{% trans "Popular stories" %}</H4>
+  <H4><span class="heydings-common-icon">D</span>&nbsp;{% trans "Popular stories" %}</H4>
   <ul>
     {% for post in popular_stories %}
     <li><a href="{{ post.content_object.get_absolute_url }}">{{ post.content_object.title }}</a></li>
@@ -84,7 +84,7 @@
   
   {% get_popular_posts 3 as popular_quotes for dress_blog.quote %}
   {% if popular_quotes %}
-  <H4><span class="heydings-icon">B</span>&nbsp;{% trans "Popular quotes" %}</H4>
+  <H4><span class="heydings-common-icon">B</span>&nbsp;{% trans "Popular quotes" %}</H4>
   <ul>
     {% for post in popular_quotes %}
     <li><a href="{{ post.content_object.get_absolute_url }}">{{ post.content_object.title }}</a></li>

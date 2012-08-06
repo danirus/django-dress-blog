@@ -2,11 +2,11 @@
 {% load i18n quotes %}
 {% load url from future %}
 
-{% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-icon small">B</span> {% trans "quotes" %}</a></li>{% endblock %}
+{% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icon small">B</span> {% trans "quotes" %}</a></li>{% endblock %}
 
 {% block content %}
 <div class="span10">
-  <H4><span class="heydings-icon">Y</span>&nbsp;{% trans "List of quotes" %}</H4>
+  <H4><span class="heydings-common-icon">Y</span>&nbsp;{% trans "List of quotes" %}</H4>
   
   {% for object in object_list %}
   {% include "dress_blog/includes/quote_abstract.html" with article_class="in2col" %}

@@ -13,7 +13,7 @@
 <script src="{{ STATIC_URL }}prettyphoto-3.1.3/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
 
-{% block nav-tags %}<li class="active"><a href="{% url 'blog-tag-list' %}"><span class="heydings-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
+{% block nav-tags %}<li class="active"><a href="{% url 'blog-tag-list' %}"><span class="heydings-common-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
 
 {% block content %}
 <div id="tag" class="span10 offset1">
@@ -26,7 +26,7 @@
 	</div>
       </div>
       <div class="span1">
-	<div class="medium-heydings-icon"><a href="{% url 'posts-tagged-as' object.name %}">R</a></div>
+	<div class="medium-heydings-common-icon"><a href="{% url 'posts-tagged-as' object.name %}">R</a></div>
       </div>
     </header>
     <section>

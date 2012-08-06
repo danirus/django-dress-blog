@@ -4,7 +4,7 @@
 {% get_story_archive as dates %}
 {% if dates %}
 <H4>
-  <span class="heydings-icon">5</span>&nbsp;{% trans "Archive" %}
+  <span class="heydings-common-icon">5</span>&nbsp;{% trans "Archive" %}
 </H4>
 <UL>
   {% for date in dates %}
@@ -19,7 +19,7 @@
 {% tags_for_model dress_blog.Story as tag_list with counts %}
 {% if tag_list %}
 <H4>
-  <span class="heydings-icon">t</span>&nbsp;{% trans "Tags" %}
+  <span class="heydings-common-icon">t</span>&nbsp;{% trans "Tags" %}
 </H4>
 <UL>
   {% for tag in tag_list %}

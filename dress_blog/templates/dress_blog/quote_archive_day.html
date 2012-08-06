@@ -2,11 +2,11 @@
 {% load i18n archive %}
 {% load url from future %}
 
-{% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-icons small">B</span> {% trans "quotes" %}</a></li>{% endblock %}
+{% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icons small">B</span> {% trans "quotes" %}</a></li>{% endblock %}
 
 {% block content %}
 <div class="span10">
-  <H4><span class="heydings-icon">Y</span>&nbsp;{% trans "Quotes published on" %}&nbsp;{{ day|date:"l, j F Y" }}</H4>
+  <H4><span class="heydings-common-icon">Y</span>&nbsp;{% trans "Quotes published on" %}&nbsp;{{ day|date:"l, j F Y" }}</H4>
 
   {% for object in object_list %}
   {% include "dress_blog/includes/quote_abstract.html" with article_class="in2col" %}
@@ -26,7 +26,7 @@
 
 <div class="span2">
   <H4>
-    <span class="heydings-icon">5</span>&nbsp;{% trans "Archive" %}
+    <span class="heydings-common-icon">5</span>&nbsp;{% trans "Archive" %}
   </H4>
   <UL>
     {% if previous_day %}

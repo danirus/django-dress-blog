@@ -141,6 +141,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.static",
     "dress_blog.context_processors.config",
+    "context_processors.settings",
 )
 
 EMAIL_HOST          = "smtp.gmail.com" 

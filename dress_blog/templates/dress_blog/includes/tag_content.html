@@ -6,7 +6,7 @@
 
 <article {% if article_class %}class="{{ article_class }}"{% endif %}>
   <header>
-    <div class="fl pr10 heydings-icons fs3">t</div>
+    <div class="fl pr10 heydings-common-icons fs3">t</div>
     <div class="title fs3"><a href="{% url 'blog-tag-detail' object.name %}">{{ object.name }}</a></div>
   </header>
   <div class="mt5 pl25 pstd bt1dg small">
@@ -14,7 +14,7 @@
     {% if stories %}
     {% for story in stories %}
     <div class="clearfix">
-      <span class="fl pr5 heydings-icons">D</span> 
+      <span class="fl pr5 heydings-common-icons">D</span> 
       <a href="{{ story.get_absolute_url }}">{{ story.title }}</a>
     </div>
     {% endfor %}
@@ -22,7 +22,7 @@
     {% if quotes %}
     {% for quote in quotes %}
     <div class="clearfix">
-      <span class="fl pr5 heydings-icons">B</span>
+      <span class="fl pr5 heydings-common-icons">B</span>
       <a href="{{ quote.get_absolute_url }}">{{ quote.title }}</a>
     </div>
     {% endfor %}

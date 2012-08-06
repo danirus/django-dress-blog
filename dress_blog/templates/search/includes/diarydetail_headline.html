@@ -1,7 +1,7 @@
 {% load i18n colloquial_date %}
 {% load url from future %}
 
-<div class="big-heydings-icon" title="diary entry">T</div>
+<div class="big-heydings-common-icon" title="diary entry">T</div>
 <div class="title">
   <div class="headline">
     <a href="{{ result.object.get_absolute_url }}">{{ result.object.pub_date|colloquial_date:"l, j F Y" }}</a>
@@ -11,7 +11,7 @@
     <span class="mini-author">{% trans "posted by" %}&nbsp;{% if result.object.author.get_full_name %}{{ result.object.author.get_full_name }}{% else %}{{ result.object.author.username }}{% endif %}</span>
     {% if tag_list %}&nbsp;&bull;&nbsp;{% endif %}
     {% endif %}
-    {% if tag_list %}<span class="heydings-icon">t</span>
+    {% if tag_list %}<span class="heydings-common-icon">t</span>
     {% for tag in tag_list %}
     <a href="{% url 'blog-tag-detail' tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
     {% endfor %}

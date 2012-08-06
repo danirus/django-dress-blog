@@ -13,11 +13,11 @@
 <script src="{{ STATIC_URL }}prettyphoto-3.1.3/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
 
-{% block nav-stories %}<li class="active"><a href="{% url 'blog-story-list' %}"><span class="heydings-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}
+{% block nav-stories %}<li class="active"><a href="{% url 'blog-story-list' %}"><span class="heydings-common-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}
 
 {% block content %}
 <div class="span10">
-  <H4><span class="heydings-icon">Y</span>&nbsp;{% trans "Stories published on" %}&nbsp;{{ day|date:"l, j F Y" }}</H4>
+  <H4><span class="heydings-common-icon">Y</span>&nbsp;{% trans "Stories published on" %}&nbsp;{{ day|date:"l, j F Y" }}</H4>
 
   {% for object in object_list %}
   {% include "dress_blog/includes/story_abstract.html" with article_class="in2col" %}
@@ -37,7 +37,7 @@
 
 <div class="span2">
   <H4>
-    <span class="heydings-icon">5</span>&nbsp;{% trans "Archive" %}
+    <span class="heydings-common-icon">5</span>&nbsp;{% trans "Archive" %}
   </H4>
   <UL>
     {% if previous_day %}

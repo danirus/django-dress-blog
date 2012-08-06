@@ -6,6 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <title>{% block title %}{{ dress_blog_config.title }}{% endblock %}</title>
+    {% if settings.DEBUG %}<meta http-equiv="pragma" content="no-cache"/>{% endif %}
     <meta name="robots" content="index,follow">
     <meta name="author" content="{{ dress_blog_config.meta_author }}">
     <meta name="keywords" content="{{ dress_blog_config.meta_keywords }}">
@@ -40,12 +41,12 @@
 	  <a href="{% url 'blog-index' %}" class="brand">{{ dress_blog_config.title }}</a>
 	  <div class="nav-collapse">
 	    <ul class="nav">
-	      {% block nav-stories %}<li><a href="{% url 'blog-story-list' %}"><span class="heydings-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}
-	      {% block nav-quotes %}<li><a href="{% url 'blog-quote-list' %}"><span class="heydings-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
-	      {% block nav-diary %}<li><a href="{% url 'blog-diary' %}"><span class="heydings-icon">T</span> {% trans "diary" %}</a></li>{% endblock %}
-	      {% block nav-comments %}<li><a href="{% url 'blog-comment-list' %}"><span class="heydings-icon">b</span> {% trans "comments" %}</a></li>{% endblock %}
-	      {% block nav-tags %}<li><a href="{% url 'blog-tag-list' %}"><span class="heydings-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
-	      {% block nav-blogroll %}<li><a href="{% url 'blog-blogroll' %}"><span class="heydings-icon">C</span> {% trans "blogroll" %}</a></li>{% endblock %}
+	      {% block nav-stories %}<li><a href="{% url 'blog-story-list' %}"><span class="heydings-common-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}
+	      {% block nav-quotes %}<li><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
+	      {% block nav-diary %}<li><a href="{% url 'blog-diary' %}"><span class="heydings-common-icon">T</span> {% trans "diary" %}</a></li>{% endblock %}
+	      {% block nav-comments %}<li><a href="{% url 'blog-comment-list' %}"><span class="heydings-common-icon">b</span> {% trans "comments" %}</a></li>{% endblock %}
+	      {% block nav-tags %}<li><a href="{% url 'blog-tag-list' %}"><span class="heydings-common-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
+	      {% block nav-blogroll %}<li><a href="{% url 'blog-blogroll' %}"><span class="heydings-control-icon">8</span> {% trans "blogroll" %}</a></li>{% endblock %}
 	    </ul>
 	    {% block nav-search-form %}<form class="navbar-search pull-right" action="{% url 'haystack-search' %}" method="get"><input type="text" name="q" id="id_q" placeholder="{% trans 'Search' %}" class="search-query" /></form>{% endblock %}
 	  </div>

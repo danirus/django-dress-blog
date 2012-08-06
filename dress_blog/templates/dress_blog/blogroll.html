@@ -2,22 +2,22 @@
 {% load i18n %}
 {% load url from future %}
 
-{% block nav-blogroll %}<li class="active"><a href="{% url 'blog-blogroll' %}"><span class="heydings-icon">C</span> {% trans "blogroll" %}</a></li>{% endblock %}
+{% block nav-blogroll %}<li class="active"><a href="{% url 'blog-blogroll' %}"><span class="heydings-control-icon">8</span> {% trans "blogroll" %}</a></li>{% endblock %}
 
 {% block content %}
 <div id="blogroll" class="span10">
-  <H4><span class="heydings-icon">C</span>&nbsp;{% trans "Rolling Blogs" %}</H4>
+  <H4><span class="heydings-control-icon">8</span>&nbsp;{% trans "Rolling Blogs" %}</H4>
 
   {% for object in object_list %}
   <article class="in2col">
     <header class="hbox box-align-start box-pack-start">
-      <div class="big-heydings-icon pr5">e</div>
+      <div class="big-heydings-common-icon pr5">e</div>
       <div class="title">
 	<div class="headline">
 	  <a href="{{ object.get_absolute_url }}" target="_new">{{ object.name }}</a>
 	</div>
 	<div class="subline">
-	  <span class="heydings-icon">w</span>&nbsp;{% trans "by" %}&nbsp;{{ object.authors }}
+	  <span class="heydings-common-icon">w</span>&nbsp;{% trans "by" %}&nbsp;{{ object.authors }}
 	</div>
       </div>
     </header>

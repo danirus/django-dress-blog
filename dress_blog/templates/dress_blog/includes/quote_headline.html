@@ -5,13 +5,13 @@
 {% tags_for_object object as tag_list %}
 <article {% if article_class %}class="{{ article_class }}"{% endif %}>
   <header class="hbox box-align-start box-pack-start">
-    <div class="big-heydings-icon">B</div>
+    <div class="big-heydings-common-icon">B</div>
     <div class="title">
       <div class="headline">
 	<a href="{{ object.get_absolute_url }}">{{ object.title }}</a>
       </div>
       <div class="subline">
-	{% if tag_list %}<span class="heydings-icon">t</span> 
+	{% if tag_list %}<span class="heydings-common-icon">t</span> 
 	{% for tag in tag_list %}
 	<a href="{% url 'blog-tag-detail' tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
 	{% endfor %}
@@ -24,7 +24,7 @@
   <div class="sign"><!-- comment author -->
     <div class="grad-left"></div>
     <div class="author">
-      <span class="heydings-icon">w</span> {% trans "by" %} {% if object.url_source %}<a href="{{ object.url_source }}" target="_new">{{ object.quote_author }}</a>{% else %}{{ object.quote_author }}{% endif %}
+      <span class="heydings-common-icon">w</span> {% trans "by" %} {% if object.url_source %}<a href="{{ object.url_source }}" target="_new">{{ object.quote_author }}</a>{% else %}{{ object.quote_author }}{% endif %}
     </div>
   </div><!-- comment author -->
 </article>

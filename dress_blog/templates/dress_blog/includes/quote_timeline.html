@@ -9,7 +9,7 @@
       <div class="day">{{ object.pub_date|date:"d" }}</div>
       <div class="month">{{ object.pub_date|date:"M" }}</div>
     </hgroup>
-    <!-- <div class="big-heydings-icon">B</div> -->
+    <!-- <div class="big-heydings-common-icon">B</div> -->
     <div class="title">
       <div class="headline"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></div>
       <div class="subline">
@@ -17,7 +17,7 @@
 	<span class="mini-author">{% trans "posted by" %}&nbsp;{{ object.author.get_full_name }}</span>
 	{% if tag_list %}&nbsp;&bull;&nbsp;{% endif %}
 	{% endif %}
-	{% if tag_list %}<span class="heydings-icon">t</span> 
+	{% if tag_list %}<span class="heydings-common-icon">t</span> 
 	{% for tag in tag_list %}
 	<a href="{% url 'blog-tag-detail' tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
 	{% endfor %}

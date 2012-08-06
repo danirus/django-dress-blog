@@ -7446,14 +7446,23 @@ hgroup.date {
 .month {
   font: 0.8em "OpenSansBold", Helvetica, Arial, sans-serif;
 }
-.heydings-icon {
+.heydings-common-icon {
   font: 1em "HeydingsCommonIconsRegular";
 }
-.medium-heydings-icon {
+.medium-heydings-common-icon {
   font: 1.7em/1.1em "HeydingsCommonIconsRegular";
 }
-.big-heydings-icon {
+.big-heydings-common-icon {
   font: 2.4em/1.1em "HeydingsCommonIconsRegular";
+}
+.heydings-control-icon {
+  font: 1em "HeydingsControlsRegular";
+}
+.medium-heydings-control-icon {
+  font: 1.7em/1.1em "HeydingsControlsRegular";
+}
+.big-heydings-control-icon {
+  font: 2.4em/1.1em "HeydingsControlsRegular";
 }
 .title {
   -webkit-box-flex: 1;

@@ -4,7 +4,7 @@
   <div class="span2">
     <div class="data {% if comment.user.is_staff %}writer{% else %}reader{% endif %}">
       <div class="tac">
-	<a href="{% get_comment_permalink comment %}" class="heydings-icon">b</a> 
+	<a href="{% get_comment_permalink comment %}" class="heydings-common-icon">b</a> 
 	<span class="datepub">{{ comment.submit_date|date:"D, j b Y" }}</span>
       </div>
       <div class="author">{% if comment.url %}<a href="{{ comment.url }}" target="_new">{{ comment.name }}</a>{% else %}{{ comment.name }}{% endif %}</div>

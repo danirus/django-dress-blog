@@ -16,7 +16,7 @@
 <div class="span5">
   <div class="article-list">
     <H4>
-      <span class="heydings-icon">D</span> {% trans "Latest stories" %}
+      <span class="heydings-common-icon">D</span> {% trans "Latest stories" %}
     </H4>
     {% get_latest_stories dress_blog_config.stories_in_index as stories %}
     {% if stories %}
@@ -35,7 +35,7 @@
 <div class="span3">
   <div class="article-list">
     <H4>
-      <span class="heydings-icon">B</span> {% trans "Latest quotes" %}
+      <span class="heydings-common-icon">B</span> {% trans "Latest quotes" %}
     </H4>
     {% get_latest_quotes dress_blog_config.quotes_in_index as quotes %}
     {% if quotes %}
@@ -54,7 +54,7 @@
 <div class="span2">
   <div class="article-list">
     <H4>
-      <span class="heydings-icon">T</span> {% trans "Latest in diary" %}
+      <span class="heydings-common-icon">T</span> {% trans "Latest in diary" %}
     </H4>
     {% get_latest_diary_entries dress_blog_config.diary_entries_in_index as activities %}
     {% if activities %}
@@ -74,7 +74,7 @@
   {% include "dress_blog/includes/admin_block.html" %}
   <div class="well">
     <H5>
-      <span class="heydings-icon">b</span>&nbsp;&nbsp;{% trans "Latest comments" %}
+      <span class="heydings-common-icon">b</span>&nbsp;&nbsp;{% trans "Latest comments" %}
     </H5>
     {% get_xtdcomment_count as comment_count for dress_blog.story dress_blog.quote dress_blog.diarydetail %}
     {% if comment_count %}

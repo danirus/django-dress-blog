@@ -2,9 +2,9 @@
 
 <div class="comment-col"><!-- comment -->
   <div class="title">
-    {% if comment.content_type.name == "story" %}<span class="heydings-icon">D</span>{% endif %}
-    {% if comment.content_type.name == "quote" %}<span class="heydings-icon">B</span>{% endif %}
-    {% if comment.content_type.name == "diary entry" %}<span class="heydings-icon">T</span>{% endif %}
+    {% if comment.content_type.name == "story" %}<span class="heydings-common-icon">D</span>{% endif %}
+    {% if comment.content_type.name == "quote" %}<span class="heydings-common-icon">B</span>{% endif %}
+    {% if comment.content_type.name == "diary entry" %}<span class="heydings-common-icon">T</span>{% endif %}
     <a href="{{ comment.get_absolute_url }}">{{ comment.content_object }}</a>
   </div>
   <div class="text">
@@ -15,6 +15,6 @@
     {% endif %}
   </div>
   <div class="sign">
-    <span class="heydings-icon">w</span> {% trans "by" %} {{ comment.name }}
+    <span class="heydings-common-icon">w</span> {% trans "by" %} {{ comment.name }}
   </div>
 </div><!-- comment -->
