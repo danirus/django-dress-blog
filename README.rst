@@ -39,7 +39,7 @@ Install the app and run the example site to see it in action:
 6. Cd into `django-dress-blog/example/demo`
 7. Run `python manage.py collectstatic`, and answer yeah!
 8. Run `python manage.py syncdb --noinput` (user: admin, pwd: admin)
- If you have installed xapian, build the search index:
+9. If you have installed xapian, build the search index:
     * `python manage.py rebuild_index`
 10. Run `python manage.py localhost` and hit http://localhost:8000
 
