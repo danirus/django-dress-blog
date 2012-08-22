@@ -4,6 +4,7 @@ setup(
     name = "django-dress-blog",
     version = "0.1a",
     packages = find_packages(),
+    include_package_data = True,
     license = "MIT",
     description = "Django blogging app with stories, quotes, diary, comments and tags.",
     long_description = "Yet another Django blogging app with stories, quotes, diary, comments and tags. ",
