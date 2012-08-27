@@ -15,6 +15,7 @@ from django.core.cache import cache
 from django.utils.encoding import force_unicode
 from django.utils.safestring import mark_safe
 from django.utils.text import truncate_words
+from django.utils.timezone import now
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 from django_markup.fields import MarkupField
@@ -138,8 +139,7 @@ class PostManager(models.Manager):
     """Returns published posts that are not in the future."""
     
     def published(self):
-        return self.get_query_set().filter(
-            status__gte=2, pub_date__lte=datetime.datetime.now())
+        return self.get_query_set().filter(status__gte=2, pub_date__lte=now())
 
     def draft(self, author=None):
         if not author:
@@ -161,7 +161,7 @@ class PostManager(models.Manager):
     def for_content_types(self, content_types):
         return self.get_query_set().filter(
             content_type__in=content_types,
-            status__gte=2, pub_date__lte=datetime.datetime.now())
+            status__gte=2, pub_date__lte=now())
 
 
 class Post(BasePost):
@@ -169,8 +169,8 @@ class Post(BasePost):
     status         = models.IntegerField(choices=STATUS_CHOICES, default=1)
     author         = models.ForeignKey(User, blank=True, null=True)
     allow_comments = models.BooleanField(default=True)
-    pub_date       = models.DateTimeField(default=datetime.datetime.now)
-    mod_date       = models.DateTimeField(default=datetime.datetime.now)
+    pub_date       = models.DateTimeField(default=now())
+    mod_date       = models.DateTimeField(default=now())
     visits         = models.IntegerField(default=0, editable=False)
     objects        = PostManager()
 
@@ -197,7 +197,7 @@ class StoryManager(models.Manager):
     
     def published(self):
         return self.get_query_set().filter(
-            status__gte=2, pub_date__lte=datetime.datetime.now())
+            status__gte=2, pub_date__lte=now())
 
     def draft(self, author=None):
         if not author:
@@ -247,7 +247,7 @@ class Story(Post):
 
     @permalink
     def get_absolute_url(self):
-        if self.pub_date > datetime.datetime.now():
+        if self.pub_date > now():
             return ("blog-story-detail-draft", None, {
                     "year": self.pub_date.year,
                     "month": self.pub_date.strftime("%b").lower(),
@@ -267,8 +267,7 @@ class DiaryManager(models.Manager):
     """Return published diary entries that are not in the future."""
 
     def published(self):
-        return self.get_query_set().filter(
-            pub_date__lte=datetime.datetime.now())
+        return self.get_query_set().filter(pub_date__lte=now())
 
 class Diary(models.Model):
     pub_date       = models.DateField(default=datetime.datetime.today)
@@ -367,7 +366,7 @@ class Quote(Post):
 
     @permalink
     def get_absolute_url(self):
-        if self.pub_date > datetime.datetime.now():
+        if self.pub_date > now():
             return ("blog-quote-detail-draft", None, {
                     "year": self.pub_date.year,
                     "month": self.pub_date.strftime("%b").lower(),

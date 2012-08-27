@@ -4,7 +4,7 @@ setup(
     name = "django-dress-blog",
     version = "0.1a",
     packages = find_packages(),
-    include_package_data = True,
+    keywords = "django apps",
     license = "MIT",
     description = "Django blogging app with stories, quotes, diary, comments and tags.",
     long_description = "Yet another Django blogging app with stories, quotes, diary, comments and tags. ",
@@ -15,11 +15,13 @@ setup(
     url = "http://pypi.python.org/pypi/django-dress-blog/",
     classifiers = [
         'Development Status :: 4 - Beta',
-        'Environment :: Web Environment',
+        'Environment :: Plugins',
+        'Framework :: Django',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
-        'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Framework :: Django',
+        'Operating System :: OS Independent',
+        'Topic :: Software Development :: Libraries :: Python Modules'
     ],
+    include_package_data = True,
 )
