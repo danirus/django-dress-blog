@@ -2,10 +2,6 @@
 {% load i18n tagging_tags inlines comments %}
 {% load url from future %}
 
-{% block extrajs %}
-<script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/jquery-1.7.1.min.js"></script>
-{% endblock %}
-
 {% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
 
 {% block content %}

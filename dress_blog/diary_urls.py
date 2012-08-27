@@ -11,8 +11,9 @@ page_size = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 28)
 urlpatterns = patterns('',
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{1,2})/$',
         DiaryDetailView.as_view(model=Diary,
-                                   date_field="pub_date", 
-                                   month_format="%b"),
+                                allow_future=True,
+                                date_field="pub_date", 
+                                month_format="%b"),
         name='blog-diary-detail'),
 
     url(r'^$', DiaryRedirectView.as_view(), name='blog-diary'),
