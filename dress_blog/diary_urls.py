@@ -16,5 +16,5 @@ urlpatterns = patterns('',
                                 month_format="%b"),
         name='blog-diary-detail'),
 
-    url(r'^$', DiaryRedirectView.as_view(), name='blog-diary'),
+    url(r'^$', DiaryRedirectView.as_view(permanent=False), name='blog-diary'),
 )
