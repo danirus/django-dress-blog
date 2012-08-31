@@ -13,8 +13,7 @@
     <div class="span2">
       <div class="data {% if comment.user.is_staff %}writer{% else %}reader{% endif %}">
 	<div class="tac">
-	  <a href="{% get_comment_permalink comment %}" class="heydings-common-icon">b</a> 
-	  <span class="datepub">{{ comment.submit_date|date:"D, j b Y" }}</span>
+	  <a href="{% get_comment_permalink comment %}" class="heydings-common-icon">b</a>&nbsp;<span class="datepub">{{ comment.submit_date|date:"D, j b Y" }}</span>
 	</div>
 	<div class="author">{{ comment.name }}</div>
       </div>
