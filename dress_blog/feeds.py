@@ -11,6 +11,10 @@ from tagging.models import Tag, TaggedItem
 from dress_blog.models import Config, Post, Story, Quote, DiaryDetail
 
 
+ct_story = ContentType.objects.get(app_label="dress_blog", model="story")
+ct_quote = ContentType.objects.get(app_label="dress_blog", model="quote")
+
+
 class BasePostsFeed(Feed):
     _config = None
     
@@ -136,7 +140,9 @@ class PostsByTag(Feed):
         return "Posts tagged as %s" % obj.name
     
     def items(self, obj):
-        return TaggedItem.objects.filter(tag__name__iexact=obj.name).order_by("-id")[:10]
+        return TaggedItem.objects.filter(
+            tag__name__iexact=obj.name,
+            content_type__in=[ct_story, ct_quote]).order_by("-id")[:10]
 
     def item_pubdate(self, item):
         return item.object.pub_date
