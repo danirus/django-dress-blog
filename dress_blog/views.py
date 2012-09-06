@@ -5,8 +5,10 @@ import datetime
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db.models import F
+from django.http import Http404
 from django.shortcuts import render_to_response as render
 from django.template import RequestContext
+from django.utils.translation import ugettext as _
 from django.views.generic import View, ListView, DateDetailView, RedirectView
 from django.views.generic.dates import _date_from_string, _date_lookup_for_field
 
@@ -71,7 +73,10 @@ class TagDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TagDetailView, self).get_context_data(**kwargs)
-        context["object"] = Tag.objects.get(name=self.kwargs.get("slug", ""))
+        try:
+            context["object"] = Tag.objects.get(name=self.kwargs.get("slug", ""))
+        except Tag.DoesNotExist:
+            raise Http404(_("Tag '%s' does not exist" % self.kwargs.get("slug", "")))
         return context
 
 
