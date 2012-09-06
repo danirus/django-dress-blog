@@ -44,7 +44,7 @@ def themes(path):
 class Config(models.Model):
     """Django-dress-blog configuration"""
 
-    site = models.ForeignKey(Site, unique=True)
+    site = models.ForeignKey(Site, unique=True, related_name="+")
     title = models.CharField(max_length=100, help_text=_(
             "Blog's name or title"))
     theme = models.CharField(max_length=50, default="initial", help_text=_(

@@ -32,15 +32,12 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   quickstart
-   installation
-   configuration
-   example
    tutorial
+   example
    theming
-   settings
    templatetags
-
+   settings
+   templates
 
 Indices and tables
 ==================
