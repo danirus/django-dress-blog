@@ -2,6 +2,8 @@
 {% load i18n tagging_tags inlines comments %}
 {% load url from future %}
 
+{% block meta-description %}{{ object.body_markup|render_inlines|safe|truncatewords_html:33|striptags }}{% endblock %}
+
 {% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
 
 {% block content %}
