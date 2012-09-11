@@ -17,6 +17,7 @@ from dress_blog.sitemaps import PostsSitemap
 
 page_size = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 10)
 ui_columns = getattr(settings, "DRESS_BLOG_UI_COLUMNS", 3)
+search_url_active = getattr(settings, "DRESS_BLOG_SEARCH_URL_ACTIVE", True)
 
 urlpatterns = patterns("",
     url(r"^stories/", include("dress_blog.story_urls")),
@@ -72,18 +73,19 @@ urlpatterns = patterns("",
 #------------------------------------------------------------------------------
 
 #-- search --------------------------------------------------------------------
-# if django-dress-blog is hooked at '/', activate the following code, otherwise
-# add the following to your '/' URLConf
-from haystack.forms import SearchForm
-from haystack.views import SearchView, search_view_factory
+# set DRESS_BLOG_SEARCH_URL_ACTIVE=False to avoid this hook
 
-urlpatterns += patterns("",
-    url(r'^search$', 
-        search_view_factory(view_class=SearchView, 
-                            form_class=SearchForm,
-                            results_per_page=page_size), 
-        name='haystack-search'),
-)
+if search_url_active:
+    from haystack.forms import SearchForm
+    from haystack.views import SearchView, search_view_factory
+
+    urlpatterns += patterns("",
+        url(r'^search$', 
+            search_view_factory(view_class=SearchView, 
+                                form_class=SearchForm,
+                                results_per_page=page_size), 
+            name='haystack-search'),
+    )
 #------------------------------------------------------------------------------
 
 if ui_columns == 4:
