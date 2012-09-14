@@ -15,6 +15,7 @@ from django.conf import settings
 from django.utils import formats
 from django.utils.dateformat import format
 from django.utils.encoding import smart_str
+from django.utils.timezone import now
 from django.utils.translation import ungettext, ugettext
 
 
@@ -86,7 +87,7 @@ def create_cache_key(klass, field=None, field_value=None):
 def colloquial_date(d, fmt):
     if not isinstance(d, datetime.datetime):
         d = datetime.datetime(d.year, d.month, d.day)
-    delta = (datetime.datetime.today() - d)
+    delta = (now() - d)
     since = delta.days
     if since <= 0:
         # d is in the future compared to now, stop processing.
