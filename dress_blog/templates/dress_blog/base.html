@@ -10,7 +10,7 @@
     <meta name="robots" content="index,follow">
     <meta name="author" content="{{ dress_blog_config.meta_author }}">
     <meta name="keywords" content="{{ dress_blog_config.meta_keywords }}">
-    <meta name="description" content="{{ dress_blog_config.meta_description }}">
+    <meta name="description" content="{% block meta-description %}{{ dress_blog_config.meta_description }}{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/css/theme.css" rel="Stylesheet">
