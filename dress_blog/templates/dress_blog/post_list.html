@@ -44,9 +44,9 @@
     <H4>
       <span class="heydings-common-icon">T</span> {% trans "Latest in diary" %}
     </H4>
-    {% get_latest_diary_entries dress_blog_config.diary_entries_in_index as activities %}
-    {% if activities %}
-    {% for item in activities %}
+    {% get_latest_diary_days dress_blog_config.diary_entries_in_index as diary_items %}
+    {% if diary_items %}
+    {% for item in diary_items %}
     {% include "dress_blog/includes/diary_abstract.html" with object=item %}
     {% endfor %}
     <p>
