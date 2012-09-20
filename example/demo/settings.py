@@ -144,12 +144,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "context_processors.settings",
 )
 
-EMAIL_HOST          = "smtp.gmail.com" 
-EMAIL_PORT          = "587"
-EMAIL_HOST_USER     = "rus.daniel@gmail.com"
-EMAIL_HOST_PASSWORD = "gmail$78drm5"
-EMAIL_USE_TLS       = True # Yes for Gmail
-DEFAULT_FROM_EMAIL  = "Dani <rus.daniel@gmail.com>"
+#EMAIL_HOST          = "smtp.gmail.com" 
+#EMAIL_PORT          = "587"
+#EMAIL_HOST_USER     = ""
+#EMAIL_HOST_PASSWORD = ""
+#EMAIL_USE_TLS       = True # Yes for Gmail
+DEFAULT_FROM_EMAIL  = "Alice Bloggs <alice@example.com>"
 SERVER_EMAIL        = DEFAULT_FROM_EMAIL
 
 # Fill in actual EMAIL settings above, and comment out the 
