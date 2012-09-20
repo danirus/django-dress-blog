@@ -8,7 +8,7 @@ from dress_blog.sitemaps import PostsSitemap
 
 admin.autodiscover()
 
-urlpatterns = patterns('views',
+urlpatterns = patterns('demo.views',
     url(r'^admin/',           include(admin.site.urls)),
     url(r'^blog/',            include('dress_blog.urls')),
     url(r"^comments/",        include("django_comments_xtd.urls")),
