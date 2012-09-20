@@ -1,4 +1,5 @@
 Django==1.4
+South
 PIL
 BeautifulSoup<4.0.0
 Pygments==1.4
