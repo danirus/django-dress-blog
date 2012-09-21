@@ -17,10 +17,10 @@
   {% if object_list %}
   {% for object in object_list %}
   {% if object.content_type.name == "story" %}
-  {% include "dress_blog/includes/story_timeline.html" with object=object.content_object %}
+  {% include "dress_blog/includes/story_timeline.html" with object=object.story %}
   {% endif %}
   {% if object.content_type.name == "quote" %}
-  {% include "dress_blog/includes/quote_timeline.html" with object=object.content_object %}
+  {% include "dress_blog/includes/quote_timeline.html" with object=object.quote %}
   {% endif %}
   {% endfor %}
   {% else %}
@@ -77,7 +77,7 @@
   <H4><span class="heydings-common-icon">D</span>&nbsp;{% trans "Popular stories" %}</H4>
   <ul>
     {% for post in popular_stories %}
-    <li><a href="{{ post.content_object.get_absolute_url }}">{{ post.content_object.title }}</a></li>
+    <li><a href="{{ post.get_absolute_url }}">{{ post.story.title }}</a></li>
     {% endfor %}
   </ul>
   {% endif %}
@@ -87,7 +87,7 @@
   <H4><span class="heydings-common-icon">B</span>&nbsp;{% trans "Popular quotes" %}</H4>
   <ul>
     {% for post in popular_quotes %}
-    <li><a href="{{ post.content_object.get_absolute_url }}">{{ post.content_object.title }}</a></li>
+    <li><a href="{{ post.get_absolute_url }}">{{ post.quote.title }}</a></li>
     {% endfor %}
   </ul>
   {% endif %}

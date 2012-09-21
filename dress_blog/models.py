@@ -109,32 +109,6 @@ class Config(models.Model):
         return config
 
 
-class BasePost(models.Model):
-    """Abstract base class for all the post classes."""
-    content_type   = models.ForeignKey(ContentType,
-                                       verbose_name=_('content type'),
-                                       related_name="content_type_set_for_%(class)s")
-    object_pk      = models.TextField(_('object ID'))
-    content_object = GenericForeignKey(ct_field="content_type", fk_field="object_pk")
-    site           = models.ForeignKey(Site)
-
-    class Meta:
-        abstract = True
-
-    def get_content_object_url(self):
-        """Get a URL suitable for redirecting to the content object."""
-        return urlresolvers.reverse(
-            "post-url-redirect",
-            args=(self.content_type_id, self.object_pk)
-        )
-
-    def save(self, *args, **kwargs):
-        self.content_type = ContentType.objects.get_for_model(self)
-        self.object_pk    = force_unicode(self._get_pk_val())
-        self.site_id      = settings.SITE_ID
-        super(BasePost, self).save(*args, **kwargs)
-
-
 class PostManager(models.Manager):
     """Returns published posts that are not in the future."""
     
@@ -164,8 +138,11 @@ class PostManager(models.Manager):
             status__gte=2, pub_date__lte=now())
 
 
-class Post(BasePost):
+class Post(models.Model):
     """A generic post."""
+    content_type   = models.ForeignKey(ContentType,
+                                       verbose_name=_('content type'),
+                                       related_name="content_type_set_for_%(class)s")
     status         = models.IntegerField(choices=STATUS_CHOICES, default=1)
     author         = models.ForeignKey(User, blank=True, null=True)
     allow_comments = models.BooleanField(default=True)
@@ -173,6 +150,7 @@ class Post(BasePost):
     mod_date       = models.DateTimeField(default=now())
     visits         = models.IntegerField(default=0, editable=False)
     objects        = PostManager()
+    site           = models.ForeignKey(Site)
 
     class Meta:
         verbose_name = _("post")
@@ -181,15 +159,10 @@ class Post(BasePost):
         ordering  = ("-pub_date",)
         get_latest_by = "pub_date"
 
-    def get_content_object_url(self):
-        """Get a URL suitable for redirecting to the content object."""
-        return urlresolvers.reverse(
-            "post-url-redirect",
-            args=(self.content_type_id, self.object_pk)
-        )
-    
-    def get_absolute_url(self):
-        return self.content_object.get_absolute_url()
+    def save(self, *args, **kwargs):
+        self.content_type = ContentType.objects.get_for_model(self)
+        self.site_id      = settings.SITE_ID
+        super(Post, self).save(*args, **kwargs)
 
 
 class StoryManager(models.Manager):

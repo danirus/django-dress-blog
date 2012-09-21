@@ -25,27 +25,30 @@ class BasePostsFeed(Feed):
         return self._config
 
     def item_pubdate(self, item):
-        return item.content_object.pub_date
+        return item.pub_date
 
     def item_title(self, item):
+        child = getattr(item, item.content_type.model)
         if item.content_type.model in ["story", "quote"]:
-            return item.content_object.title
+            return child.title
         else:
-            return u"%s" % item.content_object
+            return u"%s" % child
 
     def item_link(self, item):
-        return item.get_absolute_url()
+        child = getattr(item, item.content_type.model)
+        return child.get_absolute_url()
 
     def item_description(self, item):
-        if item.content_type.model == "story":
-            if item.content_object.abstract:
-                return inlines(item.content_object.abstract_markup)
-        return inlines(item.content_object.body_markup)
+        child = getattr(item, item.content_type.model)
+        if hasattr(child, "abstract"):
+            return inlines(child.abstract_markup)
+        return inlines(child.body_markup)
 
     def item_author_name(self, item):
-        if item.content_type.model == "quote":
-            return item.content_object.quote_author
-        return item.content_object.author.get_full_name()       
+        child = getattr(item, item.content_type.model)
+        if hasattr(child, "quote_author"):
+            return child.quote_author
+        return child.author.get_full_name()       
 
 
 class LatestPostsFeed(BasePostsFeed):

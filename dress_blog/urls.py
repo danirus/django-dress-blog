@@ -49,7 +49,7 @@ urlpatterns = patterns("",
             paginate_by=page_size),
         name="blog-comment-list"),
 
-    url(r'^post/(\d+)/(.+)/$', 'django.contrib.contenttypes.views.shortcut', name='post-url-redirect'),
+    # url(r'^post/(\d+)/(.+)/$', 'django.contrib.contenttypes.views.shortcut', name='post-url-redirect'),
 
     url(r'^feeds/posts/$', LatestPostsFeed(), name='latest-posts-feed'),
     url(r'^feeds/stories/$', LatestStoriesFeed(), name='latest-stories-feed'),
