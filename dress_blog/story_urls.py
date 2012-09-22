@@ -14,13 +14,15 @@ urlpatterns = patterns('',
 
     url(r'^(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<day>\d{1,2})/(?P<slug>[-\w]+)/$',
         PostDetailView.as_view(
-            model=Story, date_field="pub_date", month_format="%m", 
+            queryset=Story.objects.published(),
+            date_field="pub_date", month_format="%m", 
             template_name="blog/story_detail.html"),
         name='blog-story-detail-month-numeric'),
 
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{1,2})/(?P<slug>[-\w]+)/$',
         PostDetailView.as_view(
-            model=Story, date_field="pub_date", month_format="%b", 
+            queryset=Story.objects.published(),            
+            date_field="pub_date", month_format="%b", 
             template_name="blog/story_detail.html"),
         name='blog-story-detail'),
 
@@ -28,26 +30,28 @@ urlpatterns = patterns('',
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{1,2})/(?P<slug>[-\w]+)/draft/$',
         login_required(
             generic.DateDetailView.as_view(
-                model=Story, date_field="pub_date", month_format="%b", 
+                queryset=Story.objects.published(),
+                date_field="pub_date", month_format="%b", 
                 template_name="blog/story_detail.html", allow_future=True)),
         name='blog-story-detail-draft'),
 
     url(r'^(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<day>\d{1,2})/$',
-        generic.DayArchiveView.as_view(model=Story, 
+        generic.DayArchiveView.as_view(queryset=Story.objects.published(),
                                        date_field="pub_date", 
                                        month_format="%m",
                                        paginate_by=page_size),
         name='blog-story-archive-day'),
 
     url(r'^(?P<year>\d{4})/(?P<month>\d{1,2})/$',
-        generic.MonthArchiveView.as_view(model=Story, 
+        generic.MonthArchiveView.as_view(queryset=Story.objects.published(),
                                          date_field="pub_date", 
                                          month_format="%m",
                                          paginate_by=page_size),
         name='blog-story-archive-month'),
 
     url(r'^(?P<year>\d{4})/$',
-        generic.YearArchiveView.as_view(model=Story, date_field="pub_date",
+        generic.YearArchiveView.as_view(queryset=Story.objects.published(),
+                                        date_field="pub_date",
                                         make_object_list=True,
                                         paginate_by=large_page_size),
         name='blog-story-archive-year'),
