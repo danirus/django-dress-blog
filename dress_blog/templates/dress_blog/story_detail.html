@@ -43,7 +43,9 @@
 <div class="mt15 row clearfix">
   <div class="span12">
     <div class="neck">
-      {{ object.body_markup|render_inlines|safe }}
+      <div class="onecol">
+	{{ object.body_markup|render_inlines|safe }}
+      </div>
     </div>
   </div>
 </div>

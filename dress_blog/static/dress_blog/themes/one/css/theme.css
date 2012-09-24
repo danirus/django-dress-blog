@@ -9778,6 +9778,11 @@ FOOTER a:hover {
 .neck H6 {
   font-size: 1.6em;
 }
+.onecol {
+  margin: 0 auto;
+  width: 75%;
+  font-size: 1.2em;
+}
 .hbox {
   display: -webkit-box;
   -webkit-box-orient: horizontal;
