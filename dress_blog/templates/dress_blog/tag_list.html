@@ -5,36 +5,38 @@
 {% block nav-tags %}<li class="active"><a href="{% url 'blog-tag-list' %}"><span class="heydings-common-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
 
 {% block content %}
-<div class="span4">
-  <H4 class="tac">{% trans "Story Tags" %}</H4>
-
-  {% tag_cloud_for_model dress_blog.Story as tags_for_stories with steps=9 distribution=linear %}
-  <div class="tagcloud clearfix">
-    {% for tag in tags_for_stories %}
-    <a href="{% url 'blog-tag-detail' tag %}" class="label tagcloud-fs{{ tag.font_size }}">{{ tag.name }}</a>
-    {% endfor %}
+<div class="row">
+  <div class="span4">
+    <H2 class="bb mb30 tac">{% trans "Story Tags" %}</H2>
+    
+    {% tag_cloud_for_model dress_blog.Story as tags_for_stories with steps=9 distribution=linear %}
+    <div class="tagcloud clearfix">
+      {% for tag in tags_for_stories %}
+      <a href="{% url 'blog-tag-detail' tag %}" class="label label-info tagcloud-fs{{ tag.font_size }}">{{ tag.name }}</a>
+      {% endfor %}
+    </div>
   </div>
-</div>
-
-<div class="span4">
-  <H4 class="tac">{% trans "Quote Tags" %}</H4>
-
-  {% tag_cloud_for_model dress_blog.Quote as tags_for_quotes with steps=9 distribution=linear %}
-  <div class="tagcloud clearfix">
-    {% for tag in tags_for_quotes %}
-    <a href="{% url 'blog-tag-detail' tag %}"  class="label tagcloud-fs{{ tag.font_size }}">{{ tag.name }}</a>
-    {% endfor %}
+  
+  <div class="span4">
+    <H2 class="bb mb30 tac">{% trans "Quote Tags" %}</H2>
+    
+    {% tag_cloud_for_model dress_blog.Quote as tags_for_quotes with steps=9 distribution=linear %}
+    <div class="tagcloud clearfix">
+      {% for tag in tags_for_quotes %}
+      <a href="{% url 'blog-tag-detail' tag %}"  class="label label-info tagcloud-fs{{ tag.font_size }}">{{ tag.name }}</a>
+      {% endfor %}
+    </div>
   </div>
-</div>
-
-<div class="span4">
-  <H4 class="tac">{% trans "Diary entry Tags" %}</H4>
-
-  {% tag_cloud_for_model dress_blog.DiaryDetail as tags_for_diary with steps=9 distribution=linear %}
-  <div class="tagcloud clearfix">
-    {% for tag in tags_for_diary %}
-    <a href="{% url 'blog-tag-detail' tag %}" class="label tagcloud-fs{{ tag.font_size }}">{{ tag.name }}</a>
-    {% endfor %}
+  
+  <div class="span4">
+    <H2 class="bb mb30 tac">{% trans "Diary entry Tags" %}</H2>
+    
+    {% tag_cloud_for_model dress_blog.DiaryDetail as tags_for_diary with steps=9 distribution=linear %}
+    <div class="tagcloud clearfix">
+      {% for tag in tags_for_diary %}
+      <a href="{% url 'blog-tag-detail' tag %}" class="label label-info tagcloud-fs{{ tag.font_size }}">{{ tag.name }}</a>
+      {% endfor %}
+    </div>
   </div>
 </div>
 {% endblock %}

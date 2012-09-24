@@ -15,27 +15,30 @@
 {% block nav-stories %}<li class="active"><a href="{% url 'blog-story-list' %}"><span class="heydings-common-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}
 
 {% block content %}
-<div class="span10">
-  <H4><span class="heydings-common-icon">Y</span>&nbsp;{% trans "List of stories" %}</H4>
-
-  {% for object in object_list %}
-  {% include "dress_blog/includes/story_abstract.html" with article_class="in2col" %}
-  {% endfor %}
-  
-  {% if is_paginated %}
-  <ul class="pager">
-    {% if page_obj.has_previous %}
-    <li><a id="prev" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
-    {% endif %}
-    {% if page_obj.has_next %}
-    <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
-    {% endif %}
-  </ul>
-  {% endif %}
+<div class="row">
+  <div class="span10">
+    <H2 class="bb mb30"><span class="heydings-common-icon">Y</span>&nbsp;{% trans "List of stories" %}</H2>
     
-</div>
+    {% for object in object_list %}
+    {% include "dress_blog/includes/story_abstract.html" with article_class="in2col" truncate_to=66 %}
+    {% endfor %}
+    
+    {% if is_paginated %}
+    <ul class="pager">
+      {% if page_obj.has_previous %}
+      <li><a id="prev" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
 
-<div class="span2">
-  {% include "dress_blog/includes/story_list_side.html" %}
+  <div class="span2">
+    <div class="mt30 pstd pattern">
+      {% include "dress_blog/includes/story_list_side.html" %}
+    </div>
+  </div>
 </div>
 {% endblock %}

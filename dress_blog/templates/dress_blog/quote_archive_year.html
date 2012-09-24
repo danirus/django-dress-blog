@@ -5,36 +5,38 @@
 {% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
 
 {% block content %}
-<div class="span10">
-  <H4><span class="heydings-common-icon">Y</span>&nbsp;{% trans "Quote archive for" %}&nbsp;{{ year }}</H4>
-  
-  {% for object in object_list %}
-  {% include "dress_blog/includes/quote_headline.html" with article_class="in2col" %}    
-  {% endfor %}
-
-  {% if is_paginated %}
-  <ul class="pager">
-    {% if page_obj.has_previous %}
-    <li><a id="prev" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
-    {% endif %}
-    {% if page_obj.has_next %}
-    <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
-    {% endif %}
-  </ul>
-  {% endif %}
-</div>
-
-<div class="span2">
-  <H4>
-    <span class="heydings-common-icon">5</span>&nbsp;{% trans "Archive" %}
-  </H4>
-  <UL>
-    {% for month_date in date_list %}
-    <li>
-      <a href="{% url 'blog-quote-archive-month' month_date|date:'Y' month_date|date:'m' %}" 
-	 title="{{ month_date|date:'F Y' }}">{{ month_date|date:"F Y" }}</a>
-    </li>
+<div class="row">
+  <div class="span10">
+    <H2 class="bb mb30"><span class="heydings-common-icon">Y</span>&nbsp;{% trans "Quote archive for" %}&nbsp;{{ year }}</H2>
+    
+    {% for object in object_list %}
+    {% include "dress_blog/includes/quote_headline.html" with article_class="in2col" %}    
     {% endfor %}
-  </UL>
+    
+    {% if is_paginated %}
+    <ul class="pager">
+      {% if page_obj.has_previous %}
+      <li><a id="prev" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
+  
+  <div class="span2">
+    <div class="mt30 pstd pattern">
+      <H6><span class="heydings-common-icon">5</span>&nbsp;{% trans "Archive" %}</H6>
+      <UL>
+	{% for month_date in date_list %}
+	<li>
+	  <a href="{% url 'blog-quote-archive-month' month_date|date:'Y' month_date|date:'m' %}" 
+	     title="{{ month_date|date:'F Y' }}">{{ month_date|date:"F Y" }}</a>
+	</li>
+	{% endfor %}
+      </UL>
+    </div>
+  </div>
 </div>
 {% endblock %}

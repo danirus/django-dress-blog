@@ -20,6 +20,10 @@
   </header>
 
   <section class="abstract">
+    {% if truncate_to %}
+    {{ object.body_markup|render_inlines|safe|truncatewords_html:truncate_to }}
+    {% else %}
     {{ object.body_markup|render_inlines|safe }}
+    {% endif %}
   </section>
 </article>

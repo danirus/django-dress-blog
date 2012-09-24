@@ -5,27 +5,30 @@
 {% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icon small">B</span> {% trans "quotes" %}</a></li>{% endblock %}
 
 {% block content %}
-<div class="span10">
-  <H4><span class="heydings-common-icon">Y</span>&nbsp;{% trans "List of quotes" %}</H4>
+<div class="row">
+  <div class="span10">
+    <H2 class="bb mb30"><span class="heydings-common-icon">Y</span>&nbsp;{% trans "List of quotes" %}</H2>
   
-  {% for object in object_list %}
-  {% include "dress_blog/includes/quote_abstract.html" with article_class="in2col" %}
-  {% endfor %}
-  
-  {% if is_paginated %}
-  <ul class="pager">
-    {% if page_obj.has_previous %}
-    <li><a id="prev" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
+    {% for object in object_list %}
+    {% include "dress_blog/includes/quote_abstract.html" with article_class="in2col" truncate_to=44 %}
+    {% endfor %}
+    
+    {% if is_paginated %}
+    <ul class="pager">
+      {% if page_obj.has_previous %}
+      <li><a id="prev" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
+      {% endif %}
+    </ul>
     {% endif %}
-    {% if page_obj.has_next %}
-    <a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
-{% endif %}
-</ul>
-{% endif %}
+  </div>
 
-</div>
-
-<div class="span2">
-  {% include "dress_blog/includes/quote_list_side.html" %}
+  <div class="span2">
+    <div class="mt30 pstd pattern">
+      {% include "dress_blog/includes/quote_list_side.html" %}
+    </div>
+  </div>
 </div>
 {% endblock %}

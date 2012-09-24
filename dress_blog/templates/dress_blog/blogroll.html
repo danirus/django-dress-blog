@@ -5,38 +5,42 @@
 {% block nav-blogroll %}<li class="active"><a href="{% url 'blog-blogroll' %}"><span class="heydings-control-icon">8</span> {% trans "blogroll" %}</a></li>{% endblock %}
 
 {% block content %}
-<div id="blogroll" class="span10">
-  <H4><span class="heydings-control-icon">8</span>&nbsp;{% trans "Rolling Blogs" %}</H4>
-
-  {% for object in object_list %}
-  <article class="in2col">
-    <header class="hbox box-align-start box-pack-start">
-      <div class="big-heydings-common-icon pr5">e</div>
-      <div class="title">
-	<div class="headline">
-	  <a href="{{ object.get_absolute_url }}" target="_new">{{ object.name }}</a>
+<div id="blogroll" class="row">
+  <div class="span10">
+    <H2 class="bb mb30"><span class="heydings-control-icon">8</span>&nbsp;{% trans "Rolling Blogs" %}</H2>
+    
+    {% for object in object_list %}
+    <article class="in2col">
+      <header class="hbox box-align-start box-pack-start">
+	<div class="big-heydings-common-icon pr5">e</div>
+	<div class="title">
+	  <div class="headline">
+	    <a href="{{ object.get_absolute_url }}" target="_new">{{ object.name }}</a>
+	  </div>
+	  <div class="subline">
+	    <span class="heydings-common-icon">w</span>&nbsp;{% trans "by" %}&nbsp;{{ object.authors }}
+	  </div>
 	</div>
-	<div class="subline">
-	  <span class="heydings-common-icon">w</span>&nbsp;{% trans "by" %}&nbsp;{{ object.authors }}
-	</div>
-      </div>
-    </header>
-  </article>
-  {% endfor %}
-
-  {% if is_paginated %}
-  <ul class="pager">
-    {% if page_obj.has_previous %}
-    <li><a id="previous" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
+      </header>
+    </article>
+    {% endfor %}
+    
+    {% if is_paginated %}
+    <ul class="pager">
+      {% if page_obj.has_previous %}
+      <li><a id="previous" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
+      {% endif %}
+    </ul>
     {% endif %}
-    {% if page_obj.has_next %}
-    <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
-    {% endif %}
-  </ul>
-  {% endif %}
-</div>
+  </div>
 
-<div class="span2">
-  {% include "dress_blog/includes/subscribe_block.html" %}
+  <div class="span2">
+    <div class="mt30 pstd pattern">
+      {% include "dress_blog/includes/subscribe_block.html" %}
+    </div>
+  </div>
 </div>
 {% endblock %}

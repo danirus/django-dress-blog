@@ -16,9 +16,8 @@
     <link href="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/css/theme.css" rel="Stylesheet">
     <style type="text/css">
       @media (min-width: 980px) {
-        body {
+        #bodice {
           padding-top: 60px;
-          padding-bottom: 10px;
         }
       }
     </style>
@@ -27,61 +26,55 @@
     <script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/bootstrap-collapse.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/bootstrap-alert.js"></script>
+    {% block extrajs %}{% endblock %}
   </head>
 
   <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-	<div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-	  <a href="{% url 'blog-index' %}" class="brand">{{ dress_blog_config.title }}</a>
-	  <div class="nav-collapse">
-	    <ul class="nav">
-	      {% block nav-stories %}<li><a href="{% url 'blog-story-list' %}"><span class="heydings-common-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}
-	      {% block nav-quotes %}<li><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
-	      {% block nav-diary %}<li><a href="{% url 'blog-diary' %}"><span class="heydings-common-icon">T</span> {% trans "diary" %}</a></li>{% endblock %}
-	      {% block nav-comments %}<li><a href="{% url 'blog-comment-list' %}"><span class="heydings-common-icon">b</span> {% trans "comments" %}</a></li>{% endblock %}
-	      {% block nav-tags %}<li><a href="{% url 'blog-tag-list' %}"><span class="heydings-common-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
-	      {% block nav-blogroll %}<li><a href="{% url 'blog-blogroll' %}"><span class="heydings-control-icon">8</span> {% trans "blogroll" %}</a></li>{% endblock %}
-	    </ul>
-	    {% block nav-search-form %}<form class="navbar-search pull-right" action="{% url 'haystack-search' %}" method="get"><input type="text" name="q" id="id_q" placeholder="{% trans 'Search' %}" class="search-query" /></form>{% endblock %}
+    <div id="dress">
+      <div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+	  <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+	    <a href="{% url 'blog-index' %}" class="brand">{{ dress_blog_config.title }}</a>
+	    <div class="nav-collapse">
+	      <ul class="nav">
+		{% block nav-stories %}<li><a href="{% url 'blog-story-list' %}"><span class="heydings-common-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}
+		{% block nav-quotes %}<li><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
+		{% block nav-diary %}<li><a href="{% url 'blog-diary' %}"><span class="heydings-common-icon">T</span> {% trans "diary" %}</a></li>{% endblock %}
+		{% block nav-comments %}<li><a href="{% url 'blog-comment-list' %}"><span class="heydings-common-icon">b</span> {% trans "comments" %}</a></li>{% endblock %}
+		{% block nav-tags %}<li><a href="{% url 'blog-tag-list' %}"><span class="heydings-common-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
+		{% block nav-blogroll %}<li><a href="{% url 'blog-blogroll' %}"><span class="heydings-control-icon">8</span> {% trans "blogroll" %}</a></li>{% endblock %}
+	      </ul>
+	      {% block nav-search-form %}<form class="navbar-search pull-right" action="{% url 'haystack-search' %}" method="get"><input type="text" name="q" id="id_q" placeholder="{% trans 'Search' %}" class="search-query" /></form>{% endblock %}
+	    </div>
 	  </div>
 	</div>
       </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-	{% block content %}
-	{% endblock %}
-      </div><!-- .row -->
-    </div>
-    
-    <footer class="clearfix">
-      <div class="container">
-	<div id="footer-wrapper"></div>
-	<div class="row">
-	  <div class="footer-col span5 pull-left">
-	    {% flatblock "footer-col-l" using "flatblocks/simplediv.html" %}
-	  </div>
-	  <div class="footer-col span5 pull-left">
-	    {% flatblock "footer-col-r" using "flatblocks/simplediv.html" %}
-	  </div>
-	  <div class="span2 pull-right">
-	    <div id="html5logo">
-	      <a href="http://www.w3.org/html/logo/">
-		<img src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/img/html5-logo/HTML5_Logo_64.png">
-	      </a>
-	    </div>
-	  </div>
+      
+      <div id="bodice">
+	<div class="container mb30">
+	  {% block content %}
+	  {% endblock %}
 	</div><!-- .row -->
-      </div><!-- .container -->
-    </footer>
-
-    {% block extrajs %}{% endblock %}
+      </div>
+      
+      <footer>
+	<div class="container">
+	  <div id="footer-wrapper"></div>
+	  <div class="row">
+	    <div class="footer-col span5 pull-left">
+	      {% flatblock "footer-col-l" using "flatblocks/simplediv.html" %}
+	    </div>
+	    <div class="footer-col span5 pull-left">
+	      {% flatblock "footer-col-r" using "flatblocks/simplediv.html" %}
+	    </div>
+	  </div><!-- .row -->
+	</div><!-- .container -->
+      </footer>
+    </div><!-- #dress -->
   </body>
 </html>

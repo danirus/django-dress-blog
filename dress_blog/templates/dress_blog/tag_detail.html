@@ -15,30 +15,34 @@
 {% block nav-tags %}<li class="active"><a href="{% url 'blog-tag-list' %}"><span class="heydings-common-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
 
 {% block content %}
-<div id="tag" class="span10 offset1">
+<div id="tag">
   <article>
     <header class="row">
-      <div class="span8 offset1">
-	<div class="hbox box-align-start box-pack-center">
-	  <div class="symbol">t</div>
-	  <div class="tagname">{{ object.name }}</div>
+      <div class="span8 offset2 bb mb30">
+	<div class="row">
+	  <div class="span7">
+	    <div class="hbox box-align-start box-pack-center">
+	      <div class="symbol">t</div>
+	      <div class="tagname">{{ object.name }}</div>
+	    </div>
+	  </div>
+	  <div class="span1">
+	    <div class="medium-heydings-common-icon"><a href="{% url 'posts-tagged-as' object.name %}">R</a></div>
+	  </div>
 	</div>
-      </div>
-      <div class="span1">
-	<div class="medium-heydings-common-icon"><a href="{% url 'posts-tagged-as' object.name %}">R</a></div>
       </div>
     </header>
     <section>
       {% for item in object_list %}
       {% if item.content_type.model == "story" %}      
-      {% include "dress_blog/includes/story_abstract.html" with object=item.object article_class="in2col" %}
+      {% include "dress_blog/includes/story_abstract.html" with object=item.object article_class="in2col" truncate_to=66 %}
       {% endif %}
 
       {% if item.content_type.model == "quote" %}      
-      {% include "dress_blog/includes/quote_abstract.html" with object=item.object article_class="in2col" %}
+      {% include "dress_blog/includes/quote_abstract.html" with object=item.object article_class="in2col" truncate_to=44 %}
       {% endif %}
       {% if item.content_type.model == "diarydetail" %}      
-      {% include "dress_blog/includes/diarydetail_abstract.html" with object=item.object article_class="in2col" %}
+      {% include "dress_blog/includes/diarydetail_abstract.html" with object=item.object article_class="in2col" truncate_to=44 %}
       {% endif %}
       {% endfor %}
     </section>

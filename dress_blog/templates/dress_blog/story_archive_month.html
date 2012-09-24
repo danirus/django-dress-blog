@@ -15,51 +15,52 @@
 {% block nav-stories %}<li class="active"><a href="{% url 'blog-story-list' %}"><span class="heydings-common-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}
 
 {% block content %}
-<div class="span10">
-  <H4><span class="heydings-common-icon">Y</span>&nbsp;{% trans "Story archive for" %}&nbsp;{{ month|date:"F Y" }}</H4>
+<div class="row">
+  <div class="span10">
+    <H2 class="bb mb30"><span class="heydings-common-icon">Y</span>&nbsp;{% trans "Story archive for" %}&nbsp;{{ month|date:"F Y" }}</H2>
   
-  {% for object in object_list %}
-  {% include "dress_blog/includes/story_abstract.html" with article_class="in2col" %}
-  {% endfor %}
+    {% for object in object_list %}
+    {% include "dress_blog/includes/story_abstract.html" with article_class="in2col" %}
+    {% endfor %}
 
-  {% if is_paginated %}
-  <ul class="pager">
-    {% if page_obj.has_previous %}
-    <li><a id="prev" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
+    {% if is_paginated %}
+    <ul class="pager">
+      {% if page_obj.has_previous %}
+      <li><a id="prev" href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
+      {% endif %}
+    </ul>
     {% endif %}
-    {% if page_obj.has_next %}
-    <li><a id="next" href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>
-    {% endif %}
-  </ul>
-  {% endif %}
-</div>
+  </div>
 
-<div class="span2">
-  <H4>
-    <span class="heydings-common-icon">5</span>&nbsp;{% trans "Archive" %}
-  </H4>
-  <UL>
-    {% if previous_month %}
-    <li>
-      <a href="{% url 'blog-story-archive-month' previous_month|date:'Y' previous_month|date:'m' %}" 
-	 title="{{ previous_month|date:'F Y' }}">{{ previous_month|date:"F Y" }}</a>
-    </li>
-    {% endif %}
-    <li><em>{{ month|date:"F Y" }}</em></li>
-    {% if next_month %}
-    <li>
-      <a href="{% url 'blog-story-archive-month' next_month|date:'Y' next_month|date:'m' %}" 
-	 title="{{ next_month|date:'F Y' }}">{{ next_month|date:"F Y" }}</a>
-    </li>
-    {% endif %}
-  </UL>
-
-  <hr/>
-  <UL>
-    <li>
-      <a href="{% url 'blog-story-archive-year' month|date:'Y' %}" 
-	 title="{{ month|date:'Y' }}">{{ month|date:"Y" }}</a>
-    </li>
-  </UL>
+  <div class="span2">
+    <div class="mt30 pstd pattern">
+      <H6><span class="heydings-common-icon">5</span>&nbsp;{% trans "Archive" %}</H6>
+      <UL>
+	{% if previous_month %}
+	<li>
+	  <a href="{% url 'blog-story-archive-month' previous_month|date:'Y' previous_month|date:'m' %}" 
+	     title="{{ previous_month|date:'F Y' }}">{{ previous_month|date:"F Y" }}</a>
+	</li>
+	{% endif %}
+	<li><em>{{ month|date:"F Y" }}</em></li>
+	{% if next_month %}
+	<li>
+	  <a href="{% url 'blog-story-archive-month' next_month|date:'Y' next_month|date:'m' %}" 
+	     title="{{ next_month|date:'F Y' }}">{{ next_month|date:"F Y" }}</a>
+	</li>
+	{% endif %}
+      </UL>
+      
+      <UL>
+	<li>
+	  <a href="{% url 'blog-story-archive-year' month|date:'Y' %}" 
+	     title="{{ month|date:'Y' }}">{{ month|date:"Y" }}</a>
+	</li>
+      </UL>
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends "dress_blog/base.html" %}
-{% load i18n inlines archive colloquial_date %}
+{% load i18n inlines archive tagging_tags colloquial_date %}
 {% load url from future %}
 
 {% block extracss %}
@@ -15,7 +15,7 @@
 {% block nav-diary %}<li class="active"><a href="{% url 'blog-diary' %}"><span class="heydings-common-icon">T</span> {% trans "diary" %}</a></li>{% endblock %}
 
 {% block content %}
-<div id="diary" class="span12">
+<div id="diary">
   <article>
     <header class="row">
       <div class="span2 tar">
@@ -33,11 +33,12 @@
     </header>
     <section>
       <div class="row">
-	<div id="diary-events" class="span8 offset2">
+	<div class="diary-events span8 offset2">
           <div class="diary-day">
             {% for detail in object.detail.published %}
+	    {% tags_for_object detail as tag_list %}
             <section class="abstract">
-  	      <div class="time">{% if dress_blog_config.show_author %}{{ detail.author.get_full_name }}&nbsp;{% trans "at" %}&nbsp;{% endif %}{{ detail.pub_date|date:"G:i" }}h&nbsp;</div>
+  	      <div class="predetail">{% if dress_blog_config.show_author %}{{ detail.author.get_full_name }}&nbsp;{% endif %}{% if tag_list %}<span class="tags">{% trans "about" %}&nbsp;{% for tag in tag_list %}<a href="{% url 'blog-tag-detail' tag %}">{{ tag }}</a>{% if not forloop.last %},&nbsp;{% endif %}{% endfor %}</span>&nbsp;{% endif %}<span class="time">{% trans "at" %}&nbsp;{{ detail.pub_date|date:"G:i" }}h</span>&nbsp;</div>
 	      <div class="detail clearfix">
 		{{ detail.body_markup|render_inlines|safe }}
 	      </div>
