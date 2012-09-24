@@ -5,28 +5,33 @@
 {% block nav-search-form %}<form class="navbar-search pull-right" action="{% url 'haystack-search' %}" method="get">{% for field in form %}{% ifequal field.name "q" %}<input type="text" name="q" id="id_q" placeholder="{% trans 'Search' %}" class="search-query" value="{{ field.value }}" />{% endifequal %}{% endfor %}</form>{% endblock %}
 
 {% block content %}
-<div id="search" class="span10 offset1">
+<div class="row">
+  <div class="span10 offset1 bb mb30">
+    <div class="row">
+      <H1 class="span8 offset1">
+	<span class="heydings-common-icon">M</span>&nbsp;&nbsp;{% trans "Search results for" %}:&nbsp;&nbsp;<span class="tag">{% if query %}{{ query }}{% else %}...{% endif %}</span>
+      </H1>
+    </div>
+  </div>
+</div>
+
+<div id="search">
   <article>
-    <header>
-      <div class="hbox box-align-start box-pack-center">
-	<div class="headline"><span class="heydings-common-icon">M</span>&nbsp;&nbsp;{% trans "Search results" %}</div>
-      </div>
-    </header>
     <section>
       {% if query %}
       {% for result in page.object_list %}
-      {% get_comment_count for result.object as comment_count %}
       {% tags_for_object result.object as tag_list %}
+      {% get_comment_count for result.object as comment_count %}
       <article class="search-result in2col">
 	<header class="hbox box-align-center box-pack-start">
-	  {% if result.object.content_type.model == "story" %}
-	  {% include "search/includes/story_headline.html" %}
+	  {% if result.model_name == "story" %}
+	  {% include "search/includes/story_headline.html" with object=result.object %}
 	  {% endif %}
-	  {% if result.object.content_type.model == "quote" %}
-	  {% include "search/includes/quote_headline.html" %}
+	  {% if result.model_name == "quote" %}
+	  {% include "search/includes/quote_headline.html" with object=result.object %}
 	  {% endif %}
-	  {% if result.object.content_type.model == "diarydetail" %}
-	  {% include "search/includes/diarydetail_headline.html" %}
+	  {% if result.model_name == "diarydetail" %}
+	  {% include "search/includes/diarydetail_headline.html" with object=result.object %}
 	  {% endif %}
 	</header>
 	<div class="search-text">{% highlight result.text with query %}</div>
