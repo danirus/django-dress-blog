@@ -17,7 +17,7 @@
             "is_active": true,
             "is_superuser": true,
             "is_staff": true,
-            "last_login": "2012-07-19T23:50:32",
+            "last_login": "2012-09-24T23:31:24.657",
             "groups": [],
             "user_permissions": [],
             "password": "pbkdf2_sha256$10000$CxlZp3kdlbgi$sh3tLncnAxKUA3/tDo+riAczBpsspIr/qJizuZUQamA=",
@@ -51,7 +51,7 @@
             "allow_comments": true,
             "author": 1,
             "site": 1,
-            "visits": 24,
+            "visits": 28,
             "content_type": 22,
             "mod_date": "2012-07-08T20:40:23",
             "pub_date": "2012-07-10T16:50:40"
@@ -65,7 +65,7 @@
             "allow_comments": true,
             "author": 1,
             "site": 1,
-            "visits": 20,
+            "visits": 22,
             "content_type": 25,
             "mod_date": "2012-07-08T20:40:27",
             "pub_date": "2012-07-09T19:50:51"
@@ -107,7 +107,7 @@
             "allow_comments": true,
             "author": 1,
             "site": 1,
-            "visits": 15,
+            "visits": 17,
             "content_type": 22,
             "mod_date": "2012-07-08T20:39:58",
             "pub_date": "2012-05-26T16:49:28"
@@ -121,7 +121,7 @@
             "allow_comments": true,
             "author": 2,
             "site": 1,
-            "visits": 32,
+            "visits": 34,
             "content_type": 22,
             "mod_date": "2012-07-08T20:39:47",
             "pub_date": "2012-05-11T16:48:09"
@@ -163,7 +163,7 @@
             "allow_comments": true,
             "author": 1,
             "site": 1,
-            "visits": 18,
+            "visits": 45,
             "content_type": 24,
             "mod_date": "2012-07-10T17:33:23",
             "pub_date": "2012-04-06T12:21:57"
@@ -177,7 +177,7 @@
             "allow_comments": true,
             "author": 1,
             "site": 1,
-            "visits": 5,
+            "visits": 32,
             "content_type": 24,
             "mod_date": "2012-07-05T00:21:35",
             "pub_date": "2012-04-06T08:16:39"
@@ -191,7 +191,7 @@
             "allow_comments": true,
             "author": 2,
             "site": 1,
-            "visits": 28,
+            "visits": 30,
             "content_type": 22,
             "mod_date": "2012-07-10T19:25:35",
             "pub_date": "2012-03-18T14:53:07"
@@ -289,7 +289,7 @@
             "allow_comments": true,
             "author": 1,
             "site": 1,
-            "visits": 18,
+            "visits": 25,
             "content_type": 24,
             "mod_date": "2012-07-10T17:33:32",
             "pub_date": "2012-02-09T13:10:43"
@@ -303,7 +303,7 @@
             "allow_comments": true,
             "author": 1,
             "site": 1,
-            "visits": 25,
+            "visits": 32,
             "content_type": 24,
             "mod_date": "2012-07-08T20:37:32",
             "pub_date": "2012-02-09T04:20:00"
@@ -672,26 +672,6 @@
         }
     },
     {
-        "pk": 9,
-        "model": "dress_blog.blogroll",
-        "fields": {
-            "url": "http://amix.dk/",
-            "sort_order": 0,
-            "name": "amix the lucky stiff",
-            "authors": "Amir Salihefendic"
-        }
-    },
-    {
-        "pk": 22,
-        "model": "dress_blog.blogroll",
-        "fields": {
-            "url": "http://antirez.com/",
-            "sort_order": 0,
-            "name": "antirez weblog",
-            "authors": "Salvatore Sanfilippo"
-        }
-    },
-    {
         "pk": 20,
         "model": "dress_blog.blogroll",
         "fields": {
@@ -699,26 +679,6 @@
             "sort_order": 0,
             "name": "DaBeaz LLC, Blog",
             "authors": "David Beazley"
-        }
-    },
-    {
-        "pk": 15,
-        "model": "dress_blog.blogroll",
-        "fields": {
-            "url": "http://danbri.org/words/",
-            "sort_order": 0,
-            "name": "danbri's foaf stories - An occasional blog",
-            "authors": "Dan Brickley"
-        }
-    },
-    {
-        "pk": 8,
-        "model": "dress_blog.blogroll",
-        "fields": {
-            "url": "http://www.clemesha.org/",
-            "sort_order": 0,
-            "name": "electronic.habitat : alex.clemesha",
-            "authors": "Alex Clemesha"
         }
     },
     {
@@ -852,16 +812,6 @@
         }
     },
     {
-        "pk": 5,
-        "model": "dress_blog.blogroll",
-        "fields": {
-            "url": "http://pydanny.github.com/",
-            "sort_order": 0,
-            "name": "pydanny",
-            "authors": "Daniel Greenfeld"
-        }
-    },
-    {
         "pk": 3,
         "model": "dress_blog.blogroll",
         "fields": {
@@ -869,16 +819,6 @@
             "sort_order": 0,
             "name": "Simon Willison\u2019s Weblog",
             "authors": "Simon Willison"
-        }
-    },
-    {
-        "pk": 13,
-        "model": "dress_blog.blogroll",
-        "fields": {
-            "url": "http://dancingpenguinsoflight.com/",
-            "sort_order": 0,
-            "name": "tail -f findings.out",
-            "authors": "Samuel Huckins"
         }
     },
     {
@@ -919,6 +859,66 @@
             "sort_order": 0,
             "name": "Zach Holman",
             "authors": "Zach Holman"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://amix.dk/",
+            "sort_order": 0,
+            "name": "amix the lucky stiff",
+            "authors": "Amir Salihefendic"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://antirez.com/",
+            "sort_order": 0,
+            "name": "antirez weblog",
+            "authors": "Salvatore Sanfilippo"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://danbri.org/words/",
+            "sort_order": 0,
+            "name": "danbri's foaf stories - An occasional blog",
+            "authors": "Dan Brickley"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.clemesha.org/",
+            "sort_order": 0,
+            "name": "electronic.habitat : alex.clemesha",
+            "authors": "Alex Clemesha"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://pydanny.github.com/",
+            "sort_order": 0,
+            "name": "pydanny",
+            "authors": "Daniel Greenfeld"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://dancingpenguinsoflight.com/",
+            "sort_order": 0,
+            "name": "tail -f findings.out",
+            "authors": "Samuel Huckins"
         }
     },
     {
@@ -1896,38 +1896,11 @@
         }
     },
     {
-        "pk": 6,
+        "pk": 1,
         "model": "tagging.taggeditem",
         "fields": {
             "tag": 1,
-            "object_id": 2,
-            "content_type": 13
-        }
-    },
-    {
-        "pk": 5,
-        "model": "tagging.taggeditem",
-        "fields": {
-            "tag": 1,
-            "object_id": 3,
-            "content_type": 13
-        }
-    },
-    {
-        "pk": 4,
-        "model": "tagging.taggeditem",
-        "fields": {
-            "tag": 1,
-            "object_id": 4,
-            "content_type": 13
-        }
-    },
-    {
-        "pk": 3,
-        "model": "tagging.taggeditem",
-        "fields": {
-            "tag": 1,
-            "object_id": 5,
+            "object_id": 7,
             "content_type": 13
         }
     },
@@ -1941,20 +1914,38 @@
         }
     },
     {
-        "pk": 1,
+        "pk": 3,
         "model": "tagging.taggeditem",
         "fields": {
             "tag": 1,
-            "object_id": 7,
+            "object_id": 5,
             "content_type": 13
         }
     },
     {
-        "pk": 31,
+        "pk": 4,
         "model": "tagging.taggeditem",
         "fields": {
-            "tag": 2,
-            "object_id": 12,
+            "tag": 1,
+            "object_id": 4,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 5,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 1,
+            "object_id": 3,
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 6,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 1,
+            "object_id": 2,
             "content_type": 13
         }
     },
@@ -1964,15 +1955,6 @@
         "fields": {
             "tag": 2,
             "object_id": 1,
-            "content_type": 22
-        }
-    },
-    {
-        "pk": 16,
-        "model": "tagging.taggeditem",
-        "fields": {
-            "tag": 2,
-            "object_id": 2,
             "content_type": 22
         }
     },
@@ -2022,20 +2004,11 @@
         }
     },
     {
-        "pk": 20,
+        "pk": 16,
         "model": "tagging.taggeditem",
         "fields": {
-            "tag": 8,
-            "object_id": 3,
-            "content_type": 22
-        }
-    },
-    {
-        "pk": 40,
-        "model": "tagging.taggeditem",
-        "fields": {
-            "tag": 8,
-            "object_id": 6,
+            "tag": 2,
+            "object_id": 2,
             "content_type": 22
         }
     },
@@ -2058,19 +2031,19 @@
         }
     },
     {
-        "pk": 33,
-        "model": "tagging.taggeditem",
-        "fields": {
-            "tag": 10,
-            "object_id": 4,
-            "content_type": 22
-        }
-    },
-    {
         "pk": 19,
         "model": "tagging.taggeditem",
         "fields": {
             "tag": 11,
+            "object_id": 3,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 20,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 8,
             "object_id": 3,
             "content_type": 22
         }
@@ -2166,12 +2139,30 @@
         }
     },
     {
+        "pk": 31,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 2,
+            "object_id": 12,
+            "content_type": 13
+        }
+    },
+    {
         "pk": 32,
         "model": "tagging.taggeditem",
         "fields": {
             "tag": 15,
             "object_id": 12,
             "content_type": 13
+        }
+    },
+    {
+        "pk": 33,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 10,
+            "object_id": 4,
+            "content_type": 22
         }
     },
     {
@@ -2202,15 +2193,6 @@
         }
     },
     {
-        "pk": 39,
-        "model": "tagging.taggeditem",
-        "fields": {
-            "tag": 18,
-            "object_id": 6,
-            "content_type": 22
-        }
-    },
-    {
         "pk": 37,
         "model": "tagging.taggeditem",
         "fields": {
@@ -2224,6 +2206,24 @@
         "model": "tagging.taggeditem",
         "fields": {
             "tag": 20,
+            "object_id": 6,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 39,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 18,
+            "object_id": 6,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 40,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 8,
             "object_id": 6,
             "content_type": 22
         }
@@ -2265,19 +2265,19 @@
         }
     },
     {
-        "pk": 46,
+        "pk": 45,
         "model": "tagging.taggeditem",
         "fields": {
-            "tag": 24,
+            "tag": 25,
             "object_id": 10,
             "content_type": 22
         }
     },
     {
-        "pk": 45,
+        "pk": 46,
         "model": "tagging.taggeditem",
         "fields": {
-            "tag": 25,
+            "tag": 24,
             "object_id": 10,
             "content_type": 22
         }
@@ -2288,15 +2288,6 @@
         "fields": {
             "tag": 26,
             "object_id": 10,
-            "content_type": 22
-        }
-    },
-    {
-        "pk": 53,
-        "model": "tagging.taggeditem",
-        "fields": {
-            "tag": 26,
-            "object_id": 12,
             "content_type": 22
         }
     },
@@ -2314,6 +2305,15 @@
         "model": "tagging.taggeditem",
         "fields": {
             "tag": 28,
+            "object_id": 12,
+            "content_type": 22
+        }
+    },
+    {
+        "pk": 53,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 26,
             "object_id": 12,
             "content_type": 22
         }
@@ -2337,24 +2337,6 @@
         }
     },
     {
-        "pk": 57,
-        "model": "tagging.taggeditem",
-        "fields": {
-            "tag": 30,
-            "object_id": 14,
-            "content_type": 25
-        }
-    },
-    {
-        "pk": 66,
-        "model": "tagging.taggeditem",
-        "fields": {
-            "tag": 30,
-            "object_id": 19,
-            "content_type": 25
-        }
-    },
-    {
         "pk": 56,
         "model": "tagging.taggeditem",
         "fields": {
@@ -2364,11 +2346,11 @@
         }
     },
     {
-        "pk": 65,
+        "pk": 57,
         "model": "tagging.taggeditem",
         "fields": {
-            "tag": 31,
-            "object_id": 19,
+            "tag": 30,
+            "object_id": 14,
             "content_type": 25
         }
     },
@@ -2436,6 +2418,24 @@
         }
     },
     {
+        "pk": 65,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 31,
+            "object_id": 19,
+            "content_type": 25
+        }
+    },
+    {
+        "pk": 66,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 30,
+            "object_id": 19,
+            "content_type": 25
+        }
+    },
+    {
         "pk": 67,
         "model": "tagging.taggeditem",
         "fields": {
@@ -2445,11 +2445,11 @@
         }
     },
     {
-        "pk": 70,
+        "pk": 68,
         "model": "tagging.taggeditem",
         "fields": {
-            "tag": 38,
-            "object_id": 21,
+            "tag": 39,
+            "object_id": 22,
             "content_type": 24
         }
     },
@@ -2463,11 +2463,11 @@
         }
     },
     {
-        "pk": 68,
+        "pk": 70,
         "model": "tagging.taggeditem",
         "fields": {
-            "tag": 39,
-            "object_id": 22,
+            "tag": 38,
+            "object_id": 21,
             "content_type": 24
         }
     },
