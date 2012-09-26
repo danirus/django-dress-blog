@@ -4,7 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.views import generic
 
 from dress_blog.models import Story
-from dress_blog.views import PostDetailView
+from dress_blog.views import (PostDetailView, PostListView, PostYearArchiveView,
+                              PostMonthArchiveView, PostDayArchiveView)
 
 
 page_size       = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 10)
@@ -26,45 +27,40 @@ urlpatterns = patterns('',
             template_name="blog/story_detail.html"),
         name='blog-story-detail'),
 
-    # allow viewing upcoming stories
+    # allowing to view draft stories
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{1,2})/(?P<slug>[-\w]+)/draft/$',
         login_required(
             generic.DateDetailView.as_view(
-                queryset=Story.objects.published(),
+                queryset=Story.objects.drafts(),
                 date_field="pub_date", month_format="%b", 
-                template_name="blog/story_detail.html", allow_future=True)),
+                template_name="blog/story_detail.html", allow_future=True),
+            redirect_field_name=""),
         name='blog-story-detail-draft'),
 
+    # allowing to view upcoming stories
+    url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{1,2})/(?P<slug>[-\w]+)/upcoming/$',
+        login_required(
+            generic.DateDetailView.as_view(
+                queryset=Story.objects.upcoming(),
+                date_field="pub_date", month_format="%b", 
+                template_name="blog/story_detail.html", allow_future=True),
+            redirect_field_name=""),
+        name='blog-story-detail-upcoming'),
+
     url(r'^(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<day>\d{1,2})/$',
-        generic.DayArchiveView.as_view(queryset=Story.objects.published(),
-                                       date_field="pub_date", 
-                                       month_format="%m",
-                                       paginate_by=page_size),
+        PostDayArchiveView.as_view(model=Story, paginate_by=page_size),
         name='blog-story-archive-day'),
 
     url(r'^(?P<year>\d{4})/(?P<month>\d{1,2})/$',
-        generic.MonthArchiveView.as_view(queryset=Story.objects.published(),
-                                         date_field="pub_date", 
-                                         month_format="%m",
-                                         paginate_by=page_size),
+        PostMonthArchiveView.as_view(model=Story, paginate_by=page_size),
         name='blog-story-archive-month'),
 
     url(r'^(?P<year>\d{4})/$',
-        generic.YearArchiveView.as_view(queryset=Story.objects.published(),
-                                        date_field="pub_date",
-                                        make_object_list=True,
-                                        paginate_by=large_page_size),
+        PostYearArchiveView.as_view(model=Story, paginate_by=large_page_size),
         name='blog-story-archive-year'),
 
-    url(r'^page/(?P<page>\w)/$', 
-        generic.ListView.as_view(queryset=Story.objects.published(),
-                                 template_name="dress_blog/story_list.html",
-                                 paginate_by=page_size),
-        name='blog-story-list-paginated'),
-
-    url(r'^$', 
-        generic.ListView.as_view(queryset=Story.objects.published(),
-                                 template_name="dress_blog/story_list.html",
-                                 paginate_by=page_size),
+    url(r'^$', PostListView.as_view(
+            model=Story, paginate_by=page_size,
+            template_name="dress_blog/story_list.html"), 
         name='blog-story-list'),
 )

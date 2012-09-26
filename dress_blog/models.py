@@ -1,10 +1,9 @@
 #-*- coding: utf-8 -*-
 
-import datetime
 import os.path
 
 from django.db import models
-from django.db.models import permalink
+from django.db.models import permalink, Q
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.generic import GenericForeignKey
@@ -113,9 +112,9 @@ class PostManager(models.Manager):
     """Returns published posts that are not in the future."""
     
     def published(self):
-        return self.get_query_set().filter(status__gte=2, pub_date__lte=now())
+        return self.get_query_set().filter(status=2, pub_date__lte=now())
 
-    def draft(self, author=None):
+    def drafts(self, author=None):
         if not author:
             return self.get_query_set().filter(
                 status=1).order_by("-mod_date")
@@ -123,19 +122,33 @@ class PostManager(models.Manager):
             return self.get_query_set().filter(
                 status=1, author=author).order_by("-mod_date")
 
-    def for_app_models(self, *args):
+    def upcoming(self, author=None):
+        if not author:
+            return self.get_query_set().filter(
+                status=2, pub_date__gt=now()).order_by("-mod_date")
+        else:
+            return self.get_query_set().filter(
+                status=2, author=author, pub_date__gt=now()).order_by("-mod_date")
+
+    def for_app_models(self, *args, **kwargs):
         """Return posts for pairs "app.model" given in args"""
         content_types = []
         for app_model in args:
             app, model = app_model.split(".")
             content_types.append(ContentType.objects.get(app_label=app, 
                                                          model=model))
-        return self.for_content_types(content_types)
+        return self.for_content_types(content_types, **kwargs)
 
-    def for_content_types(self, content_types):
-        return self.get_query_set().filter(
-            content_type__in=content_types,
-            status__gte=2, pub_date__lte=now())
+    def for_content_types(self, content_types, status=[2], author=None):
+        if 1 in status and author: # show drafts for the given user too
+            return self.get_query_set().filter(
+                content_type__in=content_types, status__in=status).exclude(
+                ~Q(author=author), status=1)
+        else:
+            return self.get_query_set().filter(
+                content_type__in=content_types, 
+                status__in=status, 
+                pub_date__lte=now())
 
 
 class Post(models.Model):
@@ -164,22 +177,9 @@ class Post(models.Model):
         self.site_id      = settings.SITE_ID
         super(Post, self).save(*args, **kwargs)
 
-
-class StoryManager(models.Manager):
-    """Returns published posts that are not in the future."""
-    
-    def published(self):
-        return self.get_query_set().filter(
-            status__gte=2, pub_date__lte=now())
-
-    def draft(self, author=None):
-        if not author:
-            return self.get_query_set().filter(
-                status=1).order_by("-mod_date")
-        else:
-            return self.get_query_set().filter(
-                status=1, author=author).order_by("-mod_date")
-
+    @property
+    def in_the_future(self):
+        return self.pub_date > now()
 
 class Story(Post):
     """Story model"""
@@ -220,20 +220,17 @@ class Story(Post):
 
     @permalink
     def get_absolute_url(self):
-        if self.pub_date > now():
-            return ("blog-story-detail-draft", None, {
-                    "year": self.pub_date.year,
-                    "month": self.pub_date.strftime("%b").lower(),
-                    "day": self.pub_date.day,
-                    "slug": self.slug
-            })
+        kwargs = { "year": self.pub_date.year,
+                   "month": self.pub_date.strftime("%b").lower(),
+                   "day": self.pub_date.day,
+                   "slug": self.slug }
+
+        if self.status == 1:
+            return ("blog-story-detail-draft", None, kwargs)
+        elif self.pub_date > now():
+            return ("blog-story-detail-upcoming", None, kwargs)
         else:
-            return ("blog-story-detail", None, {
-                    "year": self.pub_date.year,
-                    "month": self.pub_date.strftime("%b").lower(),
-                    "day": self.pub_date.day,
-                    "slug": self.slug
-            })
+            return ("blog-story-detail", None, kwargs)
 
 
 class DiaryManager(models.Manager):
@@ -243,7 +240,7 @@ class DiaryManager(models.Manager):
         return self.get_query_set().filter(pub_date__lte=now())
 
 class Diary(models.Model):
-    pub_date       = models.DateField(default=datetime.datetime.today)
+    pub_date       = models.DateField(default=now().date())
     objects        = DiaryManager()
 
     class Meta:
@@ -339,20 +336,16 @@ class Quote(Post):
 
     @permalink
     def get_absolute_url(self):
-        if self.pub_date > now():
-            return ("blog-quote-detail-draft", None, {
-                    "year": self.pub_date.year,
-                    "month": self.pub_date.strftime("%b").lower(),
-                    "day": self.pub_date.day,
-                    "slug": self.slug
-            })
+        kwargs = { "year": self.pub_date.year,
+                   "month": self.pub_date.strftime("%b").lower(),
+                   "day": self.pub_date.day,
+                   "slug": self.slug }
+        if self.status == 1:
+            return ("blog-quote-detail-draft", None, kwargs)
+        elif self.pub_date > now():
+            return ("blog-quote-detail-upcoming", None, kwargs)
         else:
-            return ("blog-quote-detail", None, {
-                    "year": self.pub_date.year,
-                    "month": self.pub_date.strftime("%b").lower(),
-                    "day": self.pub_date.day,
-                    "slug": self.slug
-            })
+            return ("blog-quote-detail", None, kwargs)
 
 
 class BlogRoll(models.Model):

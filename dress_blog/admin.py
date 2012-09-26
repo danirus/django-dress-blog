@@ -44,8 +44,8 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class StoryAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
-    list_display  = ("title", "pub_date", "status", "visits")
-    list_filter   = ("pub_date", "tags", "status")
+    list_display  = ("title", "pub_date", "author", "status", "visits")
+    list_filter   = ("author", "status", "pub_date", "tags")
     search_fields = ("title", "body")
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = ((None, {"fields": ("title", "slug",  
@@ -106,8 +106,8 @@ admin.site.register(Diary, DiaryAdmin)
 
 
 class QuoteAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
-    list_display = ("title", "pub_date", "status", "visits")
-    list_filter  = ("pub_date", "tags", "status")
+    list_display = ("title", "pub_date", "author", "status", "visits")
+    list_filter  = ("author", "status", "pub_date", "tags")
     search_fields = ("title", "author", "quote_author", "body")
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = ((None, {"fields": ("title", "slug", "markup", "body",)}),

@@ -230,3 +230,5 @@ HAYSTACK_CONNECTIONS = {
         'PATH': os.path.join(os.path.dirname(__file__), 'xapian_index'),
     },
 }
+
+LOGIN_URL = "/"

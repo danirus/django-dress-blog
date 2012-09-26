@@ -26,6 +26,7 @@
     <script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/bootstrap-collapse.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/bootstrap-alert.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}dress_blog/themes/{{ dress_blog_config.theme }}/js/bootstrap-dropdown.js"></script>
     {% block extrajs %}{% endblock %}
   </head>
 
@@ -49,7 +50,23 @@
 		{% block nav-tags %}<li><a href="{% url 'blog-tag-list' %}"><span class="heydings-common-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
 		{% block nav-blogroll %}<li><a href="{% url 'blog-blogroll' %}"><span class="heydings-control-icon">8</span> {% trans "blogroll" %}</a></li>{% endblock %}
 	      </ul>
-	      {% block nav-search-form %}<form class="navbar-search pull-right" action="{% url 'haystack-search' %}" method="get"><input type="text" name="q" id="id_q" placeholder="{% trans 'Search' %}" class="search-query" /></form>{% endblock %}
+	      <ul class="nav pull-right">
+		{% if user.is_authenticated %}
+		<li class="divider-vertical"></li>
+		{% block nav-admin %}<li class="dropdown">
+		  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="heydings-common-icon">A</span>&nbsp;{{ request.user.username }}&nbsp;<b class="caret"></b></a>
+		  <ul class="dropdown-menu">
+		    {% if request.session.unpublished_on %}
+		    <li><a href="{% url 'blog-unpublished-off' %}?next={{ request.path }}">{% trans "Hide unpublished" %}</a></li>
+		    {% else %}
+		    <li><a href="{% url 'blog-unpublished-on' %}?next={{ request.path }}">{% trans "Show unpublished" %}</a></li>
+		    {% endif %}
+		  </ul>
+		</li>{% endblock %}
+		<li class="divider-vertical"></li>
+		{% endif %}
+		<li>{% block nav-search-form %}<form class="navbar-search pull-right" action="{% url 'haystack-search' %}" method="get"><input type="text" name="q" id="id_q" placeholder="{% trans 'Search' %}" class="search-query input-medium" /></form>{% endblock %}</li>
+	      </ul>
 	    </div>
 	  </div>
 	</div>

@@ -2,7 +2,7 @@
 {% load i18n highlight tagging_tags comments %}
 {% load url from future %}
 
-{% block nav-search-form %}<form class="navbar-search pull-right" action="{% url 'haystack-search' %}" method="get">{% for field in form %}{% ifequal field.name "q" %}<input type="text" name="q" id="id_q" placeholder="{% trans 'Search' %}" class="search-query" value="{{ field.value }}" />{% endifequal %}{% endfor %}</form>{% endblock %}
+{% block nav-search-form %}<form class="navbar-search pull-right" action="{% url 'haystack-search' %}" method="get">{% for field in form %}{% ifequal field.name "q" %}<input type="text" name="q" id="id_q" placeholder="{% trans 'Search' %}" class="search-query input-medium" value="{{ field.value }}" />{% endifequal %}{% endfor %}</form>{% endblock %}
 
 {% block content %}
 <div class="row">

@@ -5179,6 +5179,7 @@ input[type="submit"].btn.btn-mini {
   overflow: visible;
   margin-bottom: 20px;
   color: #777777;
+  font-size: 0.9em;
   *position: relative;
   *z-index: 2;
 }
@@ -9094,7 +9095,7 @@ hgroup.date {
   box-flex: 1;
 }
 .mini-author {
-  font: 1em "OpenSansRegular", Helvetica, Arial, sans-serif;
+  font-family: "YanoneKaffeesatzLight", Helvetica, Arial, sans-serif;
   color: #555555;
 }
 .post-author {
@@ -9180,19 +9181,20 @@ hgroup.date {
 }
 .diary-day .predetail {
   margin-bottom: 4px;
+  font-family: "YanoneKaffeesatzLight", Helvetica, Arial, sans-serif;
   text-align: right;
 }
 .diary-day .predetail:after {
   content: '\2014 \00A0';
 }
 .diary-front .predetail {
-  font-size: 1.2em;
+  font: 1.2em "YanoneKaffeesatzLight", Helvetica, Arial, sans-serif;
 }
 .diary-day .tags {
   font: 1.1em "YanoneKaffeesatzRegular", Helvetica, Arial, sans-serif;
 }
 .diary-day .time {
-  font: 0.9em "YanoneKaffeesatzLight", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
   color: #555555;
 }
 .diary-day .detail {
@@ -9298,10 +9300,11 @@ hgroup.date {
   margin: 0px;
   font: 2.8em/1.2em "YanoneKaffeesatzBold", Helvetica, Arial, sans-serif;
 }
-.draft .headline {
+.unpublished .headline {
   font: 1em/1em "OpenSansRegular", Helvetica, Arial, sans-serif;
 }
-.draft .subline {
+.unpublished .subline {
+  font-size: 0.9em;
   text-align: right;
   color: #555555;
 }
@@ -9403,7 +9406,6 @@ SPAN.browse-symbol {
   color: #ffffff;
 }
 .comment .data {
-  margin-top: 5px;
   padding: 5px;
   vertical-align: top;
 }
@@ -9481,6 +9483,14 @@ SPAN.browse-symbol {
 }
 .comment .text H6 {
   font-size: 1.6em;
+}
+.comment .text.draftbg {
+  background-image: url("../img/bg/draft.png");
+  background-color: #ffffff;
+}
+.comment .text.upcomingbg {
+  background-image: url("../img/bg/upcoming.png");
+  background-color: #ffffff;
 }
 #list-of-comments .comment .data {
   margin-top: 15px;
@@ -9707,6 +9717,12 @@ FOOTER a:hover {
   font: 0.9em/1.3em "OpenSansRegular", Helvetica, Arial, sans-serif;
   color: #6f6f6f;
 }
+.draftbg {
+  background: url("../img/bg/draft.png") repeat scroll 0 0 transparent;
+}
+.upcomingbg {
+  background: url("../img/bg/upcoming.png") repeat scroll 0 0 transparent;
+}
 .neck {
   padding: 14px;
   border: 1px solid rgba(200, 191, 185, 0.5);
@@ -9778,10 +9794,19 @@ FOOTER a:hover {
 .neck H6 {
   font-size: 1.6em;
 }
+.neck.draftbg {
+  background-image: url("../img/bg/draft.png");
+  background-color: #ffffff;
+}
+.neck.upcomingbg {
+  background-image: url("../img/bg/upcoming.png");
+  background-color: #ffffff;
+}
 .onecol {
   margin: 0 auto;
   width: 75%;
   font-size: 1.2em;
+  line-height: 1.3em;
 }
 .hbox {
   display: -webkit-box;

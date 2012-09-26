@@ -2,6 +2,7 @@
 
 from django.conf import settings
 from django.conf.urls.defaults import *
+from django.contrib.auth.decorators import login_required
 from django.contrib.comments.feeds import LatestCommentFeed
 from django.views.generic import DetailView, ListView, TemplateView
 
@@ -57,6 +58,9 @@ urlpatterns = patterns("",
     url(r'^feeds/diary/$', LatestDiaryDetailsFeed(), name='latest-diary-feed'),
     url(r'^feeds/comments/$', LatestCommentFeed(), name='comments-feed'),
     url(r"^feeds/tag/(?P<slug>.{1,50})$", PostsByTag(), name='posts-tagged-as'),
+
+    url(r"^unpublished-on/$", views.show_unpublished, name="blog-unpublished-on"),
+    url(r"^unpublished-off/$", views.hide_unpublished, name="blog-unpublished-off"),
 )
 
 #-- sitemaps ------------------------------------------------------------------
@@ -94,5 +98,5 @@ if ui_columns == 4:
     )
 else:
     urlpatterns += patterns("",
-        url(r"^$", views.PostListView.as_view(), name="blog-index"),
+        url(r"^$", views.MixedPostListView.as_view(), name="blog-index"),
     )

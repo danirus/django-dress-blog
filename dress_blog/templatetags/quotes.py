@@ -66,7 +66,7 @@ class DraftQuotes(template.Node):
 
         user = template.Variable("user").resolve(context)
             
-        quotes = Quote.objects.draft(user)[:self.limit]
+        quotes = Quote.objects.drafts(user)[:self.limit]
         if quotes:
             context[self.var_name] = quotes
         return ''

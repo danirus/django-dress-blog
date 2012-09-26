@@ -71,7 +71,7 @@ class DraftStories(template.Node):
 
         user = template.Variable("user").resolve(context)
             
-        stories = Story.objects.draft(user)[:self.limit]
+        stories = Story.objects.drafts(user)[:self.limit]
         if stories:
             context[self.var_name] = stories
         return ''
@@ -102,23 +102,23 @@ def get_draft_stories(parser, token):
 
 @register.filter
 def get_links(value):
-	"""
-	Extracts links from a ``Story`` body and returns a list.
+    """
+    Extracts links from a ``Story`` body and returns a list.
 
-	Template Syntax::
-
-	{{ story.body|markdown:"safe"|get_links }}
-
-	"""
-	try:
-		from BeautifulSoup import BeautifulSoup
-		soup = BeautifulSoup(value)
-		return soup.findAll('a')
-	except ImportError:
-		if settings.DEBUG:
-			raise template.TemplateSyntaxError, "Error in 'get_links' filter: BeautifulSoup isn't installed."
-		pass
-	return value
+    Template Syntax::
+    
+    {{ story.body|markdown:"safe"|get_links }}
+    
+    """
+    try:
+        from BeautifulSoup import BeautifulSoup
+        soup = BeautifulSoup(value)
+        return soup.findAll('a')
+    except ImportError:
+        if settings.DEBUG:
+            raise template.TemplateSyntaxError, "Error in 'get_links' filter: BeautifulSoup isn't installed."
+        pass
+    return value
 
 
 class BlogRolls(template.Node):

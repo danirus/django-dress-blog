@@ -4,18 +4,18 @@
 {% get_draft_stories 10 as draft_stories %}
 {% get_draft_quotes 10 as draft_quotes %}
 {% if draft_stories or draft_quotes %}
-<div class="alert alert-block">
+<div class="alert alert-info">
   <a class="close" data-dismiss="alert" href="#">&times;</a>
   <div id="admin-block">
     {% if draft_stories %}
-    <p>{% trans "Draft stories" %}:</p>
+    <h6>{% trans "Draft stories" %}:</h6>
     {% for item in draft_stories %}
     {% include "dress_blog/includes/draft_post_headline.html" with object=item %}
     {% endfor %}
     {% endif %}
 
     {% if draft_quotes %}
-    <p>{% trans "Draft quotes" %}:</p>
+    <h6>{% trans "Draft quotes" %}:</h6>
     {% for item in draft_quotes %}
     {% include "dress_blog/includes/draft_post_headline.html" with object=item %}
     {% endfor %}

@@ -1,25 +1,41 @@
 #-*- coding: utf-8 -*-
 
-import datetime
-
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.db.models import F
-from django.http import Http404
+from django.db.models import F, Q
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response as render
 from django.template import RequestContext
+from django.utils.timezone import now
 from django.utils.translation import ugettext as _
 from django.views.generic import View, ListView, DateDetailView, RedirectView
-from django.views.generic.dates import _date_from_string, _date_lookup_for_field
+from django.views.generic.dates import (_date_from_string, _date_lookup_for_field,
+                                        YearArchiveView, MonthArchiveView, DayArchiveView)
+from django.views.generic.list import MultipleObjectMixin
 
 from tagging.models import Tag, TaggedItem
 
-from dress_blog.models import Config, Post, Diary, DiaryDetail
+from dress_blog.models import Config, Post, Story, Quote, Diary, DiaryDetail
+
 
 page_size = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 10)
 
+
 def index(request):
     return render("dress_blog/index_4col.html", context_instance=RequestContext(request))
+
+@login_required(redirect_field_name="")
+def show_unpublished(request):
+    redirect_to = request.REQUEST.get("next", '/')
+    request.session["unpublished_on"] = True
+    return HttpResponseRedirect(redirect_to)
+
+@login_required(redirect_field_name="")
+def hide_unpublished(request):
+    redirect_to = request.REQUEST.get("next", '/')
+    request.session["unpublished_on"] = False
+    return HttpResponseRedirect(redirect_to)
 
 
 class PostDetailView(DateDetailView):
@@ -30,7 +46,34 @@ class PostDetailView(DateDetailView):
         return qs
 
 
-class PostListView(ListView):
+class DressBlogViewMixin(MultipleObjectMixin):
+    def get_queryset(self):
+        if self.request.session.get("unpublished_on", False):
+            qs = self.model.objects.filter(status__in=[1,2]).exclude(
+                ~Q(author=self.request.user), status=1)
+        else:
+            qs = self.model.objects.filter(status=2, pub_date__lte=now())
+        return qs.order_by("-pub_date")
+
+
+class PostListView(ListView, DressBlogViewMixin):
+    pass
+
+class PostDayArchiveView(DayArchiveView, DressBlogViewMixin):
+    date_field = "pub_date"
+    make_object_list = True
+    month_format = "%m"
+
+class PostMonthArchiveView(MonthArchiveView, DressBlogViewMixin):
+    date_field = "pub_date"
+    make_object_list = True
+    month_format = "%m"
+
+class PostYearArchiveView(YearArchiveView, DressBlogViewMixin):
+    date_field = "pub_date"
+    make_object_list = True
+
+class MixedPostListView(ListView):
     """
     Paginated timeline
 
@@ -39,17 +82,19 @@ class PostListView(ListView):
         object_list
             List of posts.
     """
-    model = Post
     template_name = "dress_blog/post_list.html"
 
     def get_paginate_by(self, queryset):
         return Config.get_current().stories_in_index
 
     def get_queryset(self):
-        posts = Post.objects.for_app_models(
-            "dress_blog.story", "dress_blog.quote").order_by("-pub_date")
+        if self.request.session.get("unpublished_on", False):
+            kwargs = {"author": self.request.user, "status": [1,2]}
+        else:
+            kwargs = {"author": None, "status": [2]}
+        posts = Post.objects.for_app_models("dress_blog.story", "dress_blog.quote", 
+                                            **kwargs).order_by("-pub_date")
         return posts
-
 
 class TagDetailView(ListView):
     """
@@ -81,15 +126,10 @@ class TagDetailView(ListView):
 
 
 class DiaryDetailView(DateDetailView):
-    """
-    Paginated tag list
-
-    Template: ``dress_blog/diary_detail.html``
-    Context:
-        object_list
-            List of tags.
-    """
     model = Diary
+    date_field = "pub_date"
+    month_format = "%b"
+    allow_future = True
 
     def get_allow_empty(self):
         return False
@@ -101,11 +141,11 @@ class DiaryDetailView(DateDetailView):
         self.date = _date_from_string(year, self.get_year_format(),
                                       month, self.get_month_format(),
                                       day, self.get_day_format())
-        
+
         # Use a custom queryset if provided
         qs = queryset or self.get_queryset()
 
-        if not self.get_allow_future() and self.date > datetime.date.today():
+        if not self.get_allow_future() and self.date > now().date():
             raise Http404(_(u"Future %(verbose_name_plural)s not available because %(class_name)s.allow_future is False.") % {
                 'verbose_name_plural': qs.model._meta.verbose_name_plural,
                 'class_name': self.__class__.__name__,
@@ -126,7 +166,13 @@ class DiaryDetailView(DateDetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DiaryDetailView, self).get_context_data(**kwargs)
+        if self.request.session.get("unpublished_on", False):
+            qs = self.object.detail.filter(status__in=[1,2]).exclude(
+                ~Q(author=self.request.user), status=1)
+        else:
+            qs = self.object.detail.filter(status=2, pub_date__lte=now())
         context.update({
+            'detail_list': qs.order_by("-pub_date"),
             'day': self.date,
             'previous_day': self.get_previous_day(self.date),
             'next_day': self.get_next_day(self.date),
