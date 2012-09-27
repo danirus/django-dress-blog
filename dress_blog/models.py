@@ -25,7 +25,7 @@ from tagging.fields import TagField
 from dress_blog.utils import create_cache_key, colloquial_date
 
 
-STATUS_CHOICES = ((1, _("Draft")), (2, _("Public")),)
+STATUS_CHOICES = ((1, _("Draft")), (2, _("Review")), (3, _("Public")),)
 
 UI_COVER_CHOICES = (("3col", _("3 columns")), ("4col", _("4 columns")),)
 
@@ -112,7 +112,7 @@ class PostManager(models.Manager):
     """Returns published posts that are not in the future."""
     
     def published(self):
-        return self.get_query_set().filter(status=2, pub_date__lte=now())
+        return self.get_query_set().filter(status=3, pub_date__lte=now())
 
     def drafts(self, author=None):
         if not author:
@@ -125,10 +125,10 @@ class PostManager(models.Manager):
     def upcoming(self, author=None):
         if not author:
             return self.get_query_set().filter(
-                status=2, pub_date__gt=now()).order_by("-mod_date")
+                status=3, pub_date__gt=now()).order_by("-mod_date")
         else:
             return self.get_query_set().filter(
-                status=2, author=author, pub_date__gt=now()).order_by("-mod_date")
+                status=3, author=author, pub_date__gt=now()).order_by("-mod_date")
 
     def for_app_models(self, *args, **kwargs):
         """Return posts for pairs "app.model" given in args"""
@@ -139,8 +139,8 @@ class PostManager(models.Manager):
                                                          model=model))
         return self.for_content_types(content_types, **kwargs)
 
-    def for_content_types(self, content_types, status=[2], author=None):
-        if 1 in status and author: # show drafts for the given user too
+    def for_content_types(self, content_types, status=[3], author=None):
+        if not 3 in status and author: # show drafts anf reviews for the author
             return self.get_query_set().filter(
                 content_type__in=content_types, status__in=status).exclude(
                 ~Q(author=author), status=1)
@@ -227,6 +227,8 @@ class Story(Post):
 
         if self.status == 1:
             return ("blog-story-detail-draft", None, kwargs)
+        if self.status == 2:
+            return ("blog-story-detail-review", None, kwargs)
         elif self.pub_date > now():
             return ("blog-story-detail-upcoming", None, kwargs)
         else:
@@ -342,6 +344,8 @@ class Quote(Post):
                    "slug": self.slug }
         if self.status == 1:
             return ("blog-quote-detail-draft", None, kwargs)
+        if self.status == 2:
+            return ("blog-quote-detail-review", None, kwargs)
         elif self.pub_date > now():
             return ("blog-quote-detail-upcoming", None, kwargs)
         else:

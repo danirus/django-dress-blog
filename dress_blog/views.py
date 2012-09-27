@@ -89,10 +89,11 @@ class MixedPostListView(ListView):
 
     def get_queryset(self):
         if self.request.session.get("unpublished_on", False):
-            kwargs = {"author": self.request.user, "status": [1,2]}
+            kwargs = {"author": self.request.user, "status": [1,2,3]}
         else:
-            kwargs = {"author": None, "status": [2]}
-        posts = Post.objects.for_app_models("dress_blog.story", "dress_blog.quote", 
+            kwargs = {"author": None, "status": [3]}
+        posts = Post.objects.for_app_models("dress_blog.story", 
+                                            "dress_blog.quote", 
                                             **kwargs).order_by("-pub_date")
         return posts
 
