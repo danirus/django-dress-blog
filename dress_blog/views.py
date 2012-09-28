@@ -41,8 +41,9 @@ def hide_unpublished(request):
 class PostDetailView(DateDetailView):
     def get_object(self, *args, **kwargs):
         qs = super(DateDetailView, self).get_object(*args, **kwargs)
-        qs.visits = F('visits') + 1
-        qs.save()
+        if qs.status > 2 and not qs.in_the_future:
+            qs.visits = F('visits') + 1
+            qs.save()
         return qs
 
 

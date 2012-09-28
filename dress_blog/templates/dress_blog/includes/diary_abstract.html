@@ -12,7 +12,10 @@
     {% get_detail_for_day object as detail_list %}
     {% for detail in detail_list %}
     {% get_comment_count for detail as comment_count %}
-    <section class="abstract {% if detail.status = 1 %}draftbg{% else %}{% if detail.in_the_future %}upcomingbg{% endif %}{% endif %}">
+    <section class="abstract 
+		    {% if detail.status = 1 %}draftbg{% else %}
+		    {% if detail.status = 2 %}reviewbg{% else %}
+		    {% if detail.in_the_future %}upcomingbg{% endif %}{% endif %}{% endif %}">
       <div class="predetail">{% if dress_blog_config.show_author %}{{ detail.author.get_full_name }}&nbsp;{% trans "at" %}&nbsp;{% endif %}<span class="time">{{ detail.pub_date|date:"G:i" }}h&nbsp;&nbsp;</div>
       {% if comment_count %}
       <div class="subline tar">{{ comment_count }} comment{{ comment_count|pluralize }}</div>
