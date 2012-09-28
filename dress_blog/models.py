@@ -4,6 +4,7 @@ import os.path
 
 from django.db import models
 from django.db.models import permalink, Q
+from django.db.models.signals import post_delete
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.generic import GenericForeignKey
@@ -21,6 +22,8 @@ from django_markup.fields import MarkupField
 from django_markup.markup import formatter
 from inline_media.fields import TextFieldWithInlines
 from tagging.fields import TagField
+from tagging.models import TaggedItem
+from tagging.utils import get_tag_list
 
 from dress_blog.utils import create_cache_key, colloquial_date
 
@@ -192,6 +195,7 @@ class Post(models.Model):
     def in_the_future(self):
         return self.pub_date > now()
 
+
 class Story(Post):
     """Story model"""
 
@@ -361,6 +365,25 @@ class Quote(Post):
             return ("blog-quote-detail-upcoming", None, kwargs)
         else:
             return ("blog-quote-detail", None, kwargs)
+
+
+def delete_post_tags(sender, instance, **kwargs):
+    try:
+        ctype = ContentType.objects.get_for_model(instance)
+        tags = get_tag_list(instance.tags)
+        TaggedItem._default_manager.filter(content_type__pk=ctype.pk,
+                                           object_id=instance.pk,
+                                           tag__in=tags).delete()
+        for tag in tags:
+            if not tag.items.count():
+                tag.delete()
+    except Exception, e:
+        # let 'django.request' logger handle the exception
+        raise e
+
+post_delete.connect(delete_post_tags, sender=Story)
+post_delete.connect(delete_post_tags, sender=Quote)
+post_delete.connect(delete_post_tags, sender=DiaryDetail)
 
 
 class BlogRoll(models.Model):
