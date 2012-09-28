@@ -49,10 +49,12 @@ class PostDetailView(DateDetailView):
 class DressBlogViewMixin(MultipleObjectMixin):
     def get_queryset(self):
         if self.request.session.get("unpublished_on", False):
-            qs = self.model.objects.filter(status__in=[1,2]).exclude(
+            qs = self.model.objects.filter(status__in=[1,2,3]).exclude(
                 ~Q(author=self.request.user), status=1)
+            if not self.request.user.has_perm("dress_blog.can_review_posts"):
+                qs = qs.exclude(~Q(author=self.request.user), status=2)
         else:
-            qs = self.model.objects.filter(status=2, pub_date__lte=now())
+            qs = self.model.objects.filter(status=3, pub_date__lte=now())
         return qs.order_by("-pub_date")
 
 
@@ -168,10 +170,12 @@ class DiaryDetailView(DateDetailView):
     def get_context_data(self, **kwargs):
         context = super(DiaryDetailView, self).get_context_data(**kwargs)
         if self.request.session.get("unpublished_on", False):
-            qs = self.object.detail.filter(status__in=[1,2]).exclude(
+            qs = self.object.detail.filter(status__in=[1,2,3]).exclude(
                 ~Q(author=self.request.user), status=1)
+            if not self.request.user.has_perm("dress_blog.can_review_posts"):
+                qs = qs.exclude(~Q(author=self.request.user), status=2)
         else:
-            qs = self.object.detail.filter(status=2, pub_date__lte=now())
+            qs = self.object.detail.filter(status=3, pub_date__lte=now())
         context.update({
             'detail_list': qs.order_by("-pub_date"),
             'day': self.date,

@@ -111,9 +111,6 @@ class Config(models.Model):
 class PostManager(models.Manager):
     """Returns published posts that are not in the future."""
     
-    def published(self):
-        return self.get_query_set().filter(status=3, pub_date__lte=now())
-
     def drafts(self, author=None):
         if not author:
             return self.get_query_set().filter(
@@ -122,6 +119,12 @@ class PostManager(models.Manager):
             return self.get_query_set().filter(
                 status=1, author=author).order_by("-mod_date")
 
+    def reviews(self, author):
+        if author.has_perm("dress_blog.can_review_posts"):
+            return self.get_query_set().filter(status=2).order_by("-mod_date")
+        else:
+            return []
+
     def upcoming(self, author=None):
         if not author:
             return self.get_query_set().filter(
@@ -129,6 +132,9 @@ class PostManager(models.Manager):
         else:
             return self.get_query_set().filter(
                 status=3, author=author, pub_date__gt=now()).order_by("-mod_date")
+
+    def published(self):
+        return self.get_query_set().filter(status=3, pub_date__lte=now())
 
     def for_app_models(self, *args, **kwargs):
         """Return posts for pairs "app.model" given in args"""
@@ -140,10 +146,14 @@ class PostManager(models.Manager):
         return self.for_content_types(content_types, **kwargs)
 
     def for_content_types(self, content_types, status=[3], author=None):
-        if not 3 in status and author: # show drafts anf reviews for the author
-            return self.get_query_set().filter(
-                content_type__in=content_types, status__in=status).exclude(
-                ~Q(author=author), status=1)
+        if min(status) < 3 and author: # show drafts anf reviews for the author
+            qs = self.get_query_set().filter(
+                content_type__in=content_types, 
+                status__in=status).exclude(~Q(author=author), status=1)
+            if not author.has_perm("dress_blog.can_review_posts"):
+                return qs.exclude(~Q(author=author), status=2)
+            else:
+                return qs
         else:
             return self.get_query_set().filter(
                 content_type__in=content_types, 
@@ -171,6 +181,7 @@ class Post(models.Model):
         db_table  = "dress_blog_post"
         ordering  = ("-pub_date",)
         get_latest_by = "pub_date"
+        permissions = ((_("can_review_posts"), _("Can review posts")),)
 
     def save(self, *args, **kwargs):
         self.content_type = ContentType.objects.get_for_model(self)

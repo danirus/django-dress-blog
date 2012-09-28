@@ -1,5 +1,5 @@
 {% extends "dress_blog/base.html" %}
-{% load i18n stories diary quotes comments_xtd %}
+{% load i18n posts archive comments_xtd %}
 {% load url from future %}
 
 {% block extracss %}
@@ -13,11 +13,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="span5">
-  <div class="article-list">
-    <H4>
-      <span class="heydings-common-icon">D</span> {% trans "Latest stories" %}
-    </H4>
+<div class="row mt15">
+  <div class="span4">
     {% get_latest_stories dress_blog_config.stories_in_index as stories %}
     {% if stories %}
     {% for item in stories %}
@@ -30,13 +27,8 @@
     <p>{% trans "no story yet" %}</p>
     {% endif %}
   </div>
-</div>
-
-<div class="span3">
-  <div class="article-list">
-    <H4>
-      <span class="heydings-common-icon">B</span> {% trans "Latest quotes" %}
-    </H4>
+  
+  <div class="span3">
     {% get_latest_quotes dress_blog_config.quotes_in_index as quotes %}
     {% if quotes %}
     {% for item in quotes %}
@@ -49,46 +41,54 @@
     <p>{% trans "no quote yet" %}</p>
     {% endif %}
   </div>
-</div>
-
-<div class="span2">
-  <div class="article-list">
-    <H4>
-      <span class="heydings-common-icon">T</span> {% trans "Latest in diary" %}
-    </H4>
-    {% get_latest_diary_days dress_blog_config.diary_entries_in_index as diary_items %}
-    {% if diary_items %}
-    {% for item in diary_items %}
-    {% include "dress_blog/includes/diary_abstract.html" with object=item %}
-    {% endfor %}
-    <p>
-      <a href="{% url 'blog-diary' %}">{% trans "Read the diary" %}</a>
-    </p>
-    {% else %}
-    <p>{% trans "no entry yet" %}</p>
-    {% endif %}
-  </div>
-</div>
-
-<div class="span2">
-  {% include "dress_blog/includes/admin_block.html" %}
-  <div class="well">
-    <H5>
-      <span class="heydings-common-icon">b</span>&nbsp;&nbsp;{% trans "Latest comments" %}
-    </H5>
-    {% get_xtdcomment_count as comment_count for dress_blog.story dress_blog.quote dress_blog.diarydetail %}
-    {% if comment_count %}
-    {% render_last_xtdcomments dress_blog_config.comments_in_index for dress_blog.story dress_blog.quote dress_blog.diarydetail using "comments/dress_blog/comment_mini.html" %}
-    <p>
-      <a href="{% url 'blog-comment-list' %}">{% trans "more" %}</a>
-    </p>
-    {% else %}
-    <p>{% trans "no comment" %}</p>
-    {% endif %}
+  
+  <div class="span3">
+    <div class="article-list">
+      <H4>
+	<span class="heydings-common-icon">T</span> {% trans "Latest in diary" %}
+      </H4>
+      {% get_latest_diary_days dress_blog_config.diary_entries_in_index as diary_items %}
+      {% if diary_items %}
+      {% for item in diary_items %}
+      {% include "dress_blog/includes/diary_abstract.html" with object=item %}
+      {% endfor %}
+      <p>
+	<a href="{% url 'blog-diary' %}">{% trans "Read the diary" %}</a>
+      </p>
+      {% else %}
+      <p>{% trans "no entry yet" %}</p>
+      {% endif %}
+    </div>
   </div>
   
-  <div>
-    {% include "dress_blog/includes/subscribe_block.html" %}
+  <div class="span2">
+    {% include "dress_blog/includes/admin_block.html" %}
+
+    <div class="pstd pattern">
+      {% get_xtdcomment_count as comment_count for dress_blog.story dress_blog.quote dress_blog.diarydetail %}
+      {% if comment_count %}
+      <div class="mb15">
+	<H6><span class="heydings-common-icon">b</span>&nbsp;&nbsp;{% trans "Latest comments" %}</H6>
+	{% render_last_xtdcomments dress_blog_config.comments_in_index for dress_blog.story dress_blog.quote dress_blog.diarydetail using "comments/dress_blog/comment_mini.html" %}
+      </div>
+      {% endif %}
+      
+      {% get_popular_posts 3 as popular_quotes for dress_blog.quote %}
+      {% if popular_quotes %}
+      <div class="mb15">
+	<H6><span class="heydings-common-icon">B</span>&nbsp;{% trans "Popular quotes" %}</H6>
+	<ul>
+	  {% for post in popular_quotes %}
+	  <li><a href="{{ post.quote.get_absolute_url }}">{{ post.quote.title }}</a></li>
+	  {% endfor %}
+	</ul>
+	{% endif %}
+      </div>
+      
+      <div>
+	{% include "dress_blog/includes/subscribe_block.html" %}
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

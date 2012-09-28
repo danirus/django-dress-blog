@@ -3,7 +3,10 @@
 
 {% get_comment_count for object as comment_count %}
 {% tags_for_object object as tag_list %}
-<article class="{% if article_class %}{{ article_class }} {% endif %}{% if object.status = 1 %}draftbg{% else %}{% if object.in_the_future %}upcomingbg{% endif %}{% endif %}">
+<article class="{% if article_class %}{{ article_class }} {% endif %}
+		{% if object.status = 1 %}draftbg{% else %}
+		{% if object.status = 2 %}reviewbg{% else %}
+		{% if object.in_the_future %}upcomingbg{% endif %}{% endif %}{% endif %}">
   <header class="hbox box-align-start box-pack-start">
     <div class="big-heydings-common-icon">B</div>
     <div class="title">

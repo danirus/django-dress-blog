@@ -9488,6 +9488,10 @@ SPAN.browse-symbol {
   background-image: url("../img/bg/draft.png");
   background-color: #ffffff;
 }
+.comment .text.reviewbg {
+  background-image: url("../img/bg/review.png");
+  background-color: #ffffff;
+}
 .comment .text.upcomingbg {
   background-image: url("../img/bg/upcoming.png");
   background-color: #ffffff;
@@ -9720,6 +9724,9 @@ FOOTER a:hover {
 .draftbg {
   background: url("../img/bg/draft.png") repeat scroll 0 0 transparent;
 }
+.reviewbg {
+  background: url("../img/bg/review.png") repeat scroll 0 0 transparent;
+}
 .upcomingbg {
   background: url("../img/bg/upcoming.png") repeat scroll 0 0 transparent;
 }
@@ -9796,6 +9803,10 @@ FOOTER a:hover {
 }
 .neck.draftbg {
   background-image: url("../img/bg/draft.png");
+  background-color: #ffffff;
+}
+.neck.reviewbg {
+  background-image: url("../img/bg/review.png");
   background-color: #ffffff;
 }
 .neck.upcomingbg {

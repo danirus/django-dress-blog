@@ -4,6 +4,9 @@
 <div class="unpublished">
   <div class="title">
     <div class="headline"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></div>
-    <div class="subline">{{ object.pub_date|date:"D, j b Y" }}</div>
+    <div class="subline">
+      {% if show_author %}{% trans "by" %}&nbsp;{{ object.author }}&nbsp;-&nbsp;{% endif %}
+      {{ object.pub_date|date:"D, j b Y" }}
+    </div>
   </div>
 </div>

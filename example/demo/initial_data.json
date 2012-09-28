@@ -47,7 +47,7 @@
         "pk": 12,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -61,7 +61,7 @@
         "pk": 17,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -75,7 +75,7 @@
         "pk": 19,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -89,7 +89,7 @@
         "pk": 18,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 2,
             "site": 1,
@@ -103,7 +103,7 @@
         "pk": 10,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -117,7 +117,7 @@
         "pk": 9,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 2,
             "site": 1,
@@ -131,7 +131,7 @@
         "pk": 8,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 2,
             "site": 1,
@@ -145,7 +145,7 @@
         "pk": 7,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -159,7 +159,7 @@
         "pk": 23,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -173,7 +173,7 @@
         "pk": 22,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -187,7 +187,7 @@
         "pk": 6,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 2,
             "site": 1,
@@ -201,7 +201,7 @@
         "pk": 16,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 2,
             "site": 1,
@@ -215,7 +215,7 @@
         "pk": 15,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -229,7 +229,7 @@
         "pk": 5,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 2,
             "site": 1,
@@ -243,7 +243,7 @@
         "pk": 4,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -257,7 +257,7 @@
         "pk": 14,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 2,
             "site": 1,
@@ -271,7 +271,7 @@
         "pk": 3,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -285,7 +285,7 @@
         "pk": 21,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -299,7 +299,7 @@
         "pk": 20,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -313,7 +313,7 @@
         "pk": 2,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 1,
             "site": 1,
@@ -327,7 +327,7 @@
         "pk": 13,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 2,
             "site": 1,
@@ -341,7 +341,7 @@
         "pk": 1,
         "model": "dress_blog.post",
         "fields": {
-            "status": 2,
+            "status": 3,
             "allow_comments": true,
             "author": 2,
             "site": 1,
