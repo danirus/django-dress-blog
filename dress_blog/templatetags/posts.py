@@ -122,7 +122,7 @@ def get_review_quotes(parser, token):
 #----------
 class LatestDiaryDays(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
-        return Diary.objects.published().order_by("-pub_date").filter(detail__isnull=False).distinct()[:self.limit]
+        return Diary.objects.published().order_by("-pub_date").filter(detail__isnull=False, detail__status__gt=2).distinct()[:self.limit]
 
 @register.tag
 def get_latest_diary_days(parser, token):
