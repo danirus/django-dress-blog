@@ -1,23 +1,39 @@
-{% load i18n stories quotes %}
+{% load i18n posts %}
 
 {% if user.is_authenticated %}
+{% get_review_stories 10 as review_stories %}
+{% get_review_quotes 10 as review_quotes %}
 {% get_draft_stories 10 as draft_stories %}
 {% get_draft_quotes 10 as draft_quotes %}
-{% if draft_stories or draft_quotes %}
+{% if review_stories or review_quotes or draft_stories or draft_quotes %}
 <div class="alert alert-info">
   <a class="close" data-dismiss="alert" href="#">&times;</a>
   <div id="admin-block">
+    {% if review_stories %}
+    <h6>{% trans "Stories in review" %}:</h6>
+    {% for item in review_stories %}
+    {% include "dress_blog/includes/unpublished_headline.html" with object=item show_author=1 %}
+    {% endfor %}
+    {% endif %}
+
+    {% if review_quotes %}
+    <h6>{% trans "Quotes in review" %}:</h6>
+    {% for item in review_quotes %}
+    {% include "dress_blog/includes/unpublished_headline.html" with object=item show_author=1 %}
+    {% endfor %}
+    {% endif %}
+
     {% if draft_stories %}
-    <h6>{% trans "Draft stories" %}:</h6>
+    <h6>{% trans "Your draft stories" %}:</h6>
     {% for item in draft_stories %}
-    {% include "dress_blog/includes/draft_post_headline.html" with object=item %}
+    {% include "dress_blog/includes/unpublished_headline.html" with object=item %}
     {% endfor %}
     {% endif %}
 
     {% if draft_quotes %}
-    <h6>{% trans "Draft quotes" %}:</h6>
+    <h6>{% trans "Your draft quotes" %}:</h6>
     {% for item in draft_quotes %}
-    {% include "dress_blog/includes/draft_post_headline.html" with object=item %}
+    {% include "dress_blog/includes/unpublished_headline.html" with object=item %}
     {% endfor %}
     {% endif %}
   </div>

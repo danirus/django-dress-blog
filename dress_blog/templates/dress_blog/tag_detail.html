@@ -34,6 +34,7 @@
     </header>
     <section>
       {% for item in object_list %}
+      {% if item.object.status > 2 %}
       {% if item.content_type.model == "story" %}      
       {% include "dress_blog/includes/story_abstract.html" with object=item.object article_class="in2col" truncate_to=66 %}
       {% endif %}
@@ -43,6 +44,7 @@
       {% endif %}
       {% if item.content_type.model == "diarydetail" %}      
       {% include "dress_blog/includes/diarydetail_abstract.html" with object=item.object article_class="in2col" truncate_to=44 %}
+      {% endif %}
       {% endif %}
       {% endfor %}
     </section>

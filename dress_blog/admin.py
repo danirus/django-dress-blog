@@ -42,6 +42,15 @@ class PostAdmin(admin.ModelAdmin):
         self.current_user = req.user
         return super(PostAdmin, self).get_form(req, obj, **kwargs)
 
+    def has_change_permission(self, request, obj=None):
+        if not obj or request.user.is_superuser:
+            return True
+        if obj.author == request.user:
+            return True
+        if obj.status == 2 and request.user.has_perm("dress_blog.can_review_posts"):
+            return True
+        return False
+        
 
 class StoryAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
     list_display  = ("title", "pub_date", "author", "status", "visits")

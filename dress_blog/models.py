@@ -4,6 +4,7 @@ import os.path
 
 from django.db import models
 from django.db.models import permalink, Q
+from django.db.models.signals import post_delete
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.generic import GenericForeignKey
@@ -21,11 +22,13 @@ from django_markup.fields import MarkupField
 from django_markup.markup import formatter
 from inline_media.fields import TextFieldWithInlines
 from tagging.fields import TagField
+from tagging.models import TaggedItem
+from tagging.utils import get_tag_list
 
 from dress_blog.utils import create_cache_key, colloquial_date
 
 
-STATUS_CHOICES = ((1, _("Draft")), (2, _("Public")),)
+STATUS_CHOICES = ((1, _("Draft")), (2, _("Review")), (3, _("Public")),)
 
 UI_COVER_CHOICES = (("3col", _("3 columns")), ("4col", _("4 columns")),)
 
@@ -111,9 +114,6 @@ class Config(models.Model):
 class PostManager(models.Manager):
     """Returns published posts that are not in the future."""
     
-    def published(self):
-        return self.get_query_set().filter(status=2, pub_date__lte=now())
-
     def drafts(self, author=None):
         if not author:
             return self.get_query_set().filter(
@@ -122,13 +122,22 @@ class PostManager(models.Manager):
             return self.get_query_set().filter(
                 status=1, author=author).order_by("-mod_date")
 
+    def reviews(self, author):
+        if author.has_perm("dress_blog.can_review_posts"):
+            return self.get_query_set().filter(status=2).order_by("-mod_date")
+        else:
+            return []
+
     def upcoming(self, author=None):
         if not author:
             return self.get_query_set().filter(
-                status=2, pub_date__gt=now()).order_by("-mod_date")
+                status=3, pub_date__gt=now()).order_by("-mod_date")
         else:
             return self.get_query_set().filter(
-                status=2, author=author, pub_date__gt=now()).order_by("-mod_date")
+                status=3, author=author, pub_date__gt=now()).order_by("-mod_date")
+
+    def published(self):
+        return self.get_query_set().filter(status=3, pub_date__lte=now())
 
     def for_app_models(self, *args, **kwargs):
         """Return posts for pairs "app.model" given in args"""
@@ -139,11 +148,15 @@ class PostManager(models.Manager):
                                                          model=model))
         return self.for_content_types(content_types, **kwargs)
 
-    def for_content_types(self, content_types, status=[2], author=None):
-        if 1 in status and author: # show drafts for the given user too
-            return self.get_query_set().filter(
-                content_type__in=content_types, status__in=status).exclude(
-                ~Q(author=author), status=1)
+    def for_content_types(self, content_types, status=[3], author=None):
+        if min(status) < 3 and author: # show drafts anf reviews for the author
+            qs = self.get_query_set().filter(
+                content_type__in=content_types, 
+                status__in=status).exclude(~Q(author=author), status=1)
+            if not author.has_perm("dress_blog.can_review_posts"):
+                return qs.exclude(~Q(author=author), status=2)
+            else:
+                return qs
         else:
             return self.get_query_set().filter(
                 content_type__in=content_types, 
@@ -171,6 +184,7 @@ class Post(models.Model):
         db_table  = "dress_blog_post"
         ordering  = ("-pub_date",)
         get_latest_by = "pub_date"
+        permissions = ((_("can_review_posts"), _("Can review posts")),)
 
     def save(self, *args, **kwargs):
         self.content_type = ContentType.objects.get_for_model(self)
@@ -180,6 +194,7 @@ class Post(models.Model):
     @property
     def in_the_future(self):
         return self.pub_date > now()
+
 
 class Story(Post):
     """Story model"""
@@ -227,6 +242,8 @@ class Story(Post):
 
         if self.status == 1:
             return ("blog-story-detail-draft", None, kwargs)
+        if self.status == 2:
+            return ("blog-story-detail-review", None, kwargs)
         elif self.pub_date > now():
             return ("blog-story-detail-upcoming", None, kwargs)
         else:
@@ -342,10 +359,31 @@ class Quote(Post):
                    "slug": self.slug }
         if self.status == 1:
             return ("blog-quote-detail-draft", None, kwargs)
+        if self.status == 2:
+            return ("blog-quote-detail-review", None, kwargs)
         elif self.pub_date > now():
             return ("blog-quote-detail-upcoming", None, kwargs)
         else:
             return ("blog-quote-detail", None, kwargs)
+
+
+def delete_post_tags(sender, instance, **kwargs):
+    try:
+        ctype = ContentType.objects.get_for_model(instance)
+        tags = get_tag_list(instance.tags)
+        TaggedItem._default_manager.filter(content_type__pk=ctype.pk,
+                                           object_id=instance.pk,
+                                           tag__in=tags).delete()
+        for tag in tags:
+            if not tag.items.count():
+                tag.delete()
+    except Exception, e:
+        # let 'django.request' logger handle the exception
+        raise e
+
+post_delete.connect(delete_post_tags, sender=Story)
+post_delete.connect(delete_post_tags, sender=Quote)
+post_delete.connect(delete_post_tags, sender=DiaryDetail)
 
 
 class BlogRoll(models.Model):
