@@ -190,6 +190,14 @@ class Post(models.Model):
         self.content_type = ContentType.objects.get_for_model(self)
         self.site_id      = settings.SITE_ID
         super(Post, self).save(*args, **kwargs)
+        if self.status == 3: # public
+            blog_config = Config.get_current()
+            ping_google = getattr(blog_config, "ping_google", False) 
+            if ping_google:
+                try:
+                    ping_google()
+                except:
+                    pass
 
     @property
     def in_the_future(self):
@@ -220,18 +228,11 @@ class Story(Post):
         return u"%s" % self.title
 
     def save(self, *args, **kwargs):
-        blog_config = Config.get_current()
         self.abstract_markup = mark_safe(
             formatter(self.abstract, filter_name=self.markup))
         self.body_markup = mark_safe(
             formatter(self.body, filter_name=self.markup))
         super(Story, self).save(*args, **kwargs)
-        ping_google = getattr(blog_config,"ping_google", False) 
-        if ping_google:
-            try:
-                ping_google()
-            except:
-                pass
 
     @permalink
     def get_absolute_url(self):
@@ -296,17 +297,9 @@ class DiaryDetail(Post):
         ordering = ("-pub_date",)
 
     def save(self, *args, **kwargs):
-        blog_config = Config.get_current()
         self.body_markup = mark_safe(
             formatter(self.body, filter_name=self.markup))
-
         super(DiaryDetail, self).save(*args, **kwargs)
-        ping_google = getattr(blog_config, "ping_google", False) 
-        if ping_google:
-            try:
-                ping_google()
-            except:
-                pass
 
     def __unicode__(self):
         return self.pub_date.strftime(ugettext("Diary on %A, %d %B %Y at %H:%Mh"))
@@ -340,16 +333,9 @@ class Quote(Post):
         return u"%s" % self.title
 
     def save(self, *args, **kwargs):
-        blog_config = Config.get_current()
         self.body_markup = mark_safe(formatter(self.body, 
                                                filter_name=self.markup))
         super(Quote, self).save(*args, **kwargs)
-        ping_google = getattr(blog_config,"ping_google", False) 
-        if ping_google:
-            try:
-                ping_google()
-            except:
-                pass
 
     @permalink
     def get_absolute_url(self):
