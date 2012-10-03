@@ -109,7 +109,8 @@ class DiaryAdmin(admin.ModelAdmin):
         return obj.detail.count()
 
     def visits(self, obj):
-        return obj.detail.all()[0].visits
+        q = obj.detail.all()
+        return 0 if not q.count() else q[0].visits
 
 admin.site.register(Diary, DiaryAdmin)
 

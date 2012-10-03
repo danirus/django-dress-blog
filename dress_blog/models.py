@@ -172,8 +172,8 @@ class Post(models.Model):
     status         = models.IntegerField(choices=STATUS_CHOICES, default=1)
     author         = models.ForeignKey(User, blank=True, null=True)
     allow_comments = models.BooleanField(default=True)
-    pub_date       = models.DateTimeField(default=now())
-    mod_date       = models.DateTimeField(default=now())
+    pub_date       = models.DateTimeField(default=now)
+    mod_date       = models.DateTimeField(default=now)
     visits         = models.IntegerField(default=0, editable=False)
     objects        = PostManager()
     site           = models.ForeignKey(Site)
@@ -258,7 +258,7 @@ class DiaryManager(models.Manager):
         return self.get_query_set().filter(pub_date__lte=now())
 
 class Diary(models.Model):
-    pub_date       = models.DateField(default=now().date())
+    pub_date       = models.DateField(default=now)
     objects        = DiaryManager()
 
     class Meta:
