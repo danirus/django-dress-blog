@@ -37,10 +37,12 @@ Install the app and run the example site to see it in action:
     * Copy: `cp ../src/xapian-haystack/xapian_backend.py ../src/django-haystack/haystack/backends/`
 5. If you don't want to have search at the moment just edit `django-dress-blog/example/demo/settings.py` and comment out `"haystack"` in `INSTALLED_APPS`
 6. Cd into `django-dress-blog/example/demo`
-7. Run `python manage.py collectstatic`, and answer yeah!
-8. Run `python manage.py syncdb --noinput` (user: admin, pwd: admin)
+7. Run `python manage.py collectstatic`, and answer 'yes'
+8. Run `sh install.sh` (to syncdb, migrate and loaddata)
 9. If you have installed xapian, build the search index:
     * `python manage.py rebuild_index`
 10. Run `python manage.py localhost` and hit http://localhost:8000
+
+Admin access with user **admin**, password **admin**.
 
 Remember, it's a beta yet!

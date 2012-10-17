@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     "request",
     "dress_blog",
     "haystack",
+    "south",
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
