@@ -102,7 +102,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'request.middleware.RequestMiddleware',
 )
 
 ROOT_URLCONF = "urls"
@@ -129,7 +128,6 @@ INSTALLED_APPS = (
     "flatblocks",
     "sorl.thumbnail",
     "tagging",
-    "request",
     "dress_blog",
     "haystack",
     "south",
@@ -214,16 +212,6 @@ logging.getLogger("sorl.thumbnail").addHandler(handler)
 DRESS_BLOG_PAGINATE_BY = 10
 DRESS_BLOG_UI_COLUMNS = 3
 DRESS_BLOG_THEMES_PATH = os.path.join(STATIC_ROOT, "dress_blog/themes")
-
-REQUEST_IGNORE_AJAX = True
-REQUEST_IGNORE_USERNAME = ["admin"]
-REQUEST_IGNORE_PATHS = (r'^admin/', r'^favicon.ico')
-REQUEST_TRAFFIC_MODULES = (
-    'request.traffic.UniqueVisitor',
-    'request.traffic.UniqueVisit',
-    'request.traffic.Hit',
-    'request.traffic.Search',
-)
 
 HAYSTACK_CONNECTIONS = {
     'default': {
