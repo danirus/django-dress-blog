@@ -53,7 +53,8 @@ class PostAdmin(admin.ModelAdmin):
         
 
 class StoryAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
-    list_display  = ("title", "pub_date", "author", "status", "visits")
+    list_display  = ("title", "pub_date", "mod_date", 
+                     "author", "status", "visits")
     list_filter   = ("author", "status", "pub_date", "tags")
     search_fields = ("title", "body")
     prepopulated_fields = {"slug": ("title",)}
@@ -61,7 +62,7 @@ class StoryAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
                                     "markup", "abstract", "body",)}),
                  ("Post data", {"fields": (("author", "status"), 
                                            ("allow_comments", "tags"),
-                                           ("pub_date", "mod_date")),}),
+                                           ("pub_date",)),}),
                  ("Converted markup", {"classes": ("collapse",),
                                        "fields": ("abstract_markup", 
                                                   "body_markup",),}),)
@@ -116,7 +117,8 @@ admin.site.register(Diary, DiaryAdmin)
 
 
 class QuoteAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
-    list_display = ("title", "pub_date", "author", "status", "visits")
+    list_display = ("title", "pub_date", "mod_date", 
+                    "author", "status", "visits")
     list_filter  = ("author", "status", "pub_date", "tags")
     search_fields = ("title", "author", "quote_author", "body")
     prepopulated_fields = {"slug": ("title",)}
@@ -124,7 +126,7 @@ class QuoteAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
                  ("Source data", {"fields": ("quote_author", "url_source")}),
                  ("Post data", {"fields": (("author", "status"), 
                                            ("allow_comments", "tags"),
-                                           ("pub_date","mod_date")),}),
+                                           ("pub_date",)),}),
                  ("Converted markup", {"classes": ("collapse",),
                                        "fields": ("body_markup",),}),)
 

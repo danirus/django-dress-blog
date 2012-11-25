@@ -15,15 +15,13 @@ urlpatterns = patterns('',
 
     url(r'^(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<day>\d{1,2})/(?P<slug>[-\w]+)/$',
         PostDetailView.as_view(
-            queryset=Story.objects.published(),
-            date_field="pub_date", month_format="%m", 
+            model=Story, date_field="pub_date", month_format="%m", 
             template_name="blog/story_detail.html"),
         name='blog-story-detail-month-numeric'),
 
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{1,2})/(?P<slug>[-\w]+)/$',
         PostDetailView.as_view(
-            queryset=Story.objects.published(),            
-            date_field="pub_date", month_format="%b", 
+            model=Story, date_field="pub_date", month_format="%b", 
             template_name="blog/story_detail.html"),
         name='blog-story-detail'),
 
