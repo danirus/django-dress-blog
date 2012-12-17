@@ -21,6 +21,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from django_markup.fields import MarkupField
 from django_markup.markup import formatter
 from inline_media.fields import TextFieldWithInlines
+from inline_media.utils import unescape_inline
 from tagging.fields import TagField
 from tagging.models import TaggedItem
 from tagging.utils import get_tag_list
@@ -232,6 +233,9 @@ class Story(Post):
             formatter(self.abstract, filter_name=self.markup))
         self.body_markup = mark_safe(
             formatter(self.body, filter_name=self.markup))
+        if self.markup == "restructuredtext":
+            self.abstract_markup = unescape_inline(self.abstract_markup)
+            self.body_markup = unescape_inline(self.body_markup)
         super(Story, self).save(*args, **kwargs)
 
     @permalink
