@@ -1,5 +1,10 @@
+from django import VERSION as DJANGO_VERSION
+if DJANGO_VERSION[0:2] < (1, 3):
+    from django.conf.urls.defaults import include, patterns, url
+else:
+    from django.conf.urls import include, patterns, url
+
 from django.conf import settings
-from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 from django.contrib.comments.feeds import LatestCommentFeed
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

@@ -178,10 +178,16 @@ LOGGING = {
             'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
         }
     },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler'
+            'class': 'django.utils.log.AdminEmailHandler',
+            'filters': ['require_debug_false'],
         },
         'console': {
             'level': 'INFO',

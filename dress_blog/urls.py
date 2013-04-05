@@ -1,7 +1,12 @@
 #-*- coding: utf-8 -*-
 
+from django import VERSION as DJANGO_VERSION
+if DJANGO_VERSION[0:2] < (1, 3):
+    from django.conf.urls.defaults import include, patterns, url
+else:
+    from django.conf.urls import include, patterns, url
+
 from django.conf import settings
-from django.conf.urls.defaults import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.comments.feeds import LatestCommentFeed
 from django.views.generic import DetailView, ListView, TemplateView

@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 
+from django import VERSION as DJANGO_VERSION
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -10,9 +11,12 @@ from django.template import RequestContext
 from django.utils.timezone import now
 from django.utils.translation import ugettext as _
 from django.views.generic import View, ListView, DateDetailView, RedirectView
-from django.views.generic.dates import (_date_from_string, _date_lookup_for_field,
-                                        YearArchiveView, MonthArchiveView, DayArchiveView)
+from django.views.generic.dates import (_date_from_string, YearArchiveView, 
+                                        MonthArchiveView, DayArchiveView)
 from django.views.generic.list import MultipleObjectMixin
+
+if DJANGO_VERSION[0:2] < (1.5):
+    from django.views.generic.dates import _date_lookup_for_field
 
 from tagging.models import Tag, TaggedItem
 
@@ -163,7 +167,10 @@ class DiaryDetailView(DateDetailView):
         # which'll handle the 404
         date_field = self.get_date_field()
         field = qs.model._meta.get_field(date_field)
-        lookup = _date_lookup_for_field(field, self.date)
+        if DJANGO_VERSION[0:2] < (1.5):
+            lookup = _date_lookup_for_field(field, self.date)
+        else:
+            lookup = self._make_single_date_lookup(field)
         qs = qs.filter(**lookup)
         for diarydetail in qs:
             for entry in diarydetail.detail.published():

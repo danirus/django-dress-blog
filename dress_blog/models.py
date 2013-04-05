@@ -322,7 +322,7 @@ class Quote(Post):
     body_markup  = models.TextField(editable=True, blank=True, null=True)
     quote_author = models.CharField(blank=False, null=False, max_length=255,
                                     help_text=_("quote's author"))
-    url_source   = models.URLField(verify_exists=False, blank=True, null=True)
+    url_source   = models.URLField(blank=True, null=True)
     tags         = TagField()
     objects      = PostManager()
 
@@ -380,7 +380,7 @@ class BlogRoll(models.Model):
     """Blogs you like."""
 
     name       = models.CharField(max_length=100)
-    url        = models.URLField(verify_exists=False)
+    url        = models.URLField()
     authors    = models.CharField(blank=False, null=False, max_length=1024,
                                   help_text=_("Comma separated list of authors"))
     sort_order = models.PositiveIntegerField(default=1000)

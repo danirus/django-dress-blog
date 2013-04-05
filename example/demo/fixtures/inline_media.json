@@ -1,0 +1,347 @@
+[
+    {
+        "pk": 1,
+        "model": "inline_media.pictureset",
+        "fields": {
+            "description": "Just an example photo set",
+            "tags": "photos",
+            "pictures": [
+                13,
+                14,
+                15,
+                16,
+                17,
+                18
+            ],
+            "title": "Photo Set 1",
+            "modified": "2012-07-10T19:22:42",
+            "slug": "photo-set-1",
+            "created": "2012-07-10T19:22:05",
+            "order": "13,15,14,16,17,18"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:40:11",
+            "picture": "pictures/2012/Jul/04/wdr-3.png",
+            "show_license": false,
+            "description": "",
+            "license": null,
+            "author": "Jens Meiert",
+            "tags": "comic",
+            "modified": "2012-07-04T14:40:23",
+            "show_as_link": true,
+            "sha1": "cf694dd2ca090d8288c3f15186d2eb9f4d547dd2",
+            "title": "HTML Genocide",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 2,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:41:16",
+            "picture": "pictures/2012/Jul/04/python-logo-master-v3-TM.png",
+            "show_license": false,
+            "description": "<a href=\"http://www.python.org\">Python Programming Language</a>",
+            "license": null,
+            "author": "",
+            "tags": "creative-commons logo",
+            "modified": "2012-07-04T14:49:19",
+            "show_as_link": false,
+            "sha1": "c8a756475599e6e3c904b24077b4b0a31983752c",
+            "title": "Python",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 3,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:42:03",
+            "picture": "pictures/2012/Jul/04/django-logo-negative.png",
+            "show_license": false,
+            "description": "<a href=\"https://www.djangoproject.com/\">The Web Framework for perfectionists with deadlines</a>",
+            "license": null,
+            "author": "",
+            "tags": "creative-commons logo",
+            "modified": "2012-07-04T14:49:19",
+            "show_as_link": false,
+            "sha1": "4f1b7cc48fabc8730f5e8ec633f7ecc324c5f386",
+            "title": "Django",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 4,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:42:49",
+            "picture": "pictures/2012/Jul/04/mozilla_wht.png",
+            "show_license": false,
+            "description": "<a href=\"http://www.mozilla.com/\">Mozilla</a>",
+            "license": null,
+            "author": "",
+            "tags": "creative-commons logo",
+            "modified": "2012-07-04T14:49:19",
+            "show_as_link": false,
+            "sha1": "9f8a7a44ee333b51343b2cf6c986d5f3066cff32",
+            "title": "Mozilla",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 5,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:43:41",
+            "picture": "pictures/2012/Jul/04/newspaper-icon41.jpg",
+            "show_license": false,
+            "description": "<a href=\"https://wiki.ubuntu.com/UbuntuWeeklyNewsletter/\">Ubuntu Weekly Newsleeter</a>",
+            "license": null,
+            "author": "",
+            "tags": "creative-commons",
+            "modified": "2012-07-04T14:43:41",
+            "show_as_link": true,
+            "sha1": "9595c11af6128e9c33f74c66f08a10ac814b7266",
+            "title": "Ubuntu Newsletter",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 6,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:44:27",
+            "picture": "pictures/2012/Jul/04/CCL_11.png",
+            "show_license": false,
+            "description": "<a href=\"http://creativecommons.org/licenses/by-sa/3.0/\">CC ShareAlike</a>",
+            "license": null,
+            "author": "",
+            "tags": "creative-commons logo",
+            "modified": "2012-07-04T14:49:19",
+            "show_as_link": false,
+            "sha1": "dbf59da03627b1c1aed30432a2467c245b8cfbf1",
+            "title": "Creative Commons Attribution ShareAlike",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 7,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:45:14",
+            "picture": "pictures/2012/Jul/04/blackeubuntulogo.png",
+            "show_license": false,
+            "description": "",
+            "license": null,
+            "author": "",
+            "tags": "creative-commons logo",
+            "modified": "2012-07-10T12:04:48",
+            "show_as_link": false,
+            "sha1": "4b3b09ea928c0015d29b53e070645fd4d84fddeb",
+            "title": "Ubuntu",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 8,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:45:51",
+            "picture": "pictures/2012/Jul/04/mozilla.png",
+            "show_license": false,
+            "description": "<a href=\"http://www.mozilla.com/\">Mozilla</a>",
+            "license": null,
+            "author": "",
+            "tags": "logo",
+            "modified": "2012-07-04T14:49:19",
+            "show_as_link": false,
+            "sha1": "e5b17b47e8d22a86abec93fe24eb7a6f8d9a3f2c",
+            "title": "Mozilla",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 9,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:46:28",
+            "picture": "pictures/2012/Jul/04/django-logo-positive.png",
+            "show_license": false,
+            "description": "<a href=\"https://www.djangoproject.com/\">The Web Framework for perfectionists with deadlines</a>",
+            "license": null,
+            "author": "",
+            "tags": "logo",
+            "modified": "2012-07-04T14:49:20",
+            "show_as_link": false,
+            "sha1": "53c1255abfd932a1b81ab0a4d40d0aebc25c0659",
+            "title": "Django",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 10,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:47:18",
+            "picture": "pictures/2012/Jul/04/HTML5_sticker.png",
+            "show_license": false,
+            "description": "",
+            "license": null,
+            "author": "",
+            "tags": "",
+            "modified": "2012-07-04T14:47:18",
+            "show_as_link": false,
+            "sha1": "64a1285ebc271244c26dea330971ccfd177cc38f",
+            "title": "HTML5 - The future in my browser",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 11,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:47:46",
+            "picture": "pictures/2012/Jul/04/HTML5_1Color_Black.png",
+            "show_license": false,
+            "description": "",
+            "license": null,
+            "author": "",
+            "tags": "logo",
+            "modified": "2012-07-04T14:49:20",
+            "show_as_link": true,
+            "sha1": "2613c1fab0da82aebfc0f544d7635a20313b66b2",
+            "title": "HTML5",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 12,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-04T14:48:23",
+            "picture": "pictures/2012/Jul/04/samsung_galaxy_s3_android_smartphone_1.jpg",
+            "show_license": false,
+            "description": "",
+            "license": null,
+            "author": "",
+            "tags": "android phone",
+            "modified": "2012-07-04T14:49:20",
+            "show_as_link": true,
+            "sha1": "ca669847cba0f2e0d4c29e9d423c1c9b16adfc9f",
+            "title": "Samsung Galaxy III",
+            "show_author": false
+        }
+    },
+    {
+        "pk": 13,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:48:41",
+            "picture": "pictures/2012/Jul/10/for-slider-01.jpg",
+            "show_license": true,
+            "description": "",
+            "license": null,
+            "author": "danirus",
+            "tags": "photo",
+            "modified": "2012-07-10T18:48:49",
+            "show_as_link": true,
+            "sha1": "fd8f64982e32f7feb68a1285b89a38f2d719e430",
+            "title": "Tegernsee",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 14,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:49:15",
+            "picture": "pictures/2012/Jul/10/for-slider-02.jpg",
+            "show_license": true,
+            "description": "",
+            "license": null,
+            "author": "danirus",
+            "tags": "photo",
+            "modified": "2012-07-10T18:49:15",
+            "show_as_link": true,
+            "sha1": "db9687b9baa7b46d9f49957613c6d4dd0f46f77c",
+            "title": "Leuven in Winter",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 15,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:49:41",
+            "picture": "pictures/2012/Jul/10/for-slider-03.jpg",
+            "show_license": true,
+            "description": "",
+            "license": null,
+            "author": "danirus",
+            "tags": "photo",
+            "modified": "2012-07-10T18:49:41",
+            "show_as_link": true,
+            "sha1": "34920e2a89558d4eaa9a9f12a048da7e26777e51",
+            "title": "Alpen Webs",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 16,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:50:30",
+            "picture": "pictures/2012/Jul/10/for-slider-04.jpg",
+            "show_license": true,
+            "description": "",
+            "license": null,
+            "author": "danirus",
+            "tags": "photo",
+            "modified": "2012-07-10T18:50:30",
+            "show_as_link": true,
+            "sha1": "0ff75202e4f58e542e2a5331f83b638a0b0e5d04",
+            "title": "Solitude in Salzburg",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 17,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:51:34",
+            "picture": "pictures/2012/Jul/10/for-slider-05.jpg",
+            "show_license": true,
+            "description": "",
+            "license": null,
+            "author": "cortiz",
+            "tags": "photo",
+            "modified": "2012-07-10T18:51:34",
+            "show_as_link": true,
+            "sha1": "548c270163507008a7dd61e2d35d2bdeb1cadd49",
+            "title": "San Sebastian Beach",
+            "show_author": true
+        }
+    },
+    {
+        "pk": 18,
+        "model": "inline_media.picture",
+        "fields": {
+            "uploaded": "2012-07-10T18:51:59",
+            "picture": "pictures/2012/Jul/10/for-slider-06.jpg",
+            "show_license": true,
+            "description": "",
+            "license": null,
+            "author": "danirus",
+            "tags": "photo",
+            "modified": "2012-07-10T18:51:59",
+            "show_as_link": true,
+            "sha1": "e6301098fe05a45628eb9481118166389c1ed7ef",
+            "title": "Menorca",
+            "show_author": true
+        }
+    }
+]

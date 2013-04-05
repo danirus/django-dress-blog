@@ -1,0 +1,684 @@
+[
+    {
+        "pk": 12,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 28,
+            "content_type": 15,
+            "mod_date": "2012-07-08T20:40:23",
+            "pub_date": "2012-07-10T16:50:40"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 22,
+            "content_type": 18,
+            "mod_date": "2012-07-08T20:40:27",
+            "pub_date": "2012-07-09T19:50:51"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 18,
+            "content_type": 18,
+            "mod_date": "2012-07-08T20:40:14",
+            "pub_date": "2012-06-21T10:54:13"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 2,
+            "site": 1,
+            "visits": 31,
+            "content_type": 18,
+            "mod_date": "2012-07-04T19:54:05",
+            "pub_date": "2012-06-10T19:52:30"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 17,
+            "content_type": 15,
+            "mod_date": "2012-07-08T20:39:58",
+            "pub_date": "2012-05-26T16:49:28"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 2,
+            "site": 1,
+            "visits": 34,
+            "content_type": 15,
+            "mod_date": "2012-07-08T20:39:47",
+            "pub_date": "2012-05-11T16:48:09"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 2,
+            "site": 1,
+            "visits": 8,
+            "content_type": 15,
+            "mod_date": "2012-07-08T20:39:35",
+            "pub_date": "2012-04-30T14:55:33"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 9,
+            "content_type": 15,
+            "mod_date": "2012-07-08T20:39:24",
+            "pub_date": "2012-04-09T14:54:43"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 45,
+            "content_type": 17,
+            "mod_date": "2012-07-10T17:33:23",
+            "pub_date": "2012-04-06T12:21:57"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 32,
+            "content_type": 17,
+            "mod_date": "2012-07-05T00:21:35",
+            "pub_date": "2012-04-06T08:16:39"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 2,
+            "site": 1,
+            "visits": 30,
+            "content_type": 15,
+            "mod_date": "2012-07-10T19:25:35",
+            "pub_date": "2012-03-18T14:53:07"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 2,
+            "site": 1,
+            "visits": 27,
+            "content_type": 18,
+            "mod_date": "2012-07-08T20:38:48",
+            "pub_date": "2012-03-07T19:49:23"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 38,
+            "content_type": 18,
+            "mod_date": "2012-07-08T20:38:38",
+            "pub_date": "2012-03-07T17:11:54"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 2,
+            "site": 1,
+            "visits": 5,
+            "content_type": 15,
+            "mod_date": "2012-07-08T20:38:28",
+            "pub_date": "2012-03-05T14:52:07"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 19,
+            "content_type": 15,
+            "mod_date": "2012-07-08T20:38:16",
+            "pub_date": "2012-02-28T14:49:43"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 2,
+            "site": 1,
+            "visits": 36,
+            "content_type": 18,
+            "mod_date": "2012-07-08T20:38:06",
+            "pub_date": "2012-02-26T17:10:22"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 26,
+            "content_type": 15,
+            "mod_date": "2012-07-08T20:37:56",
+            "pub_date": "2012-02-25T14:35:23"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 25,
+            "content_type": 17,
+            "mod_date": "2012-07-10T17:33:32",
+            "pub_date": "2012-02-09T13:10:43"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 32,
+            "content_type": 17,
+            "mod_date": "2012-07-08T20:37:32",
+            "pub_date": "2012-02-09T04:20:00"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 1,
+            "site": 1,
+            "visits": 47,
+            "content_type": 15,
+            "mod_date": "2012-07-08T20:37:22",
+            "pub_date": "2012-02-02T09:26:43"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 2,
+            "site": 1,
+            "visits": 14,
+            "content_type": 18,
+            "mod_date": "2012-07-08T12:39:47",
+            "pub_date": "2012-01-30T09:06:45"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "dress_blog.post",
+        "fields": {
+            "status": 3,
+            "allow_comments": true,
+            "author": 2,
+            "site": 1,
+            "visits": 18,
+            "content_type": 15,
+            "mod_date": "2012-07-04T14:33:39",
+            "pub_date": "2011-12-25T09:17:47"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "80 days around the world, we'll find a pot of gold just sitting where the rainbow's ending. Time - we'll fight against the time, and we'll fly on the white wings of the wind. 80 days around the world, no we won't say a word before the ship is really back. Round, round, all around the world. Round, all around the world. Round, all around the world. Round, all around the world.\r\n\r\nMutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.\r\n\r\nChildren of the sun, see your time has just begun, searching for your ways, through adventures every day. Every day and night, with the condor in flight, with all your friends in tow, you search for the Cities of Gold. Ah-ah-ah-ah-ah... wishing for The Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold. Do-do-do-do ah-ah-ah, do-do-do-do, Cities of Gold. Do-do-do-do, Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold.\r\n\r\nJust the good ol' boys, never meanin' no harm. Beats all you've ever saw, been in trouble with the law since the day they was born. Straight'nin' the curve, flat'nin' the hills. Someday the mountain might get 'em, but the law never will. Makin' their way, the only way they know how, that's just a little bit more than the law will allow. Just good ol' boys, wouldn't change if they could, fightin' the system like a true modern day Robin Hood.",
+            "title": "The classical second episode",
+            "markup": "markdown",
+            "tags": "android coolstuff linux",
+            "abstract": "I never spend much time in school but I taught ladies plenty. It's true I hire my body out for pay, hey hey. I've gotten burned over Cheryl Tiegs, blown up for Raquel Welch. But when I end up in the hay it's only hay, hey hey. I might jump an open drawbridge, or Tarzan from a vine. 'Cause I'm the unknown stuntman that makes Eastwood look so fine.",
+            "body_markup": "<p>80 days around the world, we'll find a pot of gold just sitting where the rainbow's ending. Time - we'll fight against the time, and we'll fly on the white wings of the wind. 80 days around the world, no we won't say a word before the ship is really back. Round, round, all around the world. Round, all around the world. Round, all around the world. Round, all around the world.</p>\n<p>Mutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.</p>\n<p>Children of the sun, see your time has just begun, searching for your ways, through adventures every day. Every day and night, with the condor in flight, with all your friends in tow, you search for the Cities of Gold. Ah-ah-ah-ah-ah... wishing for The Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold. Do-do-do-do ah-ah-ah, do-do-do-do, Cities of Gold. Do-do-do-do, Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold.</p>\n<p>Just the good ol' boys, never meanin' no harm. Beats all you've ever saw, been in trouble with the law since the day they was born. Straight'nin' the curve, flat'nin' the hills. Someday the mountain might get 'em, but the law never will. Makin' their way, the only way they know how, that's just a little bit more than the law will allow. Just good ol' boys, wouldn't change if they could, fightin' the system like a true modern day Robin Hood.</p>",
+            "slug": "classical-second-episode",
+            "abstract_markup": "<p>I never spend much time in school but I taught ladies plenty. It's true I hire my body out for pay, hey hey. I've gotten burned over Cheryl Tiegs, blown up for Raquel Welch. But when I end up in the hay it's only hay, hey hey. I might jump an open drawbridge, or Tarzan from a vine. 'Cause I'm the unknown stuntman that makes Eastwood look so fine.</p>"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "dress_blog.story",
+        "fields": {
+            "body": "Children of the sun, see your time has just begun, searching for your ways, through adventures every day. Every day and night, with the condor in flight, with all your friends in tow, you search for the Cities of Gold. Ah-ah-ah-ah-ah... wishing for The Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold. Do-do-do-do ah-ah-ah, do-do-do-do, Cities of Gold. Do-do-do-do, Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold.\r\n\r\nThere's a voice that keeps on calling me. Down the road, that's where I'll always be. Every stop I make, I make a new friend. Can't stay for long, just turn around and I'm gone again. Maybe tomorrow, I'll want to settle down, Until tomorrow, I'll just keep moving on.\r\n\r\nThunder, thunder, thundercats, Ho! Thundercats are on the move, Thundercats are loose. Feel the magic, hear the roar, Thundercats are loose. Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thundercats!\r\n\r\nKnight Rider, a shadowy flight into the dangerous world of a man who does not exist. Michael Knight, a young loner on a crusade to champion the cause of the innocent, the helpless in a world of criminals who operate above the law.",
+            "title": "A first example story",
+            "markup": "markdown",
+            "tags": "android bar bogus foo nexus tablet",
+            "abstract": "Ulysses, Ulysses - Soaring through all the galaxies. In search of Earth, flying in to the night. Ulysses, Ulysses - Fighting evil and tyranny, with all his power, and with all of his might. Ulysses - no-one else can do the things you do. Ulysses - like a bolt of thunder from the blue. Ulysses - always fighting all the evil forces bringing peace and justice to all.",
+            "body_markup": "<p>Children of the sun, see your time has just begun, searching for your ways, through adventures every day. Every day and night, with the condor in flight, with all your friends in tow, you search for the Cities of Gold. Ah-ah-ah-ah-ah... wishing for The Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold. Do-do-do-do ah-ah-ah, do-do-do-do, Cities of Gold. Do-do-do-do, Cities of Gold. Ah-ah-ah-ah-ah... some day we will find The Cities of Gold.</p>\n<p>There's a voice that keeps on calling me. Down the road, that's where I'll always be. Every stop I make, I make a new friend. Can't stay for long, just turn around and I'm gone again. Maybe tomorrow, I'll want to settle down, Until tomorrow, I'll just keep moving on.</p>\n<p>Thunder, thunder, thundercats, Ho! Thundercats are on the move, Thundercats are loose. Feel the magic, hear the roar, Thundercats are loose. Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thundercats!</p>\n<p>Knight Rider, a shadowy flight into the dangerous world of a man who does not exist. Michael Knight, a young loner on a crusade to champion the cause of the innocent, the helpless in a world of criminals who operate above the law.</p>",
+            "slug": "first-example-story",
+            "abstract_markup": "<p>Ulysses, Ulysses - Soaring through all the galaxies. In search of Earth, flying in to the night. Ulysses, Ulysses - Fighting evil and tyranny, with all his power, and with all of his might. Ulysses - no-one else can do the things you do. Ulysses - like a bolt of thunder from the blue. Ulysses - always fighting all the evil forces bringing peace and justice to all.</p>"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "dress_blog.diary",
+        "fields": {
+            "pub_date": "2012-04-06"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "dress_blog.diary",
+        "fields": {
+            "pub_date": "2012-02-09"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "dress_blog.diarydetail",
+        "fields": {
+            "body": "Tables, chairs, boards, sofas, computers, folders and papers are already here. We just need to put them in the right position. Then we will go for lunch to a biergarten. Sun is shinning now, and the weekend's going to be one of the hottest since Winter.",
+            "body_markup": "<p>Tables, chairs, boards, sofas, computers, folders and papers are already here. We just need to put them in the right position. Then we will go for lunch to a biergarten. Sun is shinning now, and the weekend's going to be one of the hottest since Winter.</p>",
+            "markup": "markdown",
+            "diary": 2,
+            "tags": ""
+        }
+    },
+    {
+        "pk": 22,
+        "model": "dress_blog.diarydetail",
+        "fields": {
+            "body": "Today we move to our new office in Munich, in Landshuter Allee. The street is a bit noise, but in the office  can't here a fly. We have been planning this for a few months and today's becoming truth. Plenty of space for all of us. And more important, we all are looking forward to settle there and start new projects.",
+            "body_markup": "<p>Today we move to our new office in Munich, in Landshuter Allee. The street is a bit noise, but in the office  can't here a fly. We have been planning this for a few months and today's becoming truth. Plenty of space for all of us. And more important, we all are looking forward to settle there and start new projects.</p>",
+            "markup": "markdown",
+            "diary": 2,
+            "tags": "office"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "dress_blog.diarydetail",
+        "fields": {
+            "body": "A lot of excitement in the last 24 hours. Have to recharge my batteries for a couple of hours. Life's changed in just a day. Need to sleep on it. Loving the feelings.",
+            "body_markup": "<p>A lot of excitement in the last 24 hours. Have to recharge my batteries for a couple of hours. Life's changed in just a day. Need to sleep on it. Loving the feelings.</p>",
+            "markup": "markdown",
+            "diary": 1,
+            "tags": "family"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "dress_blog.diarydetail",
+        "fields": {
+            "body": "Edu's here, just born, about one hour ago. :)",
+            "body_markup": "<p>Edu's here, just born, about one hour ago. :)</p>",
+            "markup": "markdown",
+            "diary": 1,
+            "tags": "family"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "dress_blog.quote",
+        "fields": {
+            "body": "Few ephemeral words to sell the true reality, yet you can believe it or not, red or blue.\r\n\r\n> This is your last chance. After this, there is no turning back. You take the blue pill - the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill - you stay in Wonderland and I show you how deep the rabbit-hole goes.\r\n\r\nI am almost certain my red pills are actually blue for the rest of you. And in the other way round too.",
+            "title": "How real is Alice?",
+            "markup": "markdown",
+            "url_source": "",
+            "body_markup": "<p>Few ephemeral words to sell the true reality, yet you can believe it or not, red or blue.</p>\n<blockquote>\n<p>This is your last chance. After this, there is no turning back. You take the blue pill - the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill - you stay in Wonderland and I show you how deep the rabbit-hole goes.</p>\n</blockquote>\n<p>I am almost certain my red pills are actually blue for the rest of you. And in the other way round too.</p>",
+            "quote_author": "Morpheus",
+            "slug": "how-real-alice",
+            "tags": "movies scifi"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "dress_blog.quote",
+        "fields": {
+            "body": "> I don't know half of you half as well as I should like, and I like less than half of you half as well as you deserve.",
+            "title": "Bilbo's wordplay",
+            "markup": "markdown",
+            "url_source": "",
+            "body_markup": "<blockquote>\n<p>I don't know half of you half as well as I should like, and I like less than half of you half as well as you deserve.</p>\n</blockquote>",
+            "quote_author": "J. R. R. Tolkien",
+            "slug": "bilbos-wordplay",
+            "tags": "literature scifi"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://adam.gomaa.us/blog/",
+            "sort_order": 0,
+            "name": "204 No Content",
+            "authors": "Adam Gomaa"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.dabeaz.com/blog.html",
+            "sort_order": 0,
+            "name": "DaBeaz LLC, Blog",
+            "authors": "David Beazley"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://michaeltrier.com/",
+            "sort_order": 0,
+            "name": "Empty Thoughts",
+            "authors": "Michael Trier"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://blog.dscpl.com.au/",
+            "sort_order": 0,
+            "name": "Graham Dumpleton",
+            "authors": "Graham Dumpleton"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://howtonode.org/",
+            "sort_order": 0,
+            "name": "How To Node - NodeJS",
+            "authors": "Guillermo Rauch, Matthew Eernisse, Matt Ranney, Phil Crosby, Tim Caswell, Tom Van Cutsem, James R. Bracy, Geoff Flarity, Isaac Z. Schlueter, Nathan Stott, Kishore Nallan, Nuno Job, Vojta Jina, Srirangan"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://blog.ianbicking.org/",
+            "sort_order": 0,
+            "name": "Ian Bicking: a blog",
+            "authors": "Ian Bicking"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://jacobian.org/",
+            "sort_order": 0,
+            "name": "Jacob Kaplan-Moss",
+            "authors": "Jacob Kaplan-Moss"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://kylefuller.co.uk/",
+            "sort_order": 0,
+            "name": "Kyle Fuller",
+            "authors": "Kyle Fuller"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.markshuttleworth.com/",
+            "sort_order": 0,
+            "name": "Mark Shuttleworth",
+            "authors": "Mark Shuttleworth"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://mislav.uniqpath.com/blog/",
+            "sort_order": 0,
+            "name": "Mislav's blog",
+            "authors": "Mislav Marohni\u0107"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://blog.montylounge.com/",
+            "sort_order": 0,
+            "name": "Monty Lounge Blog",
+            "authors": "Kevin Fricovsky"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://neopythonic.blogspot.com/",
+            "sort_order": 0,
+            "name": "Neopythonic",
+            "authors": "Guido van Rossum"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://blog.osbutler.com/",
+            "sort_order": 0,
+            "name": "OSButler.com",
+            "authors": "Hendrik Daldrup"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.paulgraham.com/index.html",
+            "sort_order": 0,
+            "name": "Paul Graham",
+            "authors": "Paul Graham"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "https://stpeter.im/journal/",
+            "sort_order": 0,
+            "name": "Peter Saint-Andre: Journal",
+            "authors": "Peter Saint-Andre"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://simonwillison.net/",
+            "sort_order": 0,
+            "name": "Simon Willison\u2019s Weblog",
+            "authors": "Simon Willison"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.b-list.org/",
+            "sort_order": 0,
+            "name": "The B-List",
+            "authors": "James Bennett"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://maraujop.github.com/",
+            "sort_order": 0,
+            "name": "ToThinkOrNotToThink",
+            "authors": "Miguel Araujo"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.willmcgugan.com/",
+            "sort_order": 0,
+            "name": "Where there is a Will",
+            "authors": "Will McGugan"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://zachholman.com/",
+            "sort_order": 0,
+            "name": "Zach Holman",
+            "authors": "Zach Holman"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://amix.dk/",
+            "sort_order": 0,
+            "name": "amix the lucky stiff",
+            "authors": "Amir Salihefendic"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://antirez.com/",
+            "sort_order": 0,
+            "name": "antirez weblog",
+            "authors": "Salvatore Sanfilippo"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://danbri.org/words/",
+            "sort_order": 0,
+            "name": "danbri's foaf stories - An occasional blog",
+            "authors": "Dan Brickley"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://www.clemesha.org/",
+            "sort_order": 0,
+            "name": "electronic.habitat : alex.clemesha",
+            "authors": "Alex Clemesha"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://pydanny.github.com/",
+            "sort_order": 0,
+            "name": "pydanny",
+            "authors": "Daniel Greenfeld"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "dress_blog.blogroll",
+        "fields": {
+            "url": "http://dancingpenguinsoflight.com/",
+            "sort_order": 0,
+            "name": "tail -f findings.out",
+            "authors": "Samuel Huckins"
+        }
+    }
+]

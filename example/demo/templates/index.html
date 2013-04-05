@@ -9,7 +9,7 @@
 <H3>Your website</H3>
 <p>Blah blah blah...</p>
 <ul>
-  <li><a href="{% url blog-index %}">{% trans "Go to the Blog" %}</a></li>
+  <li><a href="{% url 'blog:blog-index' %}">{% trans "Go to the Blog" %}</a></li>
 </ul>
 <p style="padding: 5px 15px; background:#ddd; font-weight:bold; text-align:right">django-dress-blog</p>
 {% endblock %}

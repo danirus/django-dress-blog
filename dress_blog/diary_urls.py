@@ -1,5 +1,10 @@
+from django import VERSION as DJANGO_VERSION
+if DJANGO_VERSION[0:2] < (1, 3):
+    from django.conf.urls.defaults import patterns, url
+else:
+    from django.conf.urls import patterns, url
+
 from django.conf import settings
-from django.conf.urls.defaults import *
 from django.views import generic
 
 from dress_blog.models import Diary

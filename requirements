@@ -1,4 +1,4 @@
-Django
+Django<1.5
 South
 PIL
 BeautifulSoup<4.0.0
