@@ -1,8 +1,16 @@
 from setuptools import setup, find_packages
 
+from setuptools.command.test import test
+
+def run_tests(*args):
+    from dress_blog.tests import run_tests
+    run_tests()
+
+test.run_tests = run_tests
+
 setup(
     name = "django-dress-blog",
-    version = "0.1a",
+    version = "0.2a",
     packages = find_packages(),
     keywords = "django apps",
     license = "MIT",
@@ -24,4 +32,5 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
     include_package_data = True,
+    test_suite = "dummy",
 )

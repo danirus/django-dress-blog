@@ -24,11 +24,11 @@
         "pk": 12,
         "model": "dress_blog.post",
         "fields": {
-            "status": 3,
+            "status": 1,
             "allow_comments": true,
             "author": 1,
             "site": 1,
-            "visits": 29,
+            "visits": 0,
             "content_type": 15,
             "mod_date": "2013-04-05T14:49:19.571",
             "pub_date": "2012-07-10T16:50:40"
@@ -38,11 +38,11 @@
         "pk": 17,
         "model": "dress_blog.post",
         "fields": {
-            "status": 3,
+            "status": 1,
             "allow_comments": true,
             "author": 1,
             "site": 1,
-            "visits": 23,
+            "visits": 0,
             "content_type": 18,
             "mod_date": "2013-04-05T14:49:26.645",
             "pub_date": "2012-07-09T19:50:51"
@@ -80,11 +80,11 @@
         "pk": 10,
         "model": "dress_blog.post",
         "fields": {
-            "status": 3,
+            "status": 2,
             "allow_comments": true,
             "author": 1,
             "site": 1,
-            "visits": 18,
+            "visits": 0,
             "content_type": 15,
             "mod_date": "2013-04-05T14:49:35.618",
             "pub_date": "2012-05-26T16:49:28"
@@ -94,11 +94,11 @@
         "pk": 9,
         "model": "dress_blog.post",
         "fields": {
-            "status": 3,
+            "status": 2,
             "allow_comments": true,
             "author": 2,
             "site": 1,
-            "visits": 35,
+            "visits": 0,
             "content_type": 15,
             "mod_date": "2013-04-05T14:49:42.819",
             "pub_date": "2012-05-11T16:48:09"
@@ -206,11 +206,11 @@
         "pk": 5,
         "model": "dress_blog.post",
         "fields": {
-            "status": 3,
+            "status": 1,
             "allow_comments": true,
             "author": 2,
             "site": 1,
-            "visits": 6,
+            "visits": 0,
             "content_type": 15,
             "mod_date": "2013-04-05T14:50:56.570",
             "pub_date": "2012-03-05T14:52:07"
