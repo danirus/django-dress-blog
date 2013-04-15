@@ -1,5 +1,5 @@
 Django<1.5
-South
+outh
 PIL
 BeautifulSoup<4.0.0
 Pygments==1.4
@@ -15,3 +15,4 @@ docutils
 -e git+git://github.com/kylef/django-request.git#egg=django-request
 -e git+git://github.com/toastdriven/django-haystack.git@master#egg=django-haystack
 -e git+git://github.com/notanumber/xapian-haystack.git#egg=xapian-haystack
+

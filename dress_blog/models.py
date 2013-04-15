@@ -193,8 +193,7 @@ class Post(models.Model):
         super(Post, self).save(*args, **kwargs)
         if self.status == 3: # public
             blog_config = Config.get_current()
-            ping_google = getattr(blog_config, "ping_google", False) 
-            if ping_google:
+            if getattr(blog_config, "ping_google", False):
                 try:
                     ping_google()
                 except:
