@@ -53,7 +53,7 @@ class PostAdmin(admin.ModelAdmin):
         
 
 class StoryAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
-    list_display  = ("title", "pub_date", "mod_date", 
+    list_display  = ("title", "pub_date", "tags", 
                      "author", "status", "visits")
     list_filter   = ("author", "status", "pub_date", "tags")
     search_fields = ("title", "body")

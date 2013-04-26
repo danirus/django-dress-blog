@@ -79,6 +79,54 @@ class LatestStoriesFeed(BasePostsFeed):
         return Story.objects.published()[:10]
 
 
+class LatestStoriesTaggedAsFeed(BasePostsFeed):
+    def get_object(self, request, slug):
+        if not slug:
+            raise ObjectDoesNotExist
+        return Tag.objects.get(name__iexact=slug)
+
+    def title(self, obj):
+        return (ur'''%s stories tagged as '%s' feed''' %
+                (self.config.title, obj.name))
+
+    def description(self, obj):
+        return (ur'''%s latest stories tagged as '%s' feed.''' % 
+                (self.config.title, obj.name))
+
+    def link(self, obj):
+        if not obj:
+            raise FeedDoesNotExist
+        return reverse('blog-tagged-story-list', None, {'slug': obj.name})
+
+    def feed_url(self, obj):
+        if not obj:
+            raise FeedDoesNotExist
+        return reverse('latest-stories-tagged-as-feed', 
+                       None, {"slug": obj.name})
+
+    def items(self, obj):
+        qs = TaggedItem.objects.get_by_model(
+            Story, obj.name).filter(status=3).order_by("-id")[:10]            
+        return qs
+
+    def item_pubdate(self, item):
+        return item.pub_date
+
+    def item_title(self, item):
+        return item.title
+
+    def item_link(self, item):
+        return item.get_absolute_url()
+
+    def item_description(self, item):
+        if item.abstract:
+            return inlines(item.abstract_markup)
+        return inlines(item.body_markup)
+
+    def item_author_name(self, item):
+        return item.author.get_full_name()
+
+
 class LatestQuotesFeed(BasePostsFeed):
     def title(self):
         return '%s quotes feed' % self.config.title
@@ -121,13 +169,15 @@ class PostsByTag(Feed):
     def get_object(self, request, slug):
         if not slug:
             raise ObjectDoesNotExist
-        return Tag.objects.get(name__exact=slug)
+        return Tag.objects.get(name__iexact=slug)
 
     def title(self, obj):
-        return ur'''%s posts tagged as '%s' feed''' % (self.config.title, obj.name)
+        return (ur'''%s posts tagged as '%s' feed''' % 
+                (self.config.title, obj.name))
 
-    def description(self):
-        return ur'''%s latest posts tagged as '%s' feed.''' % (self.config.title, obj.name)
+    def description(self, obj):
+        return (ur'''%s latest posts tagged as '%s' feed.''' % 
+                (self.config.title, obj.name))
 
     def link(self, obj):
         if not obj:
@@ -139,9 +189,6 @@ class PostsByTag(Feed):
             raise FeedDoesNotExist
         return reverse('posts-tagged-as', None, {"slug": obj.name})
 
-    def description(self, obj):
-        return "Posts tagged as %s" % obj.name
-    
     def items(self, obj):
         return TaggedItem.objects.filter(
             tag__name__iexact=obj.name,

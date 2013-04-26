@@ -1,7 +1,6 @@
 #-*- coding: utf-8 -*-
 
 from django import VERSION as DJANGO_VERSION
-from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.db.models import F, Q
@@ -20,20 +19,21 @@ if DJANGO_VERSION[0:2] < (1, 5):
 
 from tagging.models import Tag, TaggedItem
 
+from dress_blog.conf import settings
 from dress_blog.models import Config, Post, Story, Quote, Diary, DiaryDetail
 
 
-page_size = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 10)
-
-
 def index(request):
-    return render("dress_blog/index_4col.html", context_instance=RequestContext(request))
+    return render("dress_blog/index_4col.html", 
+                  context_instance=RequestContext(request))
+
 
 @login_required(redirect_field_name="")
 def show_unpublished(request):
     redirect_to = request.REQUEST.get("next", '/')
     request.session["unpublished_on"] = True
     return HttpResponseRedirect(redirect_to)
+
 
 @login_required(redirect_field_name="")
 def hide_unpublished(request):
@@ -66,22 +66,35 @@ class DressBlogViewMixin(MultipleObjectMixin):
         return qs.order_by("-pub_date")
 
 
+class StoriesTaggedListView(ListView, MultipleObjectMixin):
+    model = Story
+    
+    def get_queryset(self):
+        return TaggedItem.objects.get_by_model(
+            Story, self.kwargs.get("slug", "")).filter(
+            status=3).order_by("-id")
+
+
 class PostListView(ListView, DressBlogViewMixin):
     pass
+
 
 class PostDayArchiveView(DayArchiveView, DressBlogViewMixin):
     date_field = "pub_date"
     make_object_list = True
     month_format = "%m"
 
+
 class PostMonthArchiveView(MonthArchiveView, DressBlogViewMixin):
     date_field = "pub_date"
     make_object_list = True
     month_format = "%m"
 
+
 class PostYearArchiveView(YearArchiveView, DressBlogViewMixin):
     date_field = "pub_date"
     make_object_list = True
+
 
 class MixedPostListView(ListView):
     """
@@ -107,6 +120,7 @@ class MixedPostListView(ListView):
                                             **kwargs).order_by("-pub_date")
         return posts
 
+
 class TagDetailView(ListView):
     """
     Paginated tag list
@@ -121,7 +135,7 @@ class TagDetailView(ListView):
     template_name = "dress_blog/tag_detail.html"
 
     def get_paginate_by(self, queryset):
-        return page_size
+        return settings.DRESS_BLOG_PAGINATE_BY
 
     def get_queryset(self):
         return TaggedItem.objects.filter(

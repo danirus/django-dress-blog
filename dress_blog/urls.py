@@ -6,7 +6,7 @@ if DJANGO_VERSION[0:2] < (1, 3):
 else:
     from django.conf.urls import include, patterns, url
 
-from django.conf import settings
+from dress_blog.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.comments.feeds import LatestCommentFeed
 from django.views.generic import DetailView, ListView, TemplateView
@@ -16,14 +16,11 @@ from django_comments_xtd.models import XtdComment
 
 from dress_blog import views
 from dress_blog.models import BlogRoll
-from dress_blog.feeds import (LatestPostsFeed, LatestStoriesFeed, 
-                              LatestQuotesFeed, LatestDiaryDetailsFeed, PostsByTag)
+from dress_blog.feeds import (LatestPostsFeed, LatestStoriesFeed,
+                              LatestStoriesTaggedAsFeed, LatestQuotesFeed, 
+                              LatestDiaryDetailsFeed, PostsByTag)
 from dress_blog.sitemaps import PostsSitemap
 
-
-page_size = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 10)
-ui_columns = getattr(settings, "DRESS_BLOG_UI_COLUMNS", 3)
-search_url_active = getattr(settings, "DRESS_BLOG_SEARCH_URL_ACTIVE", True)
 
 urlpatterns = patterns("",
     url(r"^stories/", include("dress_blog.story_urls")),
@@ -35,7 +32,7 @@ urlpatterns = patterns("",
             model=BlogRoll, 
             queryset=BlogRoll.objects.all().order_by('sort_order'),
             template_name="dress_blog/blogroll.html", 
-            paginate_by=2*page_size),
+            paginate_by=2*settings.DRESS_BLOG_PAGINATE_BY),
         name="blog-blogroll"),
 
     url(r"^tags$",
@@ -52,13 +49,16 @@ urlpatterns = patterns("",
                                                        "dress_blog.quote",
                                                        "dress_blog.diarydetail"), 
             template_name="dress_blog/comment_list.html",
-            paginate_by=page_size),
+            paginate_by=settings.DRESS_BLOG_PAGINATE_BY),
         name="blog-comment-list"),
 
     # url(r'^post/(\d+)/(.+)/$', 'django.contrib.contenttypes.views.shortcut', name='post-url-redirect'),
 
     url(r'^feeds/posts/$', LatestPostsFeed(), name='latest-posts-feed'),
     url(r'^feeds/stories/$', LatestStoriesFeed(), name='latest-stories-feed'),
+    url(r'^feeds/stories/tagged-as/(?P<slug>.{1,50})$$', 
+        LatestStoriesTaggedAsFeed(), 
+        name='latest-stories-tagged-as-feed'),
     url(r'^feeds/quotes/$', LatestQuotesFeed(), name='latest-quotes-feed'),
     url(r'^feeds/diary/$', LatestDiaryDetailsFeed(), name='latest-diary-feed'),
     url(r'^feeds/comments/$', LatestCommentFeed(), name='comments-feed'),
@@ -84,20 +84,21 @@ urlpatterns = patterns("",
 #-- search --------------------------------------------------------------------
 # set DRESS_BLOG_SEARCH_URL_ACTIVE=False to avoid this hook
 
-if search_url_active:
+if settings.DRESS_BLOG_SEARCH_URL_ACTIVE:
     from haystack.forms import SearchForm
     from haystack.views import SearchView, search_view_factory
 
     urlpatterns += patterns("",
         url(r'^search$', 
-            search_view_factory(view_class=SearchView, 
-                                form_class=SearchForm,
-                                results_per_page=page_size), 
+            search_view_factory(
+                view_class=SearchView, 
+                form_class=SearchForm,
+                results_per_page=settings.DRESS_BLOG_PAGINATE_BY), 
             name='haystack-search'),
     )
 #------------------------------------------------------------------------------
 
-if ui_columns == 4:
+if settings.DRESS_BLOG_UI_COLUMNS == 4:
     urlpatterns += patterns("",
         url(r"^$", views.index,                  name="blog-index"),
     )

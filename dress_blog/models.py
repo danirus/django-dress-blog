@@ -5,7 +5,6 @@ import os.path
 from django.db import models
 from django.db.models import permalink, Q
 from django.db.models.signals import post_delete
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.generic import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
@@ -26,6 +25,7 @@ from tagging.fields import TagField
 from tagging.models import TaggedItem
 from tagging.utils import get_tag_list
 
+from dress_blog.conf import settings
 from dress_blog.utils import create_cache_key, colloquial_date
 
 
@@ -33,11 +33,6 @@ STATUS_CHOICES = ((1, _("Draft")), (2, _("Review")), (3, _("Public")),)
 
 UI_COVER_CHOICES = (("3col", _("3 columns")), ("4col", _("4 columns")),)
 
-THEMES_PATH = getattr(settings, "DRESS_BLOG_THEMES_PATH", 
-                      os.path.join(settings.STATIC_ROOT, "dress_blog/themes"))
-
-diary_date_format = getattr(settings, "DRESS_BLOG_DIARY_DATE_FORMAT", "l, j F Y")
-diary_datetime_format = getattr(settings, "DRESS_BLOG_DIARY_DATETIME_FORMAT", "l, j F Y H:i")
 
 def themes(path):
     for dirname in os.listdir(path):
@@ -48,10 +43,11 @@ class Config(models.Model):
     """Django-dress-blog configuration"""
 
     site = models.ForeignKey(Site, unique=True, related_name="+")
-    title = models.CharField(max_length=100, help_text=_(
-            "Blog's name or title"))
-    theme = models.CharField(max_length=50, default="initial", help_text=_(
-            "Design for the blog"), choices=themes(THEMES_PATH))
+    title = models.CharField(max_length=100, 
+                             help_text=_("Blog's name or title"))
+    theme = models.CharField(max_length=50, default="initial", 
+                             help_text=_("Design for the blog"), 
+                             choices=themes(settings.DRESS_BLOG_THEMES_PATH))
     posts_in_index = models.IntegerField(default=1, help_text=_(
             "Visible posts in 3-columns layout front page."))
     stories_in_index = models.IntegerField(default=5, help_text=_(
@@ -272,7 +268,8 @@ class Diary(models.Model):
         get_latest_by = "pub_date"
 
     def __unicode__(self):
-        return colloquial_date(self.pub_date, diary_date_format)
+        return colloquial_date(self.pub_date, 
+                               settings.DRESS_BLOG_DIARY_DATE_FORMAT)
 
     @permalink
     def get_absolute_url(self):

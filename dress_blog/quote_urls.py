@@ -4,7 +4,7 @@ if DJANGO_VERSION[0:2] < (1, 3):
 else:
     from django.conf.urls import patterns, url
 
-from django.conf import settings
+from dress_blog.conf import settings
 from django.contrib.auth.decorators import login_required, permission_required
 from django.views import generic
 
@@ -12,9 +12,6 @@ from dress_blog.models import Quote
 from dress_blog.views import (PostDetailView, PostListView, PostYearArchiveView,
                               PostMonthArchiveView, PostDayArchiveView)
 
-
-page_size       = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 10)
-large_page_size = getattr(settings, "DRESS_BLOG_PAGINATE_BY", 10) * 2
 
 urlpatterns = patterns('',
 
@@ -62,20 +59,23 @@ urlpatterns = patterns('',
         name='blog-quote-detail-upcoming'),
 
     url(r'^(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<day>\d{1,2})/$',
-        PostDayArchiveView.as_view(model=Quote, paginate_by=page_size),
+        PostDayArchiveView.as_view(
+            model=Quote, paginate_by=settings.DRESS_BLOG_PAGINATE_BY),
         name='blog-quote-archive-day'),
 
     url(r'^(?P<year>\d{4})/(?P<month>\d{1,2})/$',
-        PostMonthArchiveView.as_view(model=Quote, paginate_by=page_size),
+        PostMonthArchiveView.as_view(
+            model=Quote, paginate_by=settings.DRESS_BLOG_PAGINATE_BY),
         name='blog-quote-archive-month'),
 
     url(r'^(?P<year>\d{4})/$',
-        PostYearArchiveView.as_view(model=Quote, paginate_by=large_page_size),
+        PostYearArchiveView.as_view(
+            model=Quote, paginate_by=2*settings.DRESS_BLOG_PAGINATE_BY),
         name='blog-quote-archive-year'),
 
     url(r'^$', 
         PostListView.as_view(
-            model=Quote, paginate_by=page_size,
+            model=Quote, paginate_by=settings.DRESS_BLOG_PAGINATE_BY,
             template_name="dress_blog/quote_list.html"),
         name='blog-quote-list'),
 )

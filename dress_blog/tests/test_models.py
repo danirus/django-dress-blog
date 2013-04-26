@@ -148,3 +148,4 @@ class PostSaveMethodTestCase(DjangoTestCase):
         post.status = 3
         post.save()
         assert mock_function.called
+
