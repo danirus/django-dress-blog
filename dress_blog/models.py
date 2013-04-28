@@ -199,6 +199,10 @@ class Post(models.Model):
     def in_the_future(self):
         return self.pub_date > now()
 
+    def get_absolute_url(self):
+        instance = self.content_type.model_class().objects.get(pk=self.id)
+        return instance.get_absolute_url()
+
 
 class Story(Post):
     """Story model"""

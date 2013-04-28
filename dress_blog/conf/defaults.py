@@ -28,4 +28,5 @@ DRESS_BLOG_DIARY_DATE_FORMAT = "l, j F Y"
 # the authors filterin the admin UI.
 DRESS_BLOG_AUTHORS_GROUP_NAME = "Blog Authors"
 
+# Name for the blog reviewers group. 
 DRESS_BLOG_REVIEWERS_GROUP_NAME = "Blog Reviewers"
