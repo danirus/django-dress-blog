@@ -1,5 +1,4 @@
 {% load i18n %}
-{% load url from future %}
 
 <div class="big-heydings-common-icon" title="story">D</div>
 <div class="title">
@@ -11,7 +10,7 @@
     <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
   </div>
   <div class="subline">
-    {% if dress_blog_config.show_author %}
+    {% if config.show_author %}
     <span class="mini-author">{% trans "posted by" %}&nbsp;{% if result.object.author.get_full_name %}{{ result.object.author.get_full_name }}{% else %}{{ result.object.author.username }}{% endif %}</span>
     {% if tag_list %}&nbsp;&bull;&nbsp;{% endif %}
     {% endif %}

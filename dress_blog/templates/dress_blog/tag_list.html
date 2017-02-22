@@ -1,6 +1,6 @@
 {% extends "dress_blog/base.html" %}
-{% load i18n tagging_tags %}
-{% load url from future %}
+{% load i18n %}
+{% load taggit_templatetags2_tags %}
 
 {% block nav-tags %}<li class="active"><a href="{% url 'blog-tag-list' %}"><span class="heydings-common-icon">t</span> {% trans "tags" %}</a></li>{% endblock %}
 
@@ -8,11 +8,11 @@
 <div class="row">
   <div class="span4">
     <H2 class="bb mb30 tac">{% trans "Story Tags" %}</H2>
-    
-    {% tag_cloud_for_model dress_blog.Story as tags_for_stories with steps=9 distribution=linear %}
+
+    {% get_tagcloud as tags_for_stories for 'dress_blog.Story' %}
     <div class="tagcloud clearfix">
       {% for tag in tags_for_stories %}
-      <a href="{% url 'blog-tag-detail' tag %}" class="label label-info tagcloud-fs{{ tag.font_size }}">{{ tag.name }}</a>
+      <a href="{% url 'blog-tag-detail' tag %}" class="label label-info tagcloud-fs{{ tag.weight }}">{{ tag.name }}</a>
       {% endfor %}
     </div>
   </div>
@@ -20,10 +20,10 @@
   <div class="span4">
     <H2 class="bb mb30 tac">{% trans "Quote Tags" %}</H2>
     
-    {% tag_cloud_for_model dress_blog.Quote as tags_for_quotes with steps=9 distribution=linear %}
+    {% get_tagcloud as tags_for_quotes for 'dress_blog.Quote' %}
     <div class="tagcloud clearfix">
       {% for tag in tags_for_quotes %}
-      <a href="{% url 'blog-tag-detail' tag %}"  class="label label-info tagcloud-fs{{ tag.font_size }}">{{ tag.name }}</a>
+      <a href="{% url 'blog-tag-detail' tag %}"  class="label label-info tagcloud-fs{{ tag.weight }}">{{ tag.name }}</a>
       {% endfor %}
     </div>
   </div>
@@ -31,10 +31,10 @@
   <div class="span4">
     <H2 class="bb mb30 tac">{% trans "Diary entry Tags" %}</H2>
     
-    {% tag_cloud_for_model dress_blog.DiaryDetail as tags_for_diary with steps=9 distribution=linear %}
+    {% get_tagcloud as tags_for_diary for 'dress_blog.DiaryDetail' %}
     <div class="tagcloud clearfix">
       {% for tag in tags_for_diary %}
-      <a href="{% url 'blog-tag-detail' tag %}" class="label label-info tagcloud-fs{{ tag.font_size }}">{{ tag.name }}</a>
+      <a href="{% url 'blog-tag-detail' tag %}" class="label label-info tagcloud-fs{{ tag.weight }}">{{ tag.name }}</a>
       {% endfor %}
     </div>
   </div>

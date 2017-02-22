@@ -2,16 +2,16 @@
 
 from django import template
 from django.conf import settings
-from django.db import models
+from django.apps import apps
 from django.utils.timezone import now
 
 import re
 
-Quote = models.get_model('dress_blog', 'quote')
-Story = models.get_model('dress_blog', 'story')
-Diary = models.get_model('dress_blog', 'diary')
-DiaryDetail = models.get_model('dress_blog', 'diarydetail')
-BlogRoll = models.get_model('dress_blog', 'blogroll')
+Quote = apps.get_model('dress_blog', 'quote')
+Story = apps.get_model('dress_blog', 'story')
+Diary = apps.get_model('dress_blog', 'diary')
+DiaryDetail = apps.get_model('dress_blog', 'diarydetail')
+BlogRoll = apps.get_model('dress_blog', 'blogroll')
 
 register = template.Library()
 
@@ -40,10 +40,12 @@ def dress_blog_base_tag(parser, token):
     try:
         tag_name, arg = token.contents.split(None, 1)
     except ValueError:
-        raise template.TemplateSyntaxError, "%s tag requires arguments" % token.contents.split()[0]
+        raise template.TemplateSyntaxError("%s tag requires arguments" %
+                                           token.contents.split()[0])
     m = re.search(r'(.*?) as (\w+)', arg)
     if not m:
-        raise template.TemplateSyntaxError, "%s tag had invalid arguments" % tag_name
+        raise template.TemplateSyntaxError("%s tag had invalid arguments" %
+                                           tag_name)
     format_string, var_name = m.groups()
     return (format_string, var_name)
 
@@ -180,9 +182,11 @@ def get_detail_for_day(parser, token):
     try:
         tag_name, arg = token.contents.split(None, 1)
     except ValueError:
-        raise template.TemplateSyntaxError, "%s tag requires arguments" % token.contents.split()[0]
+        raise template.TemplateSyntaxError("%s tag requires arguments" %
+                                           token.contents.split()[0])
     m = re.search(r'(\w+) as (\w+)', arg)
     if not m:
-        raise template.TemplateSyntaxError, "%s tag had invalid arguments" % tag_name
+        raise template.TemplateSyntaxError("%s tag had invalid arguments" %
+                                           tag_name)
     diary_object, var_name = m.groups()
     return DetailForDay(diary_object, var_name)

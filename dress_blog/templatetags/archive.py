@@ -26,11 +26,13 @@ class StoryArchive(template.Node):
 def get_story_archive(parser, token):
     try:
         tag_name, arg = token.contents.split(None, 1)
-    except ValueError:
-        raise template.TemplateSyntaxError, "%s tag requires arguments" % token.contents.split()[0]
+    except ValueError as exc:
+        raise template.TemplateSyntaxError("%s tag requires arguments" %
+                                           token.contents.split()[0])
     m = re.search(r'as (\w+)', arg)
     if not m:
-        raise template.TemplateSyntaxError, "%s tag had invalid arguments" % tag_name
+        raise template.TemplateSyntaxError("%s tag had invalid arguments" %
+                                           tag_name)
     var_name = m.groups()[0]
     return StoryArchive(var_name)
 
@@ -51,10 +53,12 @@ def get_quote_archive(parser, token):
     try:
         tag_name, arg = token.contents.split(None, 1)
     except ValueError:
-        raise template.TemplateSyntaxError, "%s tag requires arguments" % token.contents.split()[0]
+        raise template.TemplateSyntaxError("%s tag requires arguments" %
+                                           token.contents.split()[0])
     m = re.search(r'as (\w+)', arg)
     if not m:
-        raise template.TemplateSyntaxError, "%s tag had invalid arguments" % tag_name
+        raise template.TemplateSyntaxError("%s tag had invalid arguments" %
+                                           tag_name)
     var_name = m.groups()[0]
     return QuoteArchive(var_name)
 

@@ -1,0 +1,52 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sat May 23 12:31:55 2015
+;; Desktop file format version 206
+;; Emacs version 24.4.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (21856 22299 44969 0) (desktop . "206") "danirus@timina.local" nil nil ((((font-backend mac-ct ns) (fontsize . 0) (font . "-*-Monaco-normal-normal-normal-*-11-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (vertical-scroll-bars) (foreground-color . "#2E3436") (background-color . "#EDEDED") (line-spacing) (left-fringe . 10) (right-fringe . 11) (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (alpha 99 94) (fullscreen) (horizontal-scroll-bars . t) (display-type . color) (background-mode . light) (cursor-color . "#00BBFF") (environment) (frameset--id . "AE00-5A59-C708-0F71") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (right-divider-width . 0) (bottom-divider-width . 0) (icon-name) (visibility . t) (display . "timina.local") (explicit-name) (tool-bar-position . top) (height . 92) (width . 80) (left . 1) (top . 33)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 5) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 60) (min-pixel-width . 70) (min-pixel-height-ignore . 30) (min-pixel-width-ignore . 35) (min-pixel-height-safe . 15) (min-pixel-width-safe . 14)) leaf (pixel-width . 581) (pixel-height . 1365) (total-width . 83) (total-height . 91) (normal-height . 1.0) (normal-width . 1.0) (buffer "archive.py" (selected . t) (hscroll . 0) (fringes 10 11 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 1) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("self.limit" "Va" "Variable" "include"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/Code/Repos/django-dress-blog/" "/Users/danirus/Code/Repos/django-dress-blog/dress_blog/templatetags/colloquial_date.py" "/Users/danirus/Code/Repos/django-dress-blog/dress_blog/templatetags/posts.py" "~/Code/Repos/django-dress-blog/" "/Users/danirus/Code/Repos/django-dress-blog/dress_blog/templatetags/archive.py" "~/Code/Repos/django-dress-blog/" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templatetags/event_tags.py" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/eventext_news_form.html" "~/Code/Projects/Bicio.us/djapp-cevents/" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/siteone/cevents/event_detail.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/eventext_notes_form.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/eventext/registration.html" "~/Code/Projects/Bicio.us/djapp-cevents/" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/conf/__init__.py" "~/Code/Projects/Bicio.us/djapp-cevents/" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/eventext_registration_form.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/eventext_location_form.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/event_modal.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/event_form.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/events_modal.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/forms_backend.py" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/static/js/app/cevents/events/app.js" "~/Code/Projects/Bicio.us/djapp-cevents/" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/base.html" "~/Code/Projects/Bicio.us/djapp-cevents/" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/eventext/registration.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/eventext_registration_form.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/eventxtd_registration_form.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/event_meta_form.html" "/Users/danirus/Code/Projects/Bicio.us/djapp-cevents/bicious/djapp/cevents/templates/backend/cevents/includes/event_modal.html"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/Users/danirus/Code/Repos/django-dress-blog/dress_blog/templatetags/archive.py"
+  "archive.py"
+  'python-mode
+  nil
+  1
+  '(3973 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/Users/danirus/Code/Repos/django-dress-blog/dress_blog/templatetags/colloquial_date.py"
+  "colloquial_date.py"
+  'python-mode
+  nil
+  1
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/Users/danirus/Code/Repos/django-dress-blog/dress_blog/templatetags/posts.py"
+  "posts.py"
+  'python-mode
+  nil
+  2560
+  '(794 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+

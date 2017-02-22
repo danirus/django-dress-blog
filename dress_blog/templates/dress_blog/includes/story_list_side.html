@@ -1,5 +1,6 @@
-{% load i18n archive tagging_tags %}
-{% load url from future %}
+{% load i18n %}
+{% load archive %}
+{% load taggit_templatetags2_tags %}
 
 {% get_story_archive as dates %}
 {% if dates %}
@@ -16,7 +17,7 @@
 </UL>
 {% endif %}
 
-{% tags_for_model dress_blog.Story as tag_list with counts %}
+{% get_taglist as tag_list for 'dress_blog.Story' %}
 {% if tag_list %}
 <H4>
   <span class="heydings-common-icon">t</span>&nbsp;{% trans "Tags" %}
@@ -24,7 +25,7 @@
 <UL>
   {% for tag in tag_list %}
   <li>
-    <a href="{% url 'blog-tag-detail' tag %}">{{ tag }} ({{ tag.count }})</a>
+    <a href="{% url 'blog-tag-detail' tag %}">{{ tag }} ({{ tag.num_times }})</a>
   </li>    
   {% endfor %}
 </UL>

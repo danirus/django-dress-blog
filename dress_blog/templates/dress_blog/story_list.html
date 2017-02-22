@@ -1,15 +1,16 @@
 {% extends "dress_blog/base.html" %}
-{% load i18n posts %}
-{% load url from future %}
+{% load i18n %}
+{% load static %}
+{% load posts %}
 
 {% block extracss %}
-<link rel="stylesheet" href="{{ STATIC_URL }}inline_media/css/inline_media.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="{{ STATIC_URL }}prettyphoto-3.1.3/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="{% static 'inline_media/css/inline_media.css' %}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{% static 'prettyphoto-3.1.3/css/prettyPhoto.css' %}" type="text/css" media="screen" charset="utf-8" />
 {% endblock %}
 
 {% block extrajs %}
-<script type="text/javascript" src="{{ STATIC_URL }}inline_media/js/inline_media.js"></script>
-<script src="{{ STATIC_URL }}prettyphoto-3.1.3/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="{% static 'inline_media/js/inline_media.js' %}"></script>
+<script src="{% static 'prettyphoto-3.1.3/js/jquery.prettyPhoto.js' %}" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
 
 {% block nav-stories %}<li class="active"><a href="{% url 'blog-story-list' %}"><span class="heydings-common-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}

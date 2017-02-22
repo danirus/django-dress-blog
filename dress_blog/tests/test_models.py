@@ -9,8 +9,11 @@ from django.contrib.auth.models import Permission, User
 from django.contrib.contenttypes.models import ContentType
 from django.test import TestCase as DjangoTestCase
 
-from dress_blog.models import Config, Post, Story, Quote, DiaryDetail
+from constance import config
+
+from dress_blog.models import Post, Story, Quote, DiaryDetail
 from dress_blog.tests.utils import fix_content_types
+
 
 class PostManagerTestCase(DjangoTestCase):
     fixtures = ["sample_users", "sample_posts",]
@@ -136,11 +139,6 @@ class PostClassPermissionsTestCase(DjangoTestCase):
 class PostSaveMethodTestCase(DjangoTestCase):
     fixtures = ["sample_users", "sample_posts",]
     
-    def setUp(self):
-        config = Config.get_current()
-        config.ping_google = True
-        config.save()
-
     @mock.patch('dress_blog.models.ping_google')
     def test_save_ping_google(self, mock_function):
         # change from draft to public and see whether it calls ping_google

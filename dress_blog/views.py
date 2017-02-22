@@ -1,6 +1,5 @@
 #-*- coding: utf-8 -*-
 
-from django import VERSION as DJANGO_VERSION
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.db.models import F, Q
@@ -14,13 +13,11 @@ from django.views.generic.dates import (_date_from_string, YearArchiveView,
                                         MonthArchiveView, DayArchiveView)
 from django.views.generic.list import MultipleObjectMixin
 
-if DJANGO_VERSION[0:2] < (1, 5):
-    from django.views.generic.dates import _date_lookup_for_field
-
-from tagging.models import Tag, TaggedItem
+from constance import config
+from taggit.models import Tag
 
 from dress_blog.conf import settings
-from dress_blog.models import Config, Post, Story, Quote, Diary, DiaryDetail
+from dress_blog.models import Post, Story, Quote, Diary, DiaryDetail
 
 
 def index(request):
@@ -70,9 +67,10 @@ class StoriesTaggedListView(ListView, MultipleObjectMixin):
     model = Story
     
     def get_queryset(self):
-        return TaggedItem.objects.get_by_model(
-            Story, self.kwargs.get("slug", "")).filter(
-            status=3).order_by("-id")
+        return self.model.objects\
+                         .filter(tags__name__in=[self.kwargs.get("slug")],
+                                 status=3)\
+                         .order_by("-id")
 
 
 class PostListView(ListView, DressBlogViewMixin):
@@ -108,7 +106,7 @@ class MixedPostListView(ListView):
     template_name = "dress_blog/post_list.html"
 
     def get_paginate_by(self, queryset):
-        return Config.get_current().stories_in_index
+        return config.stories_in_index
 
     def get_queryset(self):
         if self.request.session.get("unpublished_on", False):
@@ -138,15 +136,16 @@ class TagDetailView(ListView):
         return settings.DRESS_BLOG_PAGINATE_BY
 
     def get_queryset(self):
-        return TaggedItem.objects.filter(
-            tag__name__iexact=self.kwargs.get("slug", "")).order_by("-id")
+        tag_name = self.kwargs.get("slug", "")
+        return Tag.objects.filter(tag__name__iexact=tag_name).order_by("-id")
 
     def get_context_data(self, **kwargs):
         context = super(TagDetailView, self).get_context_data(**kwargs)
         try:
-            context["object"] = Tag.objects.get(name=self.kwargs.get("slug", ""))
-        except Tag.DoesNotExist:
-            raise Http404(_("Tag '%s' does not exist" % self.kwargs.get("slug", "")))
+            tag_name = self.kwargs.get("slug", "")
+            context["object"] = Tag.objects.get(name=tag_name)
+        except Tag.DoesNotExist as exc:
+            raise Http404(_("Tag '%s' does not exist" % tag_name))
         return context
 
 
@@ -181,10 +180,7 @@ class DiaryDetailView(DateDetailView):
         # which'll handle the 404
         date_field = self.get_date_field()
         field = qs.model._meta.get_field(date_field)
-        if DJANGO_VERSION[0:2] < (1, 5):
-            lookup = _date_lookup_for_field(field, self.date)
-        else:
-            lookup = self._make_single_date_lookup(field)
+        lookup = self._make_single_date_lookup(field)
         qs = qs.filter(**lookup)
         for diarydetail in qs:
             for entry in diarydetail.detail.published():

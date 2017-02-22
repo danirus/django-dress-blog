@@ -1,6 +1,5 @@
 {% extends "dress_blog/base.html" %}
 {% load i18n inlines archive tagging_tags colloquial_date %}
-{% load url from future %}
 
 {% block extracss %}
 <link rel="stylesheet" href="{{ STATIC_URL }}inline_media/css/inline_media.css" type="text/css" media="screen" />
@@ -41,7 +40,7 @@
 			    {% if detail.status = 1 %}draftbg{% else %}
 			    {% if detail.status = 2 %}reviewbg{% else %}
 			    {% if detail.in_the_future %}upcomingbg{% endif %}{% endif %}{% endif %}">
-  	      <div class="predetail">{% if dress_blog_config.show_author %}{{ detail.author.get_full_name }}&nbsp;{% endif %}{% if tag_list %}<span class="tags">{% trans "about" %}&nbsp;{% for tag in tag_list %}<a href="{% url 'blog-tag-detail' tag %}">{{ tag }}</a>{% if not forloop.last %},&nbsp;{% endif %}{% endfor %}</span>&nbsp;{% endif %}<span class="time">{% trans "at" %}&nbsp;{{ detail.pub_date|date:"G:i" }}h</span>&nbsp;</div>
+  	      <div class="predetail">{% if config.show_author %}{{ detail.author.get_full_name }}&nbsp;{% endif %}{% if tag_list %}<span class="tags">{% trans "about" %}&nbsp;{% for tag in tag_list %}<a href="{% url 'blog-tag-detail' tag %}">{{ tag }}</a>{% if not forloop.last %},&nbsp;{% endif %}{% endfor %}</span>&nbsp;{% endif %}<span class="time">{% trans "at" %}&nbsp;{{ detail.pub_date|date:"G:i" }}h</span>&nbsp;</div>
 	      <div class="detail clearfix">
 		{{ detail.body_markup|render_inlines|safe }}
 	      </div>

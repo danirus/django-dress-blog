@@ -20,11 +20,6 @@ DATABASES = {
         'ENGINE':   "django.db.backends.sqlite3",
         'NAME':     "dress_blog_demo.db",
         'USER':     "", 
-
-        # 'ENGINE':   "django.db.backends.mysql",
-        # 'NAME':     "dress_blog_demo_d",
-        # 'USER':     "django", 
-
         'PASSWORD': "", 
         'HOST':     "", 
         'PORT':     "",
@@ -36,7 +31,7 @@ DATABASES = {
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = "Europe/Zurich"
+TIME_ZONE = "Europe/Berlin"
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html

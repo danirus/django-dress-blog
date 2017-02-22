@@ -1,15 +1,19 @@
 {% extends "dress_blog/base.html" %}
-{% load i18n posts archive comments_xtd %}
-{% load url from future %}
+
+{% load i18n %}
+{% load static %}
+{% load posts %}
+{% load archive %}
+{% load comments_xtd %}
 
 {% block extracss %}
-<link rel="stylesheet" href="{{ STATIC_URL }}inline_media/css/inline_media.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="{{ STATIC_URL }}prettyphoto-3.1.3/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="{% static 'inline_media/css/inline_media.css' %}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{% static 'prettyphoto-3.1.3/css/prettyPhoto.css' %}" type="text/css" media="screen" charset="utf-8" />
 {% endblock %}
 
 {% block extrajs %}
-<script type="text/javascript" src="{{ STATIC_URL }}inline_media/js/inline_media.js"></script>
-<script src="{{ STATIC_URL }}prettyphoto-3.1.3/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="{% static 'inline_media/js/inline_media.js' %}"></script>
+<script src="{% static 'prettyphoto-3.1.3/js/jquery.prettyPhoto.js' %}" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
 
 {% block content %}
@@ -45,7 +49,7 @@
       <H4>
 	<span class="heydings-common-icon">T</span> {% trans "Latest in diary" %}
       </H4>
-      {% get_latest_diary_days dress_blog_config.diary_entries_in_index as diary_items %}
+      {% get_latest_diary_days config.diary_entries_in_index as diary_items %}
       {% if diary_items %}
       {% for item in diary_items %}
       {% include "dress_blog/includes/diary_abstract.html" with object=item %}
@@ -67,7 +71,7 @@
       {% if comment_count %}
       <div class="mb15">
 	<H6 class="mb5"><span class="heydings-common-icon">b</span>&nbsp;&nbsp;{% trans "Latest comments" %}</H6>
-	{% render_last_xtdcomments dress_blog_config.comments_in_index for dress_blog.story dress_blog.quote dress_blog.diarydetail using "comments/dress_blog/comment_mini.html" %}
+	{% render_last_xtdcomments config.comments_in_index for dress_blog.story dress_blog.quote dress_blog.diarydetail using "comments/dress_blog/comment_mini.html" %}
       </div>
       {% endif %}
       

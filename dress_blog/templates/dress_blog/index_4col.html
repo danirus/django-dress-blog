@@ -1,21 +1,24 @@
 {% extends "dress_blog/base.html" %}
-{% load i18n posts archive comments_xtd %}
-{% load url from future %}
+{% load i18n %}
+{% load static %}
+{% load comments_xtd %}
+{% load posts %}
+{% load archive %}
 
 {% block extracss %}
-<link rel="stylesheet" href="{{ STATIC_URL }}inline_media/css/inline_media.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="{{ STATIC_URL }}prettyphoto-3.1.3/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="{% static 'inline_media/css/inline_media.css' %}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{% static 'prettyphoto-3.1.3/css/prettyPhoto.css' %}" type="text/css" media="screen" charset="utf-8" />
 {% endblock %}
 
 {% block extrajs %}
-<script type="text/javascript" src="{{ STATIC_URL }}inline_media/js/inline_media.js"></script>
-<script src="{{ STATIC_URL }}prettyphoto-3.1.3/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="{% static 'inline_media/js/inline_media.js' %}"></script>
+<script src="{% static 'prettyphoto-3.1.3/js/jquery.prettyPhoto.js' %}" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
 
 {% block content %}
 <div class="row mt15">
   <div class="span4">
-    {% get_latest_stories dress_blog_config.stories_in_index as stories %}
+    {% get_latest_stories config.stories_in_index as stories %}
     {% if stories %}
     {% for item in stories %}
     {% include "dress_blog/includes/story_abstract.html" with object=item %}
@@ -29,7 +32,7 @@
   </div>
   
   <div class="span3">
-    {% get_latest_quotes dress_blog_config.quotes_in_index as quotes %}
+    {% get_latest_quotes config.quotes_in_index as quotes %}
     {% if quotes %}
     {% for item in quotes %}
     {% include "dress_blog/includes/quote_abstract.html" with object=item %}
@@ -47,7 +50,7 @@
       <H4>
 	<span class="heydings-common-icon">T</span> {% trans "Latest in diary" %}
       </H4>
-      {% get_latest_diary_days dress_blog_config.diary_entries_in_index as diary_items %}
+      {% get_latest_diary_days config.diary_entries_in_index as diary_items %}
       {% if diary_items %}
       {% for item in diary_items %}
       {% include "dress_blog/includes/diary_abstract.html" with object=item %}
@@ -64,30 +67,33 @@
   <div class="span2">
     {% include "dress_blog/includes/admin_block.html" %}
 
+    {% get_xtdcomment_count as comment_count for dress_blog.story dress_blog.quote dress_blog.diarydetail %}
+    {% get_popular_posts 3 as popular_quotes for dress_blog.quote %}
+
+    {% if comment_count or popupar_quotes %}
     <div class="pstd pattern">
-      {% get_xtdcomment_count as comment_count for dress_blog.story dress_blog.quote dress_blog.diarydetail %}
       {% if comment_count %}
       <div class="mb15">
-	<H6><span class="heydings-common-icon">b</span>&nbsp;&nbsp;{% trans "Latest comments" %}</H6>
-	{% render_last_xtdcomments dress_blog_config.comments_in_index for dress_blog.story dress_blog.quote dress_blog.diarydetail using "comments/dress_blog/comment_mini.html" %}
+	    <H6><span class="heydings-common-icon">b</span>&nbsp;&nbsp;{% trans "Latest comments" %}</H6>
+	    {% render_last_xtdcomments config.comments_in_index for dress_blog.story dress_blog.quote dress_blog.diarydetail using "comments/dress_blog/comment_mini.html" %}
       </div>
       {% endif %}
       
-      {% get_popular_posts 3 as popular_quotes for dress_blog.quote %}
       {% if popular_quotes %}
       <div class="mb15">
-	<H6><span class="heydings-common-icon">B</span>&nbsp;{% trans "Popular quotes" %}</H6>
-	<ul>
-	  {% for post in popular_quotes %}
-	  <li><a href="{{ post.quote.get_absolute_url }}">{{ post.quote.title }}</a></li>
-	  {% endfor %}
-	</ul>
-	{% endif %}
+	    <H6><span class="heydings-common-icon">B</span>&nbsp;{% trans "Popular quotes" %}</H6>
+	    <ul>
+	      {% for post in popular_quotes %}
+	      <li><a href="{{ post.quote.get_absolute_url }}">{{ post.quote.title }}</a></li>
+	      {% endfor %}
+	    </ul>
       </div>
+	  {% endif %}
+    </div>
+    {% endif %}
       
-      <div>
-	{% include "dress_blog/includes/subscribe_block.html" %}
-      </div>
+    <div>
+	  {% include "dress_blog/includes/subscribe_block.html" %}
     </div>
   </div>
 </div>

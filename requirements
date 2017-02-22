@@ -1,18 +1,19 @@
-Django<1.5
-outh
-PIL
-BeautifulSoup<4.0.0
-Pygments==1.4
-Markdown
-docutils
--e svn+http://django-tagging.googlecode.com/svn/trunk/#egg=django-tagging
+beautifulsoup4>=4.5,<4.6
+django>=1.10,<1.11
+django-taggit>=0.22,<0.23
+django_compressor>=2.1,<2.2
+django-constance>=2.0,<2.1
+django-haystack>=2.6,<2.7
+elasticsearch>=5.2,<5.3
+hiredis>=0.2,<0.3
+pillow>=4.0,<4.1
+redis>=2.10,<2.11
+#
+# ------------------------------
+# Directly from repository.
+#
 -e git+git://github.com/bartTC/django-markup.git#egg=django-markup
 -e git+git://github.com/danirus/django-comments-xtd.git#egg=django-comments-xtd
 -e git+git://github.com/sorl/sorl-thumbnail.git#egg=sorl-thumbnail
 -e git+git://github.com/danirus/django-inline-media.git#egg=django-inline-media
--e git+git://github.com/danirus/django-wysihtml5.git#egg=django-wysihtml5
--e git+git://github.com/zerok/django-flatblocks.git#egg=django-flatblocks
--e git+git://github.com/kylef/django-request.git#egg=django-request
--e git+git://github.com/toastdriven/django-haystack.git@master#egg=django-haystack
--e git+git://github.com/notanumber/xapian-haystack.git#egg=xapian-haystack
-
+-e git+git://github.com/danirus/django-flatblocks-xtd.git#egg=django-flatblocks-xtd

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python manage.py syncdb --noinput
+python manage.py migrate --noinput
 python manage.py migrate django_comments_xtd
 python manage.py migrate flatblocks
 python manage.py migrate inline_media

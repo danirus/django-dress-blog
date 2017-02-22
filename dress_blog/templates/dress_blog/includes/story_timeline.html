@@ -1,5 +1,4 @@
 {% load i18n tagging_tags inlines comments %}
-{% load url from future %}
 
 {% get_comment_count for object as comment_count %}
 {% tags_for_object object as tag_list %}
@@ -14,7 +13,7 @@
     <div class="title">
       <div class="headline"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></div>
       <div class="subline">
-	{% if dress_blog_config.show_author %}
+	{% if config.show_author %}
 	<span class="mini-author">{% trans "by" %}&nbsp;{% if object.author.get_full_name %}{{ object.author.get_full_name }}{% else %}{{ object.author.username }}{% endif %}</span>
 	{% if tag_list %}&nbsp;&bull;&nbsp;{% endif %}
 	{% endif %}

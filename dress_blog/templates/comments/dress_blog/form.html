@@ -1,5 +1,5 @@
 {% load i18n comments %}
-{% load url from future %}
+
 <form id="CF" action="{% comment_form_target %}" method="post" class="vbox box-pack-center box-align-stretch">{% csrf_token %}
   <input type="hidden" name="next" value="{% url 'comments-xtd-sent' %}" />
   {% if form.errors %}

@@ -1,20 +1,15 @@
 #-*- coding: utf-8 -*-
 
-from django import VERSION as DJANGO_VERSION
-if DJANGO_VERSION[0:2] < (1, 3):
-    from django.conf.urls.defaults import include, patterns, url
-else:
-    from django.conf.urls import include, patterns, url
-
-from dress_blog.conf import settings
+from django.conf.urls import include, url
 from django.contrib.auth.decorators import login_required
-from django.contrib.comments.feeds import LatestCommentFeed
 from django.views.generic import DetailView, ListView, TemplateView
 
-from tagging.models import Tag
+from django_comments.feeds import LatestCommentFeed
 from django_comments_xtd.models import XtdComment
+from taggit.models import Tag
 
 from dress_blog import views
+from dress_blog.conf import settings
 from dress_blog.models import BlogRoll
 from dress_blog.feeds import (LatestPostsFeed, LatestStoriesFeed,
                               LatestStoriesTaggedAsFeed, LatestQuotesFeed, 
@@ -22,7 +17,7 @@ from dress_blog.feeds import (LatestPostsFeed, LatestStoriesFeed,
 from dress_blog.sitemaps import PostsSitemap
 
 
-urlpatterns = patterns("",
+urlpatterns = [
     url(r"^stories/", include("dress_blog.story_urls")),
     url(r"^diary/",   include("dress_blog.diary_urls")),
     url(r"^quotes/",  include("dress_blog.quote_urls")),
@@ -66,7 +61,7 @@ urlpatterns = patterns("",
 
     url(r"^unpublished-on/$", views.show_unpublished, name="blog-unpublished-on"),
     url(r"^unpublished-off/$", views.hide_unpublished, name="blog-unpublished-off"),
-)
+]
 
 #-- sitemaps ------------------------------------------------------------------
 # if django-dress-blog is hooked at '/', activate the following code, otherwise
@@ -88,21 +83,23 @@ if settings.DRESS_BLOG_SEARCH_URL_ACTIVE:
     from haystack.forms import SearchForm
     from haystack.views import SearchView, search_view_factory
 
-    urlpatterns += patterns("",
+    urlpatterns += [
         url(r'^search$', 
             search_view_factory(
                 view_class=SearchView, 
                 form_class=SearchForm,
                 results_per_page=settings.DRESS_BLOG_PAGINATE_BY), 
             name='haystack-search'),
-    )
+    ]
 #------------------------------------------------------------------------------
 
 if settings.DRESS_BLOG_UI_COLUMNS == 4:
-    urlpatterns += patterns("",
-        url(r"^$", views.index,                  name="blog-index"),
-    )
+    urlpatterns += [
+        url(r'^$',
+            TemplateView.as_view(template_name="dress_blog/index_4col.html"),
+            name='blog-index')
+    ]
 else:
-    urlpatterns += patterns("",
+    urlpatterns += [
         url(r"^$", views.MixedPostListView.as_view(), name="blog-index"),
-    )
+    ]

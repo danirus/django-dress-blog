@@ -1,6 +1,5 @@
 {% extends "dress_blog/base.html" %}
 {% load i18n tagging_tags inlines comments %}
-{% load url from future %}
 
 {% block meta-description %}{{ object.abstract_markup|render_inlines|safe|striptags }}{% endblock %}
 
@@ -22,7 +21,7 @@
 <div id="post-header" class="mt15 row">
   <div class="span10 offset1">
     <div class="vbox box-align-start box-pack-start">
-      {% if dress_blog_config.show_author %}
+      {% if config.show_author %}
       <div class="headline">{{ object.title }}</div>
       <div class="post-author mb5">{% trans "by" %}&nbsp;{{ object.author.get_full_name }}</div>
       {% else %}

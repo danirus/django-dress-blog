@@ -1,8 +1,9 @@
-{% load i18n comments inlines tagging_tags %}
-{% load url from future %}
+{% load i18n %}
+{% load comments %}
+{% load inlines &}
+{% load taggit_templatetags2_tags %}
 
 {% get_comment_count for object as comment_count %}
-{% tags_for_object object as tag_list %}
 <article class="{% if article_class %}{{ article_class }} {% endif %}
 		{% if object.status = 1 %}draftbg{% else %}
 		{% if object.status = 2 %}reviewbg{% else %}
@@ -12,8 +13,8 @@
     <div class="title">
       <div class="headline"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></div>
       <div class="subline">
-	{% if tag_list %}<span class="heydings-common-icon">t</span> 
-	{% for tag in tag_list %}
+	{% if object.tags %}<span class="heydings-common-icon">t</span> 
+	{% for tag in object.tags %}
 	<a href="{% url 'blog-tag-detail' tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
 	{% endfor %}
 	{% endif %}

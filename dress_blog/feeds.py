@@ -2,13 +2,14 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.sites.models import Site
 from django.contrib.syndication.views import Feed, FeedDoesNotExist
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.comments.models import Comment
 from django.core.urlresolvers import reverse
 
+from constance import config
+from django_comments.models import Comment
 from inline_media.parser import inlines
-from tagging.models import Tag, TaggedItem
+from taggit.models import Tag
 
-from dress_blog.models import Config, Post, Story, Quote, DiaryDetail
+from dress_blog.models import Post, Story, Quote, DiaryDetail
 
 
 ct_story = ContentType.objects.get(app_label="dress_blog", model="story")
@@ -16,14 +17,6 @@ ct_quote = ContentType.objects.get(app_label="dress_blog", model="quote")
 
 
 class BasePostsFeed(Feed):
-    _config = None
-    
-    @property
-    def config(self):
-        if self._config is None:
-            self._config = Config.get_current()
-        return self._config
-
     def item_pubdate(self, item):
         return item.pub_date
 
@@ -53,10 +46,10 @@ class BasePostsFeed(Feed):
 
 class LatestPostsFeed(BasePostsFeed):
     def title(self):
-        return '%s posts feed' % self.config.title
+        return '%s posts feed' % config.title
 
     def description(self):
-        return '%s latest posts feed' % self.config.title
+        return '%s latest posts feed' % config.title
 
     def link(self):
         return reverse('blog-index')
@@ -67,10 +60,10 @@ class LatestPostsFeed(BasePostsFeed):
 
 class LatestStoriesFeed(BasePostsFeed):
     def title(self):
-        return '%s stories feed' % self.config.title
+        return '%s stories feed' % config.title
 
     def description(self):
-        return '%s latest stories feed.' % self.config.title
+        return '%s latest stories feed.' % config.title
 
     def link(self):
         return reverse('blog-story-list')
@@ -86,12 +79,11 @@ class LatestStoriesTaggedAsFeed(BasePostsFeed):
         return Tag.objects.get(name__iexact=slug)
 
     def title(self, obj):
-        return (ur'''%s stories tagged as '%s' feed''' %
-                (self.config.title, obj.name))
+        return ("%s stories tagged as '%s' feed" % (config.title, obj.name))
 
     def description(self, obj):
-        return (ur'''%s latest stories tagged as '%s' feed.''' % 
-                (self.config.title, obj.name))
+        return ("%s latest stories tagged as '%s' feed." %
+                (config.title, obj.name))
 
     def link(self, obj):
         if not obj:
@@ -105,8 +97,8 @@ class LatestStoriesTaggedAsFeed(BasePostsFeed):
                        None, {"slug": obj.name})
 
     def items(self, obj):
-        qs = TaggedItem.objects.get_by_model(
-            Story, obj.name).filter(status=3).order_by("-id")[:10]            
+        qs = Story.objects.filter(tags__name__in=obj.name, status=3)\
+                          .order_by("-id")[:10]
         return qs
 
     def item_pubdate(self, item):
@@ -129,10 +121,10 @@ class LatestStoriesTaggedAsFeed(BasePostsFeed):
 
 class LatestQuotesFeed(BasePostsFeed):
     def title(self):
-        return '%s quotes feed' % self.config.title
+        return '%s quotes feed' % config.title
 
     def description(self):
-        return '%s latest quotes feed.' % self.config.title
+        return '%s latest quotes feed.' % config.title
 
     def link(self):
         return reverse('blog-quote-list')
@@ -145,10 +137,10 @@ class LatestDiaryDetailsFeed(BasePostsFeed):
     _site = Site.objects.get_current()
     
     def title(self):
-        return '%s diary feed' % self.config.title
+        return '%s diary feed' % config.title
     
     def description(self):
-        return '%s latest diary feed.' % self.config.title
+        return '%s latest diary feed.' % config.title
 
     def link(self):
         return reverse('blog-diary')
@@ -158,26 +150,17 @@ class LatestDiaryDetailsFeed(BasePostsFeed):
 
 
 class PostsByTag(Feed):
-    _config = None
-    
-    @property
-    def config(self):
-        if self._config is None:
-            self._config = Config.get_current()
-        return self._config
-
     def get_object(self, request, slug):
         if not slug:
             raise ObjectDoesNotExist
         return Tag.objects.get(name__iexact=slug)
 
     def title(self, obj):
-        return (ur'''%s posts tagged as '%s' feed''' % 
-                (self.config.title, obj.name))
+        return ("%s posts tagged as '%s' feed" % (config.title, obj.name))
 
     def description(self, obj):
-        return (ur'''%s latest posts tagged as '%s' feed.''' % 
-                (self.config.title, obj.name))
+        return ("%s latest posts tagged as '%s' feed." % 
+                (config.title, obj.name))
 
     def link(self, obj):
         if not obj:
@@ -190,8 +173,9 @@ class PostsByTag(Feed):
         return reverse('posts-tagged-as', None, {"slug": obj.name})
 
     def items(self, obj):
-        return TaggedItem.objects.filter(
-            tag__name__iexact=obj.name,
+        
+        return Tag.objects.filter(
+            name__iexact=obj.name,
             content_type__in=[ct_story, ct_quote]).order_by("-id")[:10]
 
     def item_pubdate(self, item):
