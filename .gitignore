@@ -12,3 +12,4 @@ example/demo/static/
 example/demo/xapian_index/
 dress_blog/tests/pictures/
 node_modules/
+vendor/
