@@ -1,5 +1,4 @@
 from django.core.exceptions import ObjectDoesNotExist
-from django.contrib.sites.models import Site
 from django.contrib.syndication.views import Feed, FeedDoesNotExist
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
@@ -10,10 +9,6 @@ from inline_media.parser import inlines
 from taggit.models import Tag
 
 from dress_blog.models import Post, Story, Quote, DiaryDetail
-
-
-ct_story = ContentType.objects.get(app_label="dress_blog", model="story")
-ct_quote = ContentType.objects.get(app_label="dress_blog", model="quote")
 
 
 class BasePostsFeed(Feed):
@@ -133,9 +128,7 @@ class LatestQuotesFeed(BasePostsFeed):
         return Quote.objects.published()[:10]
 
 
-class LatestDiaryDetailsFeed(BasePostsFeed):
-    _site = Site.objects.get_current()
-    
+class LatestDiaryDetailsFeed(BasePostsFeed):    
     def title(self):
         return '%s diary feed' % config.title
     
@@ -173,7 +166,10 @@ class PostsByTag(Feed):
         return reverse('posts-tagged-as', None, {"slug": obj.name})
 
     def items(self, obj):
-        
+        ct_story = ContentType.objects.get(app_label="dress_blog",
+                                           model="story")
+        ct_quote = ContentType.objects.get(app_label="dress_blog",
+                                           model="quote")
         return Tag.objects.filter(
             name__iexact=obj.name,
             content_type__in=[ct_story, ct_quote]).order_by("-id")[:10]

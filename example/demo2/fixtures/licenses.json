@@ -1,0 +1,50 @@
+[
+{
+    "pk": 1,
+    "model": "inline_media.license",
+    "fields": {
+        "name": "CC Attribution-ShareAlike",
+        "link": "http://creativecommons.org/licenses/by-sa/2.0/"
+    }
+},
+{
+    "pk": 2,
+    "model": "inline_media.license",
+    "fields": {
+        "name": "CC Attribution-NonCommercial-ShareAlike",
+        "link": "http://creativecommons.org/licenses/by-nc-sa/2.0/"
+    }
+},
+{
+    "pk": 3,
+    "model": "inline_media.license",
+    "fields": {
+        "name": "CC Attribution-NonCommercial",
+        "link": "http://creativecommons.org/licenses/by-nc/2.0/"
+    }
+},
+{
+    "pk": 4,
+    "model": "inline_media.license",
+    "fields": {
+        "name": "CC Attribution-NonCommercial-NoDerivs",
+        "link": "http://creativecommons.org/licenses/by-nc-nd/2.0/"
+    }
+},
+{
+    "pk": 5,
+    "model": "inline_media.license",
+    "fields": {
+        "name": "CC Attribution-NoDerivs",
+        "link": "http://creativecommons.org/licenses/by-nd/2.0/"
+    }
+},
+{
+    "pk": 6,
+    "model": "inline_media.license",
+    "fields": {
+        "name": "CC Attribution",
+        "link": "http://creativecommons.org/licenses/by/2.0/"
+    }
+}
+]

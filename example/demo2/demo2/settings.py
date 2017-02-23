@@ -190,7 +190,7 @@ CONSTANCE_CONFIG = {
         500,
         _("Number of characters of the post body to "
           "display in RSS feeds and preview templates."),
-        str
+        int
     ),
     'meta_author': (
         "", _("List of authors or company/organization's name."), str

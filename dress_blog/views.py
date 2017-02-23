@@ -15,9 +15,10 @@ from django.views.generic.list import MultipleObjectMixin
 
 from constance import config
 from taggit.models import Tag
+from django_comments_xtd import get_model
 
 from dress_blog.conf import settings
-from dress_blog.models import Post, Story, Quote, Diary, DiaryDetail
+from dress_blog.models import BlogRoll, Post, Story, Quote, Diary, DiaryDetail
 
 
 def index(request):
@@ -27,16 +28,35 @@ def index(request):
 
 @login_required(redirect_field_name="")
 def show_unpublished(request):
-    redirect_to = request.REQUEST.get("next", '/')
+    redirect_to = request.GET.get("next", '/')
     request.session["unpublished_on"] = True
     return HttpResponseRedirect(redirect_to)
 
 
 @login_required(redirect_field_name="")
 def hide_unpublished(request):
-    redirect_to = request.REQUEST.get("next", '/')
+    redirect_to = request.GET.get("next", '/')
     request.session["unpublished_on"] = False
     return HttpResponseRedirect(redirect_to)
+
+
+class BlogRollView(ListView):
+    model = BlogRoll
+    template_name = "dress_blog/blogroll.html"
+    paginate_by = 2 * settings.DRESS_BLOG_PAGINATE_BY
+
+    def get_queryset(self):
+        return self.model.objects.all().order_by('sort_order')    
+
+
+class CommentsView(ListView):
+    template_name = "dress_blog/comment_list.html"
+    paginate_by = settings.DRESS_BLOG_PAGINATE_BY
+
+    def get_queryset(self):
+        return get_model().objects.for_app_models("dress_blog.story",
+                                                  "dress_blog.quote",
+                                                  "dress_blog.diarydetail")
 
 
 class PostDetailView(DateDetailView):

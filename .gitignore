@@ -4,10 +4,11 @@
 *.zip
 *.egg-info
 *.db
+db.sqlite3
 docs/_build
 build/
 dist/
-example/demo/media/cache/
+media/
 example/demo/static/
 example/demo/xapian_index/
 dress_blog/tests/pictures/

@@ -3,6 +3,7 @@
 from django import template
 from django.conf import settings
 from django.apps import apps
+from django.db.models import Q
 from django.utils.timezone import now
 
 import re
@@ -52,11 +53,12 @@ def dress_blog_base_tag(parser, token):
 #------------------------------------------------------------------------
 class LatestStories(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
-        if context["request"].session.get("unpublished_on", False):
-            qs = Story.objects.filter(status__in=[1,2,3]).exclude(
-                ~models.Q(author=context["request"].user), status=1)
-            if not context["request"].user.has_perm("dress_blog.can_review_posts"):
-                qs = qs.exclude(~Q(author=context["request"].user), status=2)
+        req = context['request']
+        if req.session.get("unpublished_on", False):
+            qs = Story.objects.filter(status__in=[1,2,3])\
+                              .exclude(~Q(author=req.user), status=1)
+            if not req.user.has_perm("dress_blog.can_review_posts"):
+                qs = qs.exclude(~Q(author=req.user), status=2)
         else:
             qs = Story.objects.filter(status=3, pub_date__lte=now())
         return qs[:self.limit]
@@ -88,11 +90,12 @@ def get_review_stories(parser, token):
 #----------
 class LatestQuotes(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
-        if context["request"].session.get("unpublished_on", False):
-            qs = Quote.objects.filter(status__in=[1,2,3]).exclude(
-                ~models.Q(author=context["request"].user), status=1)
-            if not context["request"].user.has_perm("dress_blog.can_review_posts"):
-                qs = qs.exclude(~Q(author=context["request"].user), status=2)
+        req = context['request']
+        if req.session.get("unpublished_on", False):
+            qs = Quote.objects.filter(status__in=[1,2,3])\
+                              .exclude(~Q(author=req.user), status=1)
+            if not req.user.has_perm("dress_blog.can_review_posts"):
+                qs = qs.exclude(~Q(author=req.user), status=2)
         else:
             qs = Quote.objects.filter(status=3, pub_date__lte=now())
         return qs[:self.limit]
@@ -154,10 +157,10 @@ class DetailForDay(template.Node):
 
     def render(self, context):
         diary_object = self.diary_object.resolve(context)
-
-        if context["request"].session.get("unpublished_on", False):
-            qs = diary_object.detail.filter(status__in=[1,2,3]).exclude(
-                ~models.Q(author=context["request"].user), status=1)
+        req = context['request']
+        if req.session.get("unpublished_on", False):
+            qs = diary_object.detail.filter(status__in=[1,2,3])\
+                                    .exclude(~Q(author=req.user), status=1)
         else:
             qs = diary_object.detail.filter(status=3, pub_date__lte=now())
 

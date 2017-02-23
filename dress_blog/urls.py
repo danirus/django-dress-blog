@@ -22,33 +22,14 @@ urlpatterns = [
     url(r"^diary/",   include("dress_blog.diary_urls")),
     url(r"^quotes/",  include("dress_blog.quote_urls")),
 
-    url(r"^blogroll$",
-        ListView.as_view(
-            model=BlogRoll, 
-            queryset=BlogRoll.objects.all().order_by('sort_order'),
-            template_name="dress_blog/blogroll.html", 
-            paginate_by=2*settings.DRESS_BLOG_PAGINATE_BY),
-        name="blog-blogroll"),
-
+    url(r"^blogroll$", views.BlogRollView.as_view(), name="blog-blogroll"),
     url(r"^tags$",
         TemplateView.as_view(template_name="dress_blog/tag_list.html"),
         name="blog-tag-list"),
-
     url(r"^tags/(?P<slug>.{1,50})$",
         views.TagDetailView.as_view(),
         name="blog-tag-detail"),
-
-    url(r"^comments$", 
-        ListView.as_view(
-            queryset=XtdComment.objects.for_app_models("dress_blog.story", 
-                                                       "dress_blog.quote",
-                                                       "dress_blog.diarydetail"), 
-            template_name="dress_blog/comment_list.html",
-            paginate_by=settings.DRESS_BLOG_PAGINATE_BY),
-        name="blog-comment-list"),
-
-    # url(r'^post/(\d+)/(.+)/$', 'django.contrib.contenttypes.views.shortcut', name='post-url-redirect'),
-
+    url(r"^comments$", views.CommentsView.as_view(), name="blog-comment-list"),
     url(r'^feeds/posts/$', LatestPostsFeed(), name='latest-posts-feed'),
     url(r'^feeds/stories/$', LatestStoriesFeed(), name='latest-stories-feed'),
     url(r'^feeds/stories/tagged-as/(?P<slug>.{1,50})$$', 
@@ -58,9 +39,10 @@ urlpatterns = [
     url(r'^feeds/diary/$', LatestDiaryDetailsFeed(), name='latest-diary-feed'),
     url(r'^feeds/comments/$', LatestCommentFeed(), name='comments-feed'),
     url(r"^feeds/tag/(?P<slug>.{1,50})$", PostsByTag(), name='posts-tagged-as'),
-
-    url(r"^unpublished-on/$", views.show_unpublished, name="blog-unpublished-on"),
-    url(r"^unpublished-off/$", views.hide_unpublished, name="blog-unpublished-off"),
+    url(r"^unpublished-on/$", views.show_unpublished,
+        name="blog-unpublished-on"),
+    url(r"^unpublished-off/$", views.hide_unpublished,
+        name="blog-unpublished-off"),
 ]
 
 #-- sitemaps ------------------------------------------------------------------
