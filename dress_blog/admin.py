@@ -50,7 +50,8 @@ class StoryAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
                                     "markup", "abstract", "body",)}),
                  ("Post data", {"fields": (("author", "status"), 
                                            ("allow_comments", "tags"),
-                                           ("pub_date",)),}),
+                                           ("pub_date",),
+                                           ("sites",)),}),
                  ("Converted markup", {"classes": ("collapse",),
                                        "fields": ("abstract_markup", 
                                                   "body_markup",),}),)

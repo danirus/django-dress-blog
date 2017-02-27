@@ -94,7 +94,7 @@ class Post(models.Model):
     mod_date = models.DateTimeField(_("Modification date"), auto_now=True)
     visits = models.IntegerField(default=0, editable=False)
     objects = PostManager()
-    site = models.ForeignKey(Site)
+    sites = models.ManyToManyField(Site)
     
     class Meta:
         verbose_name = _("post")

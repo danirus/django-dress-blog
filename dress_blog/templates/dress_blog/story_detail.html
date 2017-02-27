@@ -1,5 +1,8 @@
 {% extends "dress_blog/base.html" %}
-{% load i18n tagging_tags inlines comments %}
+{% load i18n %}
+{% load inlines %}
+{% load comments %}
+{% load taggit_templatetags2_tags %}
 
 {% block meta-description %}{{ object.abstract_markup|render_inlines|safe|striptags }}{% endblock %}
 
@@ -17,7 +20,7 @@
 
 {% block content %}
 {% get_comment_count for object as comment_count %}
-{% tags_for_object object as tag_list %}
+{% get_tags_for_object object as tag_list %}
 <div id="post-header" class="mt15 row">
   <div class="span10 offset1">
     <div class="vbox box-align-start box-pack-start">
@@ -42,8 +45,8 @@
 <div class="mt15 row clearfix">
   <div class="span12">
     <div class="neck 
-		{% if object.status = 1 %}draftbg{% else %}
-		{% if object.status = 2 %}reviewbg{% else %}
+		{% if object.status == 1 %}draftbg{% else %}
+		{% if object.status == 2 %}reviewbg{% else %}
 		{% if object.in_the_future %}upcomingbg{% endif %}{% endif %}{% endif %}">
       <div class="onecol">
 	{{ object.body_markup|render_inlines|safe }}

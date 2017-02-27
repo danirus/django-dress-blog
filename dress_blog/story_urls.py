@@ -17,13 +17,14 @@ urlpatterns = [
         r'(?P<slug>[-\w]+)/$',
         PostDetailView.as_view(
             model=Story, date_field="pub_date", month_format="%m", 
-            template_name="blog/story_detail.html"),
+            template_name="dress_blog/story_detail.html"),
         name='blog-story-detail-month-numeric'),
 
-    url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{1,2})/(?P<slug>[-\w]+)/$',
+    url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{1,2})/'
+        r'(?P<slug>[-\w]+)/$',
         PostDetailView.as_view(
             model=Story, date_field="pub_date", month_format="%b", 
-            template_name="blog/story_detail.html"),
+            template_name="dress_blog/story_detail.html"),
         name='blog-story-detail'),
 
     # allowing access to a story in draft mode
@@ -33,7 +34,8 @@ urlpatterns = [
             generic.DateDetailView.as_view(
                 queryset=Story.objects.drafts(),
                 date_field="pub_date", month_format="%b", 
-                template_name="blog/story_detail.html", allow_future=True),
+                template_name="dress_blog/story_detail.html",
+                allow_future=True),
             redirect_field_name=""),
         name='blog-story-detail-draft'),
 
@@ -44,7 +46,8 @@ urlpatterns = [
             permission_required('dress_blog.can_review_posts')(
                 generic.DateDetailView.as_view(
                     model=Story, date_field="pub_date", month_format="%b", 
-                    template_name="blog/story_detail.html", allow_future=True)
+                    template_name="dress_blog/story_detail.html",
+                    allow_future=True)
             ),
             redirect_field_name=""),
         name='blog-story-detail-review'),
@@ -56,7 +59,8 @@ urlpatterns = [
             generic.DateDetailView.as_view(
                 queryset=Story.objects.upcoming(),
                 date_field="pub_date", month_format="%b", 
-                template_name="blog/story_detail.html", allow_future=True),
+                template_name="dress_blog/story_detail.html",
+                allow_future=True),
             redirect_field_name=""),
         name='blog-story-detail-upcoming'),
 
