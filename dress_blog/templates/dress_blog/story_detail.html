@@ -1,20 +1,11 @@
 {% extends "dress_blog/base.html" %}
 {% load i18n %}
+{% load posts %}
 {% load inlines %}
 {% load comments %}
 {% load taggit_templatetags2_tags %}
 
-{% block meta-description %}{{ object.abstract_markup|render_inlines|safe|striptags }}{% endblock %}
-
-{% block extracss %}
-<link rel="stylesheet" href="{{ STATIC_URL }}inline_media/css/inline_media.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="{{ STATIC_URL }}prettyphoto-3.1.3/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
-{% endblock %}
-
-{% block extrajs %}
-<script type="text/javascript" src="{{ STATIC_URL }}inline_media/js/inline_media.js"></script>
-<script src="{{ STATIC_URL }}prettyphoto-3.1.3/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
-{% endblock %}
+{% block meta-description %}{{ object.abstract|parse_commonmark|render_inlines|safe|striptags }}{% endblock %}
 
 {% block nav-stories %}<li class="active"><a href="{% url 'blog-story-list' %}"><span class="heydings-common-icon">D</span> {% trans "stories" %}</a></li>{% endblock %}
 
@@ -49,7 +40,7 @@
 		{% if object.status == 2 %}reviewbg{% else %}
 		{% if object.in_the_future %}upcomingbg{% endif %}{% endif %}{% endif %}">
       <div class="onecol">
-	{{ object.body_markup|render_inlines|safe }}
+	    {{ object.body|parse_commonmark|render_inlines|safe }}
       </div>
     </div>
   </div>

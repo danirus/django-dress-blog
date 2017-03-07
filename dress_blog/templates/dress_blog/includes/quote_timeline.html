@@ -29,7 +29,7 @@
   </header>
   <section class="abstract">
     <div class="text">
-      {{ object.body_markup|render_inlines|safe|truncatewords_html:50 }}
+      {{ object.body|parse_commonmark|render_inlines|safe|truncatewords_html:50 }}
     </div>
   </section>
 </article>

@@ -47,14 +47,12 @@ class StoryAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
     search_fields = ("title", "body")
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = ((None, {"fields": ("title", "slug",  
-                                    "markup", "abstract", "body",)}),
+                                    "abstract", "body",)}),
                  ("Post data", {"fields": (("author", "status"), 
                                            ("allow_comments", "tags"),
                                            ("pub_date",),
-                                           ("sites",)),}),
-                 ("Converted markup", {"classes": ("collapse",),
-                                       "fields": ("abstract_markup", 
-                                                  "body_markup",),}),)
+                                           ("sites",)),}),)
+    save_on_top = True
 
     def get_queryset(self, request):
         return super(StoryAdmin, self).get_queryset(request)\
@@ -66,11 +64,9 @@ class StoryAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
 
 class DiaryDetailInline(AdminTextFieldWithInlinesMixin, admin.StackedInline):
     model = DiaryDetail
-    fieldsets = ((None, {"fields": (("status", "author", "markup", "tags",
+    fieldsets = ((None, {"fields": (("status", "author", "tags",
                                      "allow_comments"),
-                                    ("body", "pub_date")),}),
-                 ("Converted markup", {"classes": ("collapse",),
-                                       "fields": ("body_markup",),}),)
+                                    ("body", "pub_date")),}),)
     extra = 0
         
     def get_form(self, req, obj=None, **kwargs):
@@ -118,16 +114,16 @@ class QuoteAdmin(AdminTextFieldWithInlinesMixin, PostAdmin):
     list_filter  = ("author", "status", "pub_date", "tags")
     search_fields = ("title", "author", "quote_author", "body")
     prepopulated_fields = {"slug": ("title",)}
-    fieldsets = ((None, {"fields": ("title", "slug", "markup", "body",)}),
+    fieldsets = ((None, {"fields": ("title", "slug", "body",)}),
                  ("Source data", {"fields": ("quote_author", "url_source")}),
                  ("Post data", {"fields": (("author", "status"), 
                                            ("allow_comments", "tags"),
-                                           ("pub_date",)),}),
-                 ("Converted markup", {"classes": ("collapse",),
-                                       "fields": ("body_markup",),}),)
+                                           ("pub_date",)),}),)
+    save_on_top = True
 
 
 @admin.register(BlogRoll)
 class BlogRollAdmin(admin.ModelAdmin):
     list_display = ("name", "url", "sort_order", )
     list_editable = ("sort_order",)
+    save_on_top = True

@@ -54,10 +54,10 @@ INSTALLED_APPS = [
     'constance',  # Live settings.
     'django_comments',
     'django_comments_xtd',
-    'django_markup',
     'flatblocks_xtd',
     'haystack',
     'inline_media',
+    'prosemirror',
     'sorl.thumbnail',
     'taggit',
     'taggit_templatetags2',

@@ -1,7 +1,7 @@
 {% extends "dress_blog/base.html" %}
 {% load i18n tagging_tags inlines comments %}
 
-{% block meta-description %}{{ object.body_markup|render_inlines|safe|truncatewords_html:33|striptags }}{% endblock %}
+{% block meta-description %}{{ object.body|parse_commonmark|render_inlines|safe|truncatewords_html:33|striptags }}{% endblock %}
 
 {% block nav-quotes %}<li class="active"><a href="{% url 'blog-quote-list' %}"><span class="heydings-common-icon">B</span> {% trans "quotes" %}</a></li>{% endblock %}
 
@@ -36,7 +36,7 @@
 		{% if object.status = 1 %}draftbg{% else %}
 		{% if object.status = 2 %}reviewbg{% else %}
 		{% if object.in_the_future %}upcomingbg{% endif %}{% endif %}{% endif %}">
-      {{ object.body_markup|render_inlines|safe }}
+      {{ object.body|parse_commonmark|render_inlines|safe }}
       <div class="sign"><!-- author -->
 	<div class="grad-left"></div>
 	<div class="author">

@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+import re
 
 from django import template
 from django.conf import settings
@@ -6,7 +6,12 @@ from django.apps import apps
 from django.db.models import Q
 from django.utils.timezone import now
 
-import re
+import CommonMark
+
+
+markdown_parser = CommonMark.Parser()
+markdown_renderer = CommonMark.HtmlRenderer()
+
 
 Quote = apps.get_model('dress_blog', 'quote')
 Story = apps.get_model('dress_blog', 'story')
@@ -50,7 +55,8 @@ def dress_blog_base_tag(parser, token):
     format_string, var_name = m.groups()
     return (format_string, var_name)
 
-#------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------
 class LatestStories(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
         req = context['request']
@@ -67,7 +73,8 @@ class LatestStories(DressBlogBaseTemplateNode):
 def get_latest_stories(parser, token):
     return LatestStories(*dress_blog_base_tag(parser, token))
 
-#----------
+
+# ----------
 class DraftStories(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
         user = template.Variable("user").resolve(context)            
@@ -77,7 +84,8 @@ class DraftStories(DressBlogBaseTemplateNode):
 def get_draft_stories(parser, token):
     return DraftStories(*dress_blog_base_tag(parser, token))
 
-#----------
+
+# ----------
 class ReviewStories(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
         user = template.Variable("user").resolve(context)            
@@ -87,7 +95,8 @@ class ReviewStories(DressBlogBaseTemplateNode):
 def get_review_stories(parser, token):
     return ReviewStories(*dress_blog_base_tag(parser, token))
 
-#----------
+
+# ----------
 class LatestQuotes(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
         req = context['request']
@@ -104,7 +113,8 @@ class LatestQuotes(DressBlogBaseTemplateNode):
 def get_latest_quotes(parser, token):
     return LatestQuotes(*dress_blog_base_tag(parser, token))
 
-#----------
+
+# ----------
 class DraftQuotes(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
         user = template.Variable("user").resolve(context)            
@@ -114,7 +124,8 @@ class DraftQuotes(DressBlogBaseTemplateNode):
 def get_draft_quotes(parser, token):
     return DraftQuotes(*dress_blog_base_tag(parser, token))
 
-#----------
+
+# ----------
 class ReviewQuotes(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
         user = template.Variable("user").resolve(context)            
@@ -124,7 +135,8 @@ class ReviewQuotes(DressBlogBaseTemplateNode):
 def get_review_quotes(parser, token):
     return ReviewQuotes(*dress_blog_base_tag(parser, token))
 
-#----------
+
+# ----------
 class LatestDiaryDays(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
         if context["request"].session.get("unpublished_on", False):
@@ -139,7 +151,8 @@ class LatestDiaryDays(DressBlogBaseTemplateNode):
 def get_latest_diary_days(parser, token):
     return LatestDiaryDays(*dress_blog_base_tag(parser, token))
 
-#----------
+
+# ----------
 class LatestDiaryEntries(DressBlogBaseTemplateNode):
     def get_queryset(self, context):
         return DiaryDetail.objects.published().order_by("-pub_date")[:self.limit]
@@ -149,7 +162,7 @@ def get_latest_diary_entries(parser, token):
     return LatestDiaryEntries(*dress_blog_base_tag(parser, token))
 
 
-#------------------------------------------------------------------------
+# ------------------------------------------------------------------------
 class DetailForDay(template.Node):
     def __init__(self, diary_object, var_name):
         self.diary_object = template.Variable(diary_object)
@@ -193,3 +206,11 @@ def get_detail_for_day(parser, token):
                                            tag_name)
     diary_object, var_name = m.groups()
     return DetailForDay(diary_object, var_name)
+
+
+# ----------------------------------------------------------------------
+@register.filter(is_safe=True)
+def parse_commonmark(value):
+    ast = markdown_parser.parse(value)
+    result = markdown_renderer.render(ast)
+    return result

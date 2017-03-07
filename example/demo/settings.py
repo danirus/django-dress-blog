@@ -118,7 +118,6 @@ INSTALLED_APPS = (
     "django.contrib.admin",
 
     "django_comments_xtd",
-    "django_markup",
     "inline_media",
     "flatblocks",
     "sorl.thumbnail",

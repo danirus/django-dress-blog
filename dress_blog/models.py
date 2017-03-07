@@ -15,10 +15,9 @@ from django.utils.timezone import now
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 from constance import config
-from django_markup.fields import MarkupField
-from django_markup.markup import formatter
 from inline_media.fields import TextFieldWithInlines
 from inline_media.utils import unescape_inline
+from prosemirror.fields import ProseMirrorField
 from taggit.managers import TaggableManager
 
 from dress_blog.conf import settings
@@ -128,11 +127,8 @@ class Story(Post):
 
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique_for_date="pub_date")
-    markup = MarkupField(default="markdown")
     abstract = TextFieldWithInlines()
-    abstract_markup = models.TextField(editable=True, blank=True, null=True)
     body = TextFieldWithInlines()
-    body_markup = models.TextField(editable=True, blank=True, null=True)
     tags = TaggableManager(blank=True)
     objects = PostManager()
 
@@ -145,16 +141,6 @@ class Story(Post):
 
     def __str__(self):
         return "%s" % self.title
-
-    def save(self, *args, **kwargs):
-        self.abstract_markup = mark_safe(formatter(self.abstract,
-                                                   filter_name=self.markup))
-        self.body_markup = mark_safe(formatter(self.body,
-                                               filter_name=self.markup))
-        if self.markup == "restructuredtext":
-            self.abstract_markup = unescape_inline(self.abstract_markup)
-            self.body_markup = unescape_inline(self.body_markup)
-        super(Story, self).save(*args, **kwargs)
 
     @permalink
     def get_absolute_url(self):
@@ -205,9 +191,7 @@ class Diary(models.Model):
 class DiaryDetail(Post):
     """Diary Model"""
     diary = models.ForeignKey(Diary, related_name="detail")
-    markup = MarkupField(default="markdown")
     body = TextFieldWithInlines()
-    body_markup = models.TextField(editable=True, blank=True, null=True)
     tags = TaggableManager(blank=True)
     objects = PostManager()
 
@@ -216,11 +200,6 @@ class DiaryDetail(Post):
         verbose_name_plural = _("diary entry detail")
         db_table = "dress_blog_diarydetail"
         ordering = ("-pub_date",)
-
-    def save(self, *args, **kwargs):
-        self.body_markup = mark_safe(
-            formatter(self.body, filter_name=self.markup))
-        super(DiaryDetail, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.pub_date\
@@ -234,9 +213,7 @@ class Quote(Post):
     """Quote model"""
     title = models.CharField(max_length=100, blank=False, null=False)
     slug = models.SlugField(max_length=255, unique=True)
-    markup = MarkupField(default="markdown")
     body = TextFieldWithInlines()
-    body_markup = models.TextField(editable=True, blank=True, null=True)
     quote_author = models.CharField(blank=False, null=False, max_length=255,
                                     help_text=_("quote's author"))
     url_source = models.URLField(blank=True, null=True)
@@ -252,11 +229,6 @@ class Quote(Post):
 
     def __str__(self):
         return u"%s" % self.title
-
-    def save(self, *args, **kwargs):
-        self.body_markup = mark_safe(formatter(self.body, 
-                                               filter_name=self.markup))
-        super(Quote, self).save(*args, **kwargs)
 
     @permalink
     def get_absolute_url(self):

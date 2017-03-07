@@ -25,9 +25,9 @@
 
   <section class="abstract">
     {% if truncate_to %}
-    {{ object.body_markup|render_inlines|safe|truncatewords_html:truncate_to }}
+    {{ object.body|parse_commonmark|render_inlines|safe|truncatewords_html:truncate_to }}
     {% else %}
-    {{ object.body_markup|render_inlines|safe }}
+    {{ object.body|parse_commonmark|render_inlines|safe }}
     {% endif %}
   </section>
 </article>

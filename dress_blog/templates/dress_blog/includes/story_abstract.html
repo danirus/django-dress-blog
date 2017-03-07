@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load posts %}
 {% load inlines %}
 {% load comments %}
 {% load taggit_templatetags2_tags %}
@@ -33,9 +34,9 @@
   </header>
   <section class="abstract">
     {% if truncate_to %}
-    {{ object.abstract|render_inlines|safe|truncatewords_html:truncate_to }}
+    {{ object.abstract|parse_commonmark|render_inlines|safe|truncatewords_html:truncate_to }}
     {% else %}
-    {{ object.abstract|render_inlines|safe }}
+    {{ object.abstract|parse_commonmark|render_inlines|safe }}
     {% endif %}
   </section>
 </article>

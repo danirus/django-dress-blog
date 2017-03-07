@@ -3,6 +3,7 @@ from django.contrib.syndication.views import Feed, FeedDoesNotExist
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
 
+import CommonMark
 from constance import config
 from django_comments.models import Comment
 from inline_media.parser import inlines
@@ -11,6 +12,10 @@ from taggit.models import Tag
 from dress_blog.models import Post, Story, Quote, DiaryDetail
 
 
+markdown_parser = CommonMark.Parser()
+markdown_renderer = CommonMark.HtmlRenderer()
+
+        
 class BasePostsFeed(Feed):
     def item_pubdate(self, item):
         return item.pub_date
@@ -29,8 +34,10 @@ class BasePostsFeed(Feed):
     def item_description(self, item):
         child = getattr(item, item.content_type.model)
         if hasattr(child, "abstract"):
-            return inlines(child.abstract_markup)
-        return inlines(child.body_markup)
+            ast = markdown_parser.parse(child.abstract)
+        else:
+            ast = markdown_parser.parse(child.body)
+        return inlines(markdown_renderer.render(ast))
 
     def item_author_name(self, item):
         child = getattr(item, item.content_type.model)
@@ -107,8 +114,10 @@ class LatestStoriesTaggedAsFeed(BasePostsFeed):
 
     def item_description(self, item):
         if item.abstract:
-            return inlines(item.abstract_markup)
-        return inlines(item.body_markup)
+            ast = markdown_parser.parse(item.abstract)
+        else:
+            ast = markdown_parser.parse(item.body)
+        return inlines(markdown_renderer.render(ast))
 
     def item_author_name(self, item):
         return item.author.get_full_name()
@@ -189,8 +198,10 @@ class PostsByTag(Feed):
     def item_description(self, item):
         if item.content_type.model == "story":
             if item.object.abstract:
-                return inlines(item.object.abstract_markup)
-        return inlines(item.object.body_markup)
+                ast = markdown_parser.parse(item.object.abstract)
+            else:
+                ast = markdown_parser.parse(item.object.body)
+        return inlines(markdown_renderer.render(ast))
 
     def item_author_name(self, item):
         if item.content_type.model == "quote":

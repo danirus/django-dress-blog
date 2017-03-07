@@ -1,0 +1,9 @@
+Add a Category model and add a category attribute to posts.
+Add the following default categories:
+ * Politics
+ * Society
+ * Relationships
+ * Education
+ * Health
+ * Environment
+ * Work

@@ -6,13 +6,13 @@ django-constance>=2.0,<2.1
 django-haystack>=2.6,<2.7
 elasticsearch>=5.2,<5.3
 hiredis>=0.2,<0.3
+CommonMark>=0.7,<0.8
 pillow>=4.0,<4.1
 redis>=2.10,<2.11
 #
 # ------------------------------
 # Directly from repository.
 #
--e git+git://github.com/bartTC/django-markup.git#egg=django-markup
 -e git+git://github.com/danirus/django-comments-xtd.git#egg=django-comments-xtd
 -e git+git://github.com/sorl/sorl-thumbnail.git#egg=sorl-thumbnail
 -e git+git://github.com/danirus/django-inline-media.git#egg=django-inline-media
