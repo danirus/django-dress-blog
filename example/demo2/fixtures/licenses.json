@@ -1,50 +1,58 @@
 [
 {
-    "pk": 1,
     "model": "inline_media.license",
+    "pk": 1,
     "fields": {
         "name": "CC Attribution-ShareAlike",
         "link": "http://creativecommons.org/licenses/by-sa/2.0/"
     }
 },
 {
-    "pk": 2,
     "model": "inline_media.license",
+    "pk": 2,
     "fields": {
         "name": "CC Attribution-NonCommercial-ShareAlike",
         "link": "http://creativecommons.org/licenses/by-nc-sa/2.0/"
     }
 },
 {
-    "pk": 3,
     "model": "inline_media.license",
+    "pk": 3,
     "fields": {
         "name": "CC Attribution-NonCommercial",
         "link": "http://creativecommons.org/licenses/by-nc/2.0/"
     }
 },
 {
-    "pk": 4,
     "model": "inline_media.license",
+    "pk": 4,
     "fields": {
         "name": "CC Attribution-NonCommercial-NoDerivs",
         "link": "http://creativecommons.org/licenses/by-nc-nd/2.0/"
     }
 },
 {
-    "pk": 5,
     "model": "inline_media.license",
+    "pk": 5,
     "fields": {
         "name": "CC Attribution-NoDerivs",
         "link": "http://creativecommons.org/licenses/by-nd/2.0/"
     }
 },
 {
-    "pk": 6,
     "model": "inline_media.license",
+    "pk": 6,
     "fields": {
         "name": "CC Attribution",
         "link": "http://creativecommons.org/licenses/by/2.0/"
+    }
+},
+{
+    "model": "inline_media.license",
+    "pk": 7,
+    "fields": {
+        "name": "Public Domain",
+        "link": "https://wiki.creativecommons.org/wiki/Public_domain"
     }
 }
 ]

@@ -1,0 +1,20 @@
+[
+{
+    "model": "inline_media.picture",
+    "pk": 1,
+    "fields": {
+        "title": "Harper's February",
+        "picture": "pictures/2017/Mar/12/Harpers_February_1895.jpeg",
+        "show_as_link": true,
+        "description": "An 1895 cover of Harpers, a US magazine that prints a number of essays per issue. This image is available from the <a href=\"https://digitalcollections.nypl.org/items/510d47dc-48ae-a3d9-e040-e00a18064a99\">New York Public Library</a> under the digital ID 1131252.",
+        "show_description_inline": true,
+        "author": "",
+        "show_author": false,
+        "license": 7,
+        "show_license": false,
+        "uploaded": "2017-03-12T13:32:38.378Z",
+        "modified": "2017-03-12T13:38:56.944Z",
+        "sha1": "d5ea55ea6a062f4468bcf578d7b30bfbba7c3c5a"
+    }
+}
+]
